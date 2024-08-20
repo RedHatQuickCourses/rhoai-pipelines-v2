@@ -1,4 +1,4 @@
-= An Example Quick Course
+= Red Hat OpenShift AI - data science pipelines
 :navtitle: Home
 
 == Introduction

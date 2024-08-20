@@ -1,6 +1,6 @@
 site:
-  title: Placeholder Course Title
-  start_page: REPLACEREPONAME::index.adoc
+  title: RHOAI Data Science Pipelines
+  start_page: rhoai-pipelines-v2::index.adoc
 
 content:
   sources:

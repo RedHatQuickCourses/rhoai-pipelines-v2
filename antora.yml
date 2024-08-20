@@ -1,6 +1,6 @@
-name: REPLACEREPONAME
-title: FIXME Course Title
-version: 1
+name: rhoai-pipelines-v2
+title: RHOAI Data Science Pipelines 
+version: 2.11
 nav:
 - modules/ROOT/nav.adoc
 - modules/LABENV/nav.adoc
