@@ -1,0 +1,22 @@
+= Elyra Pipelines
+
+Elyra provides a visual pipeline editor for building pipelines from Python and R scripts as well as Jupyter notebooks, simplifying the conversion of multiple files into batch jobs or workflows. A `Pipeline` in Elyra consists of `Nodes` that are connected with each other to define execution dependencies.
+
+Elyra's visual pipeline editor lets you assemble pipelines by dragging and dropping supported files onto the canvas and defining their dependencies. After you've assembled the pipeline and are ready to run it, the editor takes care of generating the Tekton YAML definition on the fly and submitting it to the Data Science Pipelines backend.
+
+== Creating a Data Science Pipeline with Elyra
+
+In order to create Elyra pipelines with the visual pipeline editor:
+
+* Launch JupyterLab with the Elyra extension installed.
+* Create a new pipeline by clicking on the Elyra `Pipeline Editor` icon.
+* Add each node to the pipeline by dragging and dropping notebooks or scripts from the file browser onto the pipeline editor canvas.
+* Connect the nodes to define the flow of execution.
+* Configure each node by right-clicking on it, clicking 'Open Properties', and setting the appropriate runtime image and file dependencies.
+* You can also inject environment variables, secrets, and define output files.
+* Once the pipeline is complete, you can submit it to the Data Science Pipelines engine.
+
+== Elyra runtime configuration
+
+A runtime configuration provides Elyra access to the Data Science Pipelines backend for scalable pipeline execution. You can manage runtime configurations using the JupyterLab UI or the Elyra CLI. The runtime configuration is included and is pre-configured for submitting pipelines to Data Science Pipelines. Refer to the https://elyra.readthedocs.io/en/latest/user_guide/runtime-conf.html#kubeflow-pipelines-configuration-settings[Elyra documentation] for more information about Elyra and the available runtime configuration options.
+
