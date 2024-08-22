@@ -4,7 +4,7 @@ Data Science Pipelines require a namespace scoped instance of the *DataSciencePi
 
 The *DataSciencePipelineApplication* custom resource creates several pods that are necessary to utilize the tools.  This includes the creation of an API endpoint and a database where metadata is stored.  The API endpoint is used by the OpenShift AI Dashboard, as well as tools like *Elyra* and the *kfp* package to manage and execute pipelines.
 
-image::dspa-pods.png[]
+//image::dspa-pods.png[]
 
 In Red Hat OpenShift AI, the Data Science Pipeline runtime consists of the following components:
 
@@ -77,7 +77,7 @@ Next we will create a data connection for the Minio instance, and use that data 
 
 . From the OpenShift AI Dashboard, navigate to the `pipelines-example` project we previously created.  Click on the option to `Add data connection`.
 +
-image::create-dspa-add-data-connection.png[]
+//image::create-dspa-add-data-connection.png[]
 
 . Enter the following details and click `Add data connection`:
 +
@@ -89,7 +89,7 @@ Endpoint: http://minio-service.pipelines-example.svc:9000
 Bucket: data-science-pipelines
 ```
 +
-image::create-dspa-create-data-connection.png[]
+//image::create-dspa-create-data-connection.png[]
 +
 [NOTE]
 ====
@@ -107,15 +107,15 @@ image::create-dspa-verify-data-connection.png[]
 
 . Click on the `Configure pipeline server` in the `Pipelines` section of the Data Science Project view.
 +
-image::create-dspa-create-pipeline-server.png[]
+//image::create-dspa-create-pipeline-server.png[]
 
 . Click the key icon in the right side of the `Access Key` field, and select the `data-science-pipelines` data connection. The fields in the form are automatically populated.
 +
-image::create-dspa-configure-pipeline-server.png[]
+//image::create-dspa-configure-pipeline-server.png[]
 
 . Click `Configure pipeline server`. After several seconds, the loading icon should complete and the `Pipelines` section will now show an option to `Import pipeline` along with a message that says `No pipelines`.
 +
-image::create-dspa-verify-pipeline-server.png[]
+//image::create-dspa-verify-pipeline-server.png[]
 
 The *DataSciencePipelineApplication* has now successfully been configured and is ready for use.
 
