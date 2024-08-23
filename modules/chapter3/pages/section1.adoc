@@ -1,3 +1,78 @@
 = Section 1
 
-This is _Section 1_ of _Chapter 2_ in the *hello* quick course....
+Demo - Data Science Pipelines
+
+– how does it look in OAI -
+Only the definition of the workflow 
+When executed it generates an execution of the workflow.
+
+Visual overview of the pipeline in the workflow
+
+Clicking on the components - opens pop up - describes the pieces of the component including inputs & outputs.
+
+RUNS
+One off runs -  executed only when triggered
+Scheduled runs - executed on the schedule
+
+Execution - shows available status of the runs, also a graphical representation
+Ability to cache components of the experiment, because it was a redundant step and didn’t need to be performed again. Used the existing results.
+Execution name, output artifact, link to the artifact on S3 storage.
+
+Experiments -
+
+Logical grouping for pipeline runs
+Shows the details on runs
+When started, metrics about the runs, 
+Compare information about different runs
+
+Track and VErsion
+
+Artifacts and Execution
+
+Artifacts are tracked and seen for runs.
+
+Artifacts and executions can be cached
+
+Artifacts and executions can have metadata
+Parameters used in an execution are recorded
+Metric types if the artifact is a metric
+Model runtime  if the artifact is a model
+
+Executions also product logs I can access
+Executions produce metadata related to the lineage of the artifacts
+
+
+Metadata
+Stores using Google ml-metadata project -
+Stored in hierarchical format
+Namespace / data science project
+Experiment 
+Run / Run Groupings
+In every run are Records of artifacts / metadata generated
+Artifacts = Dataset, model, metrics, executions
+***Execution - pipeline or component
+
+Experiments
+
+Experiments and runs 
+Select the experiments
+Landing page of that given experiment
+Customize metrics viewable
+10 metrics maximum and the order they are presented.
+
+Select runs & use the compare feature.
+Show the runs selected
+Parameters & metrics
+
+Executions -
+Tasks executed to train a model
+Tasks executed for every pipeline run
+Status of pipeline landing page
+
+Artifacts - 
+
+Details of 
+
+Datasets, models, metrics produced for different runs
+
+Details and properties of the specific artifact.

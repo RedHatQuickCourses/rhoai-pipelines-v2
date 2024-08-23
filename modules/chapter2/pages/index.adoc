@@ -1,3 +1,47 @@
 = Data Science Pipelines
 
-Add description
+== Why Pipelines
+
+Help break complex AI tasks into multi step workloads that is more maintainable and reusable
+Each step can be optimized for specific accelerators, configured and automated individually.
+Complex training tasks that require optimizations, validations, scoring, data analysis, parallel training. 
+caching steps
+Track and Versions
+Different algorithms models and architecture to select the best combination
+Keep track of variables and configurations.
+Compare experiments to select the best one
+Gain insights between inputs and results produced
+Version the changes across the experiments - track versions, changes, outcomes
+
+=== How do we do it?
+
+DSP - helps data scientists track, automate, and version 
+
+Data scientist can Configure a pipeline
+Which is sequence of components or tasks
+Represented by a directed acyclic graph. DAG
+
+Visualization of the sequence of tasks, also track outputs or artifcacts produced
+
+Pipeline control flows such as loops
+
+Pipeline is only a definition. - different versions of pipelines.
+Executing a pipeline definition become a RUN
+Understand the status of each of the executions
+Were the artifacts produced successfully.
+
+=== Two basic principles:
+Automate - Automated reduced human error
+Track and version inputs & outputs of your model lifecycle to improve AI solution quality.
+
+Automation - Separated by Role 
+Inner  loop -  Model Development
+Outer Loop - Model serving & availability
+Monitoring and metrics
+Tools of the data scientist:
+Choice is notebooks & python for AI Model Development
+Create notebooks that can automate the whole lifecycle process
+Package model - 
+
+
+
