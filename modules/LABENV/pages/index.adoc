@@ -63,7 +63,7 @@ This exercise uses the Red Hat Demo Platform; specifically the OpenShift Contain
     **  NVIDIA GPU Operator (optional)
 
 
-=== Installation of Red Hat OpenShift Serverless Dependencies
+=== Installation of Red Hat OpenShift Serverless Operator
 
 The following section discusses installing the *Red{nbsp}Hat OpenShift Serverless* operator.
 
@@ -91,7 +91,7 @@ The following section discusses installing the *Red{nbsp}Hat OpenShift Serverles
 
 *Red{nbsp}Hat OpenShift Serverless* is now successfully installed.
 
-=== Installation of Red Hat OpenShift Service Mesh Dependencies
+=== Installation of Red Hat OpenShift Service Mesh Operator
 
 The following section discusses installing the *Red{nbsp}Hat OpenShift Service Mesh* operator.
 
@@ -119,7 +119,7 @@ The following section discusses installing the *Red{nbsp}Hat OpenShift Service M
 
 *Red{nbsp}Hat OpenShift Service Mesh* is now successfully installed.
 
-=== Installation of Red Hat Authorino Dependencies
+=== Installation of Red Hat Authorino Operator
 
 The following section discusses installing the *Red{nbsp}Hat - Authorino* operator.
 
@@ -151,6 +151,9 @@ The following section discusses installing the *Red{nbsp}Hat - Authorino* operat
 [TIP]
  
  Installing these Operators prior to the installation of the OpenShift AI Operator in my experience has made a difference in OpenShift AI acknowledging the availability of these components and adjusting the initial configuration to shift management of these components to OpenShift AI. 
+
+=== Installation of Red Hat OpenShift AI Operator
+
 
 * Navigate to **Operators** -> **OperatorHub** and search for *OpenShift AI*.
 

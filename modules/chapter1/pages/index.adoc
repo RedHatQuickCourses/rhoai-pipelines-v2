@@ -1,4 +1,4 @@
-= Chapter 1
+= Introduction to ML Pipelines
 
 This is the home page of _Chapter 3_ in the *hello* quick course....
 
