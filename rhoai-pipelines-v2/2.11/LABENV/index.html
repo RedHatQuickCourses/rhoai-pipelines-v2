@@ -198,7 +198,7 @@ The lab environment on average takes ~30-45 minutes to enter the ready state.  W
 </ol>
 </div>
 <div class="paragraph">
-<p>For Red Hat partners who do not have access to RHDP, you need to provision an OpenShift AI cluster on-premises, or in the supported cloud environments by following the product documentation. at <a href="https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/2.11/html/installing_and_uninstalling_openshift_ai_self-managed/index">Product Documentation for installing Red Hat OpenShift AI 2.11</a>.</p>
+<p>For Red Hat partners who do not have access to RHDP, you need to provision an OpenShift AI cluster on-premises, or in the supported cloud environments by following the product documentation. at <a href="https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/2.12/html/installing_and_uninstalling_openshift_ai_self-managed/index">Product Documentation for installing Red Hat OpenShift AI 2.12</a>.</p>
 </div>
 <div class="paragraph">
 <p>The OCP environment will provide the foundation infrastructure for RHOAI. Once logged into the OCP dashboard, we need to install the Operators to enable RHOAI components in the OCP platform.</p>
@@ -399,7 +399,7 @@ The installation requires a user with the <em>cluster-admin</em> role
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Click on the <code>Red&#160;Hat OpenShift AI</code> operator. In the pop up window that opens, ensure you select the latest version in the <strong>fast</strong> channel. Any version equal to or greater than 2.11 and click on <strong>Install</strong> to open the operator&#8217;s installation view.</p>
+<p>Click on the <code>Red&#160;Hat OpenShift AI</code> operator. In the pop up window that opens, ensure you select the latest version in the <strong>fast</strong> channel. Any version equal to or greater than 2.12 and click on <strong>Install</strong> to open the operator&#8217;s installation view.</p>
 </li>
 <li>
 <p>In the <code>Install Operator</code> page, leave all of the options as default and click on the <strong>Install</strong> button to start the installation.</p>
@@ -409,18 +409,280 @@ The installation requires a user with the <em>cluster-admin</em> role
 </li>
 </ol>
 </div>
-<div class="admonitionblock warning">
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_openshift_ai_data_science_cluster"><a class="anchor" href="#_create_openshift_ai_data_science_cluster"></a>Create OpenShift AI Data Science Cluster</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>With our secrets in place, the next step is to create an OpenShift AI <strong>Data Science Cluster</strong>.</p>
+</div>
+<div class="paragraph">
+<p><em>A DataScienceCluster is the plan in the form of an YAML outline for Data Science Cluster API deployment.</em></p>
+</div>
+<div class="paragraph">
+<p>Return to the OpenShift Navigation Menu, Select Installed Operators, and Click on the OpenShift AI Operator name to open the operator.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Select the Option to create a Data Science Cluster.</strong></p>
+</li>
+<li>
+<p><strong>Click Create</strong> to Deploy the Data Science Cluster.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_openshift_ai_install_summary"><a class="anchor" href="#_openshift_ai_install_summary"></a>OpenShift AI install summary</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Congratulations, you have successfully completed the installation of OpenShift AI on an OpenShift Container Cluster. OpenShift AI is now running on a new Dashboard!</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>We installed the required OpenShift AI Operators</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Red Hat OpenShift Serverless</p>
+</li>
+<li>
+<p>Red Hat OpenShift ServiceMesh</p>
+</li>
+<li>
+<p>Red Hat Authorino (technical preview)</p>
+</li>
+<li>
+<p>OpenShift AI Operator</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_a_data_science_project"><a class="anchor" href="#_create_a_data_science_project"></a>Create a Data Science Project</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Navigate to &amp; select the Data Science Projects section.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select the create data science project button.</p>
+</li>
+<li>
+<p>Enter a name for your project, such as <strong>ollama-model</strong>.</p>
+</li>
+<li>
+<p>The resource name should be populated automatically.</p>
+</li>
+<li>
+<p>Optionally add a description to the data science project.</p>
+</li>
+<li>
+<p>Select Create.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The next step is to create a <strong>Data Connection</strong> in our Data Science Project.  Before we can create our Data Connection, we will setup MinIO as our S3 compatible storage for this Lab.</p>
+</div>
+<div class="paragraph">
+<p>Continue to the next section to deploy and configure Minio.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_data_connection"><a class="anchor" href="#_create_data_connection"></a>Create Data Connection</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Navigate to the Data Science Project section of the OpenShift AI Console /Dashboard. Select the Ollama-model project.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select the Data Connection menu, followed by create data connection</p>
+</li>
+<li>
+<p>Provide the following values:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Name:  <strong>models</strong></p>
+</li>
+<li>
+<p>Access Key: use the minio_root-user from YAML file</p>
+</li>
+<li>
+<p>Secret Key: use the minio_root_password from the YAML File</p>
+</li>
+<li>
+<p>Endpoint: use the Minio API URL from the Routes page in Openshift Dashboard</p>
+</li>
+<li>
+<p>Region: This is required for AWS storage &amp; cannot be blank (no-region-minio)</p>
+</li>
+<li>
+<p>Bucket: use the Minio Storage bucket name: <strong>models</strong></p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Repeat the same process for the Storage bucket, using <strong>storage</strong> for the name &amp; bucket.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creating_a_workbench"><a class="anchor" href="#_creating_a_workbench"></a>Creating a WorkBench</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Navigate to the Data Science Project section of the OpenShift AI Console /Dashboard. Select the Ollama-model project.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select the WorkBench button, then click create workbench</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Name:  <code>tbd</code></p>
+</li>
+<li>
+<p>Notebook Image:  <code>Minimal Python</code></p>
+</li>
+<li>
+<p>Leave the remaining options default.</p>
+</li>
+<li>
+<p>Optionally, scroll to the bottom, check the <code>Use data connection box</code>.</p>
+</li>
+<li>
+<p>Select <strong>storage</strong> from the dropdown to attach the storage bucket to the workbench.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Select the Create Workbench option.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Do not proceed with the installation past this point.  In order to access the LLM remotely; you will need to make some modifications to the Data Science Cluster YAML file prior to completing the installation of Red Hat OpenShift AI.
+Depending on the notebook image selected, it can take between 2-20 minutes for the container image to be fully deployed. The Open Link will be available when our container is fully deployed.
 </td>
 </tr>
 </table>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_jupyter_notebooks"><a class="anchor" href="#_jupyter_notebooks"></a>Jupyter Notebooks</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_open_jupyterlab"><a class="anchor" href="#_open_jupyterlab"></a>Open JupyterLab</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>JupyterLab enables you to work with documents and activities such as Jupyter notebooks, text editors, terminals, and custom components in a flexible, integrated, and extensible manner. For a demonstration of JupyterLab and its features, <a href="https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html#what-will-happen-to-the-classic-notebook">you can view this video.</a></p>
+</div>
+<div class="paragraph">
+<p>Return to the ollama-model workbench dashboard in the OpenShift AI console.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select the <strong>Open</strong> link to the right of the status section.</p>
+<div class="imageblock unresolved">
+<div class="content">
+<img src="oai_open_jupyter.png" alt="oai open jupyter" width="640">
+</div>
+</div>
+</li>
+<li>
+<p>When the new window opens, use the OpenShift admin user &amp; password to login to JupyterLab.</p>
+</li>
+<li>
+<p>Click the <strong>Allow selected permissions</strong> button to complete login to the notebook.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the <strong>OPEN</strong> link for the notebook is grayed out, the notebook container is still starting. This process can take a few minutes &amp; up to 20+ minutes depending on the notebook image we opted to choose.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_inside_jupyterlab"><a class="anchor" href="#_inside_jupyterlab"></a>Inside JupyterLab</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This takes us to the JupyterLab screen where we can select multiple options / tools / to work to begin our data science experimentation.</p>
+</div>
+<div class="paragraph">
+<p>Our first action is to clone a git repository that contains a collection of LLM projects including  the notebook we are going to use to interact with the LLM.</p>
+</div>
+<div class="paragraph">
+<p>Clone the github repository to interact with the Ollama Framework from this location:
+<a href="https://github.com/rh-aiservices-bu/llm-on-openshift.git" class="bare">https://github.com/rh-aiservices-bu/llm-on-openshift.git</a></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Copy the URL link above</p>
+</li>
+<li>
+<p>Click on the Clone a Repo Icon above explorer section window.</p>
+<div class="imageblock unresolved">
+<div class="content">
+<img src="clone_a_repo.png" alt="clone a repo" width="640">
+</div>
+</div>
+</li>
+<li>
+<p>Paste the link into the <strong>clone a repo</strong> pop up,   make sure the <strong>included submodules are checked</strong>, then click the clone.</p>
+</li>
+<li>
+<p>Navigate to the llm-on-openshift/examples/notebooks/langchain folder:</p>
+</li>
+<li>
+<p>Then open the file: <em>Langchain-Ollama-Prompt-memory.ipynb</em></p>
+<div class="imageblock unresolved">
+<div class="content">
+<img src="navigate_ollama_notebook.png" alt="navigate ollama notebook" width="640">
+</div>
+</div>
+</li>
+<li>
+<p>Explore the notebook, and then continue.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
