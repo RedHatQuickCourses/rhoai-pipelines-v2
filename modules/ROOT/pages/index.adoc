@@ -2,4 +2,4 @@
 :navtitle: Home
 
 
-This is an example quick course demonstrating the usage of Antora for authoring and publishing quick courses.
+This course is in the process of being developed, please visit again in a couple of weeks for the final draft version.
