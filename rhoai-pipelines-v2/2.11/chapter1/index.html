@@ -58,13 +58,13 @@
     <a class="nav-link" href="index.html">Introduction to ML Pipelines</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="section1.html">introduction</a>
+    <a class="nav-link" href="section1.html">blah blah blah</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="section2.html">Machine Learning Operations Automation</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="section3.html">Data Science Pipeline Concepts</a>
+    <a class="nav-link" href="section3.html">section3.adoc</a>
   </li>
 </ul>
   </li>
@@ -96,10 +96,10 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../chapter3/index.html">Chapter 3</a>
+    <a class="nav-link" href="../chapter3/index.html">Elyra Pipelines</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter3/section1.html">notes - tbd</a>
+    <a class="nav-link" href="../chapter3/section1.html">Elyra Pipelines</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../chapter3/section2.html">MinIO S3 Compatible Storage Setup</a>
@@ -157,55 +157,33 @@
 </aside>
 <article class="doc">
 <h1 class="page">Introduction to ML Pipelines</h1>
-<div id="preamble">
-<div class="sectionbody">
 <div class="paragraph">
-<p>This is the home page of <em>Chapter 3</em> in the <strong>hello</strong> quick course&#8230;&#8203;.</p>
+<p>This course will dive into the world of data science pipelines, which are powerful tools for breaking down complex AI tasks into manageable, reusable, and optimizable workloads. By automating these processes, we can minimize human error and ensure consistent, high-quality results. This course is designed for infrastructure solution architects and engineers who are, or will be responsible for deploying and managing the data science pipeline solution in OpenShift AI.</p>
 </div>
+<div class="paragraph">
+<p>Let&#8217;s explore how pipelines can help us optimize training tasks, manage caching steps, and create more maintainable and reusable workloads.</p>
 </div>
+<div class="paragraph">
+<p>Data science pipelines can be a game-changer for AI model development. By breaking down complex tasks into smaller, manageable steps, we can optimize each part of the process, ensuring that our models are trained and validated efficiently and effectively. Additionally, pipelines can help us maintain consistent results by versioning inputs and outputs, allowing us to track changes and identify potential issues.</p>
 </div>
-<div class="sect2">
-<h3 id="_data_science_pipelines"><a class="anchor" href="#_data_science_pipelines"></a>Data Science Pipelines</h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">OpenShift AI Resource Name</th>
-<th class="tableblock halign-left valign-top">Kubernetes Resource Name</th>
-<th class="tableblock halign-left valign-top">Custom Resource</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Data Science Pipeline Application</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">datasciencepipelinesapplications.datasciencepipelinesapplications.opendatahub.io</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DSPA&#8217;s create an instance of Data Science Pipelines.  DSPA&#8217;s require a data connection and an S3 bucket to create the instance.  DSPA&#8217;s are namespace scoped to prevent leaking data across multiple projects.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pipelines</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">When developing a pipeline, depending on the tool, users may generate a YAML based PipelineRun object that is then uploaded into the Dashboard to create an executable pipeline.  Even though this yaml object is a valid Tekton PipelineRun it is intended to be uploaded to the Dashboard, and not applied directly to the cluster.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pipeline Runs</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">pipelineruns.tekton.dev</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A pipeline can be executed in a number of different ways, including from the Dashboard, which will result in the creation of a pipelinerun.</p></td>
-</tr>
-</tbody>
-</table>
+<div class="paragraph">
+<p>OpenShift AI uses Kubeflow pipelines with Argo workflows as the engine. Kubeflow provides a rich set of tools for managing ML workloads, while Argo workflows offer powerful automation capabilities. Together, they enable us to create robust, scalable, and manageable pipelines for AI model development and serving.</p>
+</div>
+<div class="paragraph">
+<p>Pipelines can include various components, such as data ingestion, data preprocessing, model training, evaluation, and deployment. These components can be configured to run in a specific order, and the pipeline can be executed multiple times to produce different versions of models or artifacts.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, pipelines can support control flows to handle complex dependencies between tasks. Once a pipeline is defined, executing it becomes a simple RUN command, and the status of each execution can be tracked and monitored, ensuring that the desired outputs are produced successfully.</p>
+</div>
+<div class="paragraph">
+<p>In summary, data science pipelines are an essential tool for automating and managing the ML lifecycle, enabling data scientists to create end-to-end workflows, reduce human error, and ensure consistent, high-quality results.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s explore how to build and deploy these powerful pipelines using OpenShift AI data science pipelines.</p>
 </div>
 <nav class="pagination">
   <span class="prev"><a href="../LABENV/index.html">Lab Environment</a></span>
-  <span class="next"><a href="section1.html">introduction</a></span>
+  <span class="next"><a href="section1.html">blah blah blah</a></span>
 </nav>
 </article>
   </div>

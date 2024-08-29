@@ -58,13 +58,13 @@
     <a class="nav-link" href="../chapter1/index.html">Introduction to ML Pipelines</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter1/section1.html">introduction</a>
+    <a class="nav-link" href="../chapter1/section1.html">blah blah blah</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../chapter1/section2.html">Machine Learning Operations Automation</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter1/section3.html">Data Science Pipeline Concepts</a>
+    <a class="nav-link" href="../chapter1/section3.html">section3.adoc</a>
   </li>
 </ul>
   </li>
@@ -96,10 +96,10 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../chapter3/index.html">Chapter 3</a>
+    <a class="nav-link" href="../chapter3/index.html">Elyra Pipelines</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter3/section1.html">notes - tbd</a>
+    <a class="nav-link" href="../chapter3/section1.html">Elyra Pipelines</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../chapter3/section2.html">MinIO S3 Compatible Storage Setup</a>
@@ -416,13 +416,13 @@ The installation requires a user with the <em>cluster-admin</em> role
 <h2 id="_create_openshift_ai_data_science_cluster"><a class="anchor" href="#_create_openshift_ai_data_science_cluster"></a>Create OpenShift AI Data Science Cluster</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>With our secrets in place, the next step is to create an OpenShift AI <strong>Data Science Cluster</strong>.</p>
+<p>The next step is to create an OpenShift AI <strong>Data Science Cluster (DSC)</strong>.</p>
 </div>
 <div class="paragraph">
-<p><em>A DataScienceCluster is the plan in the form of an YAML outline for Data Science Cluster API deployment.</em></p>
+<p><em>A DataScienceCluster is the plan in the form of an YAML outline for Data Science Cluster API deployment. Manually editing the YAML configuration can adjust settings of the OpenShift AI DSC.</em></p>
 </div>
 <div class="paragraph">
-<p>Return to the OpenShift Navigation Menu, Select Installed Operators, and Click on the OpenShift AI Operator name to open the operator.</p>
+<p>Return to the OpenShift Navigation Menu, Select Installed Operators, and click on the OpenShift AI Operator name to open the operator.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -430,7 +430,7 @@ The installation requires a user with the <em>cluster-admin</em> role
 <p><strong>Select the Option to create a Data Science Cluster.</strong></p>
 </li>
 <li>
-<p><strong>Click Create</strong> to Deploy the Data Science Cluster.</p>
+<p><strong>Click Create</strong> to deploy the Data Science Cluster.</p>
 </li>
 </ol>
 </div>
@@ -471,6 +471,12 @@ The installation requires a user with the <em>cluster-admin</em> role
 <h2 id="_create_a_data_science_project"><a class="anchor" href="#_create_a_data_science_project"></a>Create a Data Science Project</h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p>Navigate to the menu selector, located at the top right of the OCP dashboard.  Select the grid of squares, then select OpenShift AI.  At the logon screen, use the OCP admin credentials to login to OpenShift AI.</p>
+</div>
+<div class="paragraph">
+<p>Explore the dashboard navigation menus to familarize yourself with the options.</p>
+</div>
+<div class="paragraph">
 <p>Navigate to &amp; select the Data Science Projects section.</p>
 </div>
 <div class="olist arabic">
@@ -479,7 +485,7 @@ The installation requires a user with the <em>cluster-admin</em> role
 <p>Select the create data science project button.</p>
 </li>
 <li>
-<p>Enter a name for your project, such as <strong>ollama-model</strong>.</p>
+<p>Enter a name for your project, such as <strong>fraud detection</strong>.</p>
 </li>
 <li>
 <p>The resource name should be populated automatically.</p>
@@ -492,62 +498,13 @@ The installation requires a user with the <em>cluster-admin</em> role
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>The next step is to create a <strong>Data Connection</strong> in our Data Science Project.  Before we can create our Data Connection, we will setup MinIO as our S3 compatible storage for this Lab.</p>
-</div>
-<div class="paragraph">
-<p>Continue to the next section to deploy and configure Minio.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_create_data_connection"><a class="anchor" href="#_create_data_connection"></a>Create Data Connection</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Navigate to the Data Science Project section of the OpenShift AI Console /Dashboard. Select the Ollama-model project.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Select the Data Connection menu, followed by create data connection</p>
-</li>
-<li>
-<p>Provide the following values:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Name:  <strong>models</strong></p>
-</li>
-<li>
-<p>Access Key: use the minio_root-user from YAML file</p>
-</li>
-<li>
-<p>Secret Key: use the minio_root_password from the YAML File</p>
-</li>
-<li>
-<p>Endpoint: use the Minio API URL from the Routes page in Openshift Dashboard</p>
-</li>
-<li>
-<p>Region: This is required for AWS storage &amp; cannot be blank (no-region-minio)</p>
-</li>
-<li>
-<p>Bucket: use the Minio Storage bucket name: <strong>models</strong></p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Repeat the same process for the Storage bucket, using <strong>storage</strong> for the name &amp; bucket.</p>
-</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_creating_a_workbench"><a class="anchor" href="#_creating_a_workbench"></a>Creating a WorkBench</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Navigate to the Data Science Project section of the OpenShift AI Console /Dashboard. Select the Ollama-model project.</p>
+<p>Navigate to the Data Science Project section of the OpenShift AI Console /Dashboard. Select the fraud-detection project.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -556,10 +513,10 @@ The installation requires a user with the <em>cluster-admin</em> role
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Name:  <code>tbd</code></p>
+<p>Name:  <code>fraud-detection</code></p>
 </li>
 <li>
-<p>Notebook Image:  <code>Minimal Python</code></p>
+<p>Notebook Image:  <code>standard data science</code></p>
 </li>
 <li>
 <p>Leave the remaining options default.</p>
@@ -605,7 +562,7 @@ Depending on the notebook image selected, it can take between 2-20 minutes for t
 <p>JupyterLab enables you to work with documents and activities such as Jupyter notebooks, text editors, terminals, and custom components in a flexible, integrated, and extensible manner. For a demonstration of JupyterLab and its features, <a href="https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html#what-will-happen-to-the-classic-notebook">you can view this video.</a></p>
 </div>
 <div class="paragraph">
-<p>Return to the ollama-model workbench dashboard in the OpenShift AI console.</p>
+<p>Return to the fraud detection workbench dashboard in the OpenShift AI console.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -667,12 +624,6 @@ If the <strong>OPEN</strong> link for the notebook is grayed out, the notebook c
 </li>
 <li>
 <p>Paste the link into the <strong>clone a repo</strong> pop up,   make sure the <strong>included submodules are checked</strong>, then click the clone.</p>
-</li>
-<li>
-<p>Navigate to the llm-on-openshift/examples/notebooks/langchain folder:</p>
-</li>
-<li>
-<p>Then open the file: <em>Langchain-Ollama-Prompt-memory.ipynb</em></p>
 <div class="imageblock unresolved">
 <div class="content">
 <img src="navigate_ollama_notebook.png" alt="navigate ollama notebook" width="640">
