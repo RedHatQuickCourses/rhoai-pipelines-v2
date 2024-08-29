@@ -1,26 +1,18 @@
 = Introduction to ML Pipelines
 
-This is the home page of _Chapter 3_ in the *hello* quick course....
+This course will dive into the world of data science pipelines, which are powerful tools for breaking down complex AI tasks into manageable, reusable, and optimizable workloads. By automating these processes, we can minimize human error and ensure consistent, high-quality results. This course is designed for infrastructure solution architects and engineers who are, or will be responsible for deploying and managing the data science pipeline solution in OpenShift AI. 
 
-=== Data Science Pipelines
+Let's explore how pipelines can help us optimize training tasks, manage caching steps, and create more maintainable and reusable workloads.  
 
-[cols="1,1,1,1"]
-|===
-|OpenShift AI Resource Name | Kubernetes Resource Name | Custom Resource | Description 
+Data science pipelines can be a game-changer for AI model development. By breaking down complex tasks into smaller, manageable steps, we can optimize each part of the process, ensuring that our models are trained and validated efficiently and effectively. Additionally, pipelines can help us maintain consistent results by versioning inputs and outputs, allowing us to track changes and identify potential issues.
 
-|Data Science Pipeline Application
-|datasciencepipelinesapplications.datasciencepipelinesapplications.opendatahub.io
-|Yes
-|DSPA's create an instance of Data Science Pipelines.  DSPA's require a data connection and an S3 bucket to create the instance.  DSPA's are namespace scoped to prevent leaking data across multiple projects.
 
-|Pipelines
-|N/A
-|N/A
-|When developing a pipeline, depending on the tool, users may generate a YAML based PipelineRun object that is then uploaded into the Dashboard to create an executable pipeline.  Even though this yaml object is a valid Tekton PipelineRun it is intended to be uploaded to the Dashboard, and not applied directly to the cluster.
+OpenShift AI uses Kubeflow pipelines with Argo workflows as the engine. Kubeflow provides a rich set of tools for managing ML workloads, while Argo workflows offer powerful automation capabilities. Together, they enable us to create robust, scalable, and manageable pipelines for AI model development and serving.
 
-|Pipeline Runs
-|pipelineruns.tekton.dev
-|Yes
-|A pipeline can be executed in a number of different ways, including from the Dashboard, which will result in the creation of a pipelinerun.
+Pipelines can include various components, such as data ingestion, data preprocessing, model training, evaluation, and deployment. These components can be configured to run in a specific order, and the pipeline can be executed multiple times to produce different versions of models or artifacts.
 
-|===
+Additionally, pipelines can support control flows to handle complex dependencies between tasks. Once a pipeline is defined, executing it becomes a simple RUN command, and the status of each execution can be tracked and monitored, ensuring that the desired outputs are produced successfully.
+
+In summary, data science pipelines are an essential tool for automating and managing the ML lifecycle, enabling data scientists to create end-to-end workflows, reduce human error, and ensure consistent, high-quality results. 
+
+Let's explore how to build and deploy these powerful pipelines using OpenShift AI data science pipelines.
