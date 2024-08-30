@@ -1,0 +1,31 @@
+= Data Science Pipeline Concepts
+
+
+[NOTE]
+====
+A pipeline is an execution graph of tasks, commonly known as a _DAG_ (Directed Acyclic Graph).
+A DAG is a directed graph without any cycles, i.e. direct loops.
+====
+
+== Why data science pipelines
+
+A data science pipeline is typically implemented to improve the repeatability of a data science experiment.  While the larger experimentation process may include steps such as data exploration, where data scientists seek to create a fundamental understanding of the characteristics of the data, data science pipelines tend to focus on turning a viable experiment into a repeatable solution that can be iterated on.
+
+A data science pipeline, may also fit within the context of a larger pipeline that manages the complete lifecycle of an application, and the data science pipeline is responsible for the process of training the machine learning model.
+
+Data science pipelines may consists of several key activities that are performed in a structured sequence to train a machine learning model. These activities may include:
+
+* *Data Collection*: Gathering the data from various sources, such as databases, APIs, spreadsheets, or external datasets.
+
+* *Data Cleaning*: Identifying and handling missing or inconsistent data, removing duplicates, and addressing data quality issues to ensure that the data is reliable and ready for analysis.
+
+* *Feature Engineering*: Creating or transforming features (variables) to improve the performance of machine learning models. This may involve scaling, one-hot encoding, creating new variables, or reducing dimensionality.
+
+* *Data Preprocessing*: Preparing the data for modeling, which may involve standardizing, normalizing, or scaling the data. This step is crucial for machine learning algorithms that are sensitive to the scale of features.  This step may also include splitting the data into multiple subsets of data including a test and train dataset to allow the model to be validated using data the trained model has never seen.
+
+* *Model Training*: After the data has been split into an appropriate subset, the model is trained using the training dataset.  As part of the training process, the machine learning algorithm will generally iterate through the training data, making adjustments to the model until it arrives at the "best" version of the model.
+
+* *Model Evaluation*: The model performance is assessed with the previously unseen test dataset using various metrics, such as accuracy, precision, recall, F1 score, or mean squared error. Cross-validation techniques may be used to ensure the model's robustness.
+
+A single pipeline may include the ability to train multiple models, complete complex hyperparameter searches, or more.  Data Scientists can use a well crafted pipeline to quickly iterate on a model, adjust how data is transformed, test different algorithms, and more.  While the steps described above describe a common pattern for model training, different use cases and projects may have vastly different requirements and the tools and framework selected for creating a data science pipeline should help to enable a flexible design.
+

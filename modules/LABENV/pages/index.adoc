@@ -5,7 +5,7 @@
 We will use the https://demo.redhat.com/catalog?item=babylon-catalog-prod%2Fopenshift-cnv.ocpmulti-wksp-cnv.prod[*Red Hat OpenShift Container Platform Cluster (AWS)*] catalog item in the Red Hat Demo Platform (RHDP) to run the hands-on exercises in this course.
 
 [TIP]
-The lab environment on average takes ~30-60 minutes to enter the ready state.  While your lab environment is provisioning, I recommend that you read through the course once, then return and complete the lab portions once your *OpenShift Container Cluster Platform* environment is ready to go. 
+The lab environment on average takes ~40-60 minutes to enter the ready state.  While your lab environment is provisioning, I recommend that you read through the course once, then return and complete the lab portions once your *OpenShift Container Cluster Platform* environment is ready to go. 
 
 // video::demohub_resources_v4.mp4[width=640]
 
@@ -27,9 +27,7 @@ The OCP environment will provide the foundation infrastructure for RHOAI. Once l
 
 == Operators and Red Hat OpenShift Container Platform
 
-Red Hat OpenShift Operators automate the creation, configuration, and management of instances of Kubernetes-native applications. Operators provide automation at every level of the stack—from managing the parts that make up the platform all the way to applications that are provided as a managed service.
-
-Red Hat OpenShift uses the power of Operators to run the entire platform in an autonomous fashion while exposing configuration natively through Kubernetes objects, allowing for quick installation and frequent, robust updates. In addition to the automation advantages of Operators for managing the platform, Red Hat OpenShift makes it easier to find, install, and manage Operators running on your clusters.
+Red Hat OpenShift Operators automate the creation, configuration, and management of instances of Kubernetes-native applications. Operators provide automation at every level of the stack—from managing the parts that make up the platform all the way to applications that are provided as a managed service. In addition to the automation advantages of Operators for managing the platform, Red Hat OpenShift makes it easier to find, install, and manage Operators running on your clusters.
 
 Included in Red Hat OpenShift is the Embedded OperatorHub, a registry of certified Operators from software vendors and open source projects. Within the Embedded OperatorHub you can browse and install a library of Operators that have been verified to work with Red Hat OpenShift and that have been packaged for easy lifecycle management.
 
@@ -67,27 +65,22 @@ This exercise uses the Red Hat Demo Platform; specifically the OpenShift Contain
 
 The following section discusses installing the *Red{nbsp}Hat OpenShift Serverless* operator.
 
+image::serverless_install.gif[width=600]
+
 1. Login to Red{nbsp}Hat OpenShift using a user which has the _cluster-admin_ role assigned.
 
 2. Navigate to **Operators** -> **OperatorHub** and search for *Red{nbsp}Hat OpenShift Serverless*
-+
-//image::serverless_operator_search.png[width=800]
 
 3. Click on the *Red{nbsp}Hat OpenShift Serverless* operator. In the pop up window, select the *stable* channel and the most recent version of the serverless operator. Click on **Install** to open the operator's installation view.
-+
-//image::serverless_operator_install1.png[width=600]
+
 
 4. In the `Install Operator` page, select the default values for all the fields and click *Install*.
-+
-//image::serverless_operator_install2.png[width=800]
+
 
 5. A window showing the installation progress will pop up.
-+ 
-//image::serverless_operator_install3.png[width=800]
 
 6. When the installation finishes the operator is ready to be used by *Red{nbsp}Hat OpenShift AI*.
-+
-//image::serverless_operator_install4.png[width=800]
+
 
 *Red{nbsp}Hat OpenShift Serverless* is now successfully installed.
 
@@ -95,27 +88,19 @@ The following section discusses installing the *Red{nbsp}Hat OpenShift Serverles
 
 The following section discusses installing the *Red{nbsp}Hat OpenShift Service Mesh* operator.
 
+image::servicemesh_install.gif[width=600]
+
 1. Login to Red{nbsp}Hat OpenShift using a user which has the _cluster-admin_ role assigned.
 
 2. Navigate to **Operators** -> **OperatorHub** and search for *Red{nbsp}Hat OpenShift Service Mesh*
-+
-//image::servicemesh_operator_search.png[width=800]
 
 3. Click on the *Red{nbsp}Hat OpenShift Service Mesh* operator. In the pop up window, select the *stable* channel and the most recent version of the server mesh operator. Click on **Install** to open the operator's installation view.
-+
-//image::servicemesh_operator_install1.png[width=600]
 
 4. In the `Install Operator` page, select the default values for all the fields and click *Install*.
-+
-//image::servicemesh_operator_install2.png[width=800]
 
 5. A window showing the installation progress will pop up.
-+ 
-//image::servicemesh_operator_install3.png[width=800]
 
 6. When the installation finishes the operator is ready to be used by *Red{nbsp}Hat OpenShift AI*.
-+
-//image::servicemesh_operator_install4.png[width=800]
 
 *Red{nbsp}Hat OpenShift Service Mesh* is now successfully installed.
 
@@ -123,27 +108,19 @@ The following section discusses installing the *Red{nbsp}Hat OpenShift Service M
 
 The following section discusses installing the *Red{nbsp}Hat - Authorino* operator.
 
+image::authorino_install.gif[width=600]
+
 1. Login to Red{nbsp}Hat OpenShift using a user which has the _cluster-admin_ role assigned.
 
 2. Navigate to **Operators** -> **OperatorHub** and search for *Red{nbsp}Hat Authorino
-+
-//image::authorino_operator_search.png[width=800]
 
 3. Click on the *Red{nbsp}Hat Authorino * operator. In the pop up window, select the *stable* channel and the most recent version of the serverless operator. Click on **Install** to open the operator's installation view.
-+
-//image::authorino_operator_install1.png[width=600]
 
 4. In the `Install Operator` page, select the default values for all the fields and click *Install*.
-+
-//image::authorino_operator_install2.png[width=800]
 
 5. A window showing the installation progress will pop up.
-+ 
-//image::authorino_operator_install3.png[width=800]
 
 6. When the installation finishes the operator is ready to be used by *Red{nbsp}Hat OpenShift AI*.
-+
-// image::authorino_operator_install4.png[width=800]
 
 *Red{nbsp}Hat Authorino* is now successfully installed.
 
@@ -152,12 +129,12 @@ The following section discusses installing the *Red{nbsp}Hat - Authorino* operat
  
  Installing these Operators prior to the installation of the OpenShift AI Operator in my experience has made a difference in OpenShift AI acknowledging the availability of these components and adjusting the initial configuration to shift management of these components to OpenShift AI. 
 
-=== Installation of Red Hat OpenShift AI Operator
+== Installation of Red Hat OpenShift AI Operator
 
+image::openshiftai_install.gif[width=600]
 
 * Navigate to **Operators** -> **OperatorHub** and search for *OpenShift AI*.
 
-//image::openshiftai_operator.png[width=640]
 
 . Click on the `Red{nbsp}Hat OpenShift AI` operator. In the pop up window that opens, ensure you select the latest version in the *fast* channel. Any version equal to or greater than 2.12 and click on **Install** to open the operator's installation view.  
 +
@@ -167,13 +144,13 @@ The following section discusses installing the *Red{nbsp}Hat - Authorino* operat
 . The operator Installation progress window will pop up. The installation may take a couple of minutes.
 
 
-//video::llm_dsc_v3.mp4[width=640]
-
 == Create OpenShift AI Data Science Cluster
 
 The next step is to create an OpenShift AI *Data Science Cluster (DSC)*.
 
 _A DataScienceCluster is the plan in the form of an YAML outline for Data Science Cluster API deployment. Manually editing the YAML configuration can adjust settings of the OpenShift AI DSC._
+
+image::dsc_install.gif[width=600]
 
 Return to the OpenShift Navigation Menu, Select Installed Operators, and click on the OpenShift AI Operator name to open the operator.
 
@@ -181,7 +158,6 @@ Return to the OpenShift Navigation Menu, Select Installed Operators, and click o
 
  . *Click Create* to deploy the Data Science Cluster.  
 
-//image::dsc_deploy_complete.png[width=640]
 
 == OpenShift AI install summary
 
@@ -200,13 +176,15 @@ Congratulations, you have successfully completed the installation of OpenShift A
 
 Navigate to the menu selector, located at the top right of the OCP dashboard.  Select the grid of squares, then select OpenShift AI.  At the logon screen, use the OCP admin credentials to login to OpenShift AI. 
 
+image::data_science_project.gif[width=600]
+
 Explore the dashboard navigation menus to familarize yourself with the options.
 
 Navigate to & select the Data Science Projects section.
 
  . Select the create data science project button.
 
- . Enter a name for your project, such as *fraud detection*.
+ . Enter a name for your project, such as *fraud-detection*.
 
  . The resource name should be populated automatically.
 
@@ -214,12 +192,10 @@ Navigate to & select the Data Science Projects section.
 
  . Select Create.
 
-//image::dsp_create.png[width=640]
 
 
-//== Creating a WorkBench 
 
-//video::openshiftai_setup_part3.mp4[width=640]
+
 
 Once complete, you should be on the landing page of the "fraud-detection" Data Science Project section of the OpenShift AI Console / Dashboard. 
 
