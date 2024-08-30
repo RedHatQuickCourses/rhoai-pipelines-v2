@@ -1,18 +1,23 @@
 = Introduction to ML Pipelines
 
-This course will dive into the world of data science pipelines, which are powerful tools for breaking down complex AI tasks into manageable, reusable, and optimizable workloads. By automating these processes, we can minimize human error and ensure consistent, high-quality results. This course is designed for infrastructure solution architects and engineers who are, or will be responsible for deploying and managing the data science pipeline solution in OpenShift AI. 
+== What is a machine learning pipeline
 
-Let's explore how pipelines can help us optimize training tasks, manage caching steps, and create more maintainable and reusable workloads.  
+A machine learning pipeline is a crucial component in the development and productionization of machine learning systems, helping data scientists and data engineers manage the complexity of the end-to-end machine learning process and helping them to develop accurate and scalable solutions for a wide range of applications.
 
-Data science pipelines can be a game-changer for AI model development. By breaking down complex tasks into smaller, manageable steps, we can optimize each part of the process, ensuring that our models are trained and validated efficiently and effectively. Additionally, pipelines can help us maintain consistent results by versioning inputs and outputs, allowing us to track changes and identify potential issues.
+Machine learning (ML) pipelines are a key part of the data science process, helping data scientists to streamline their work and automate tasks. They can make the model development process more efficient and reproducible, while also reducing the risk of errors.
+
+*Modularization:* Pipelines enable you to break down the machine learning process into modular, well-defined steps. Each step can be developed, tested and optimized independently, making it easier to manage and maintain the workflow.
+
+*Reproducibility:* Machine learning pipelines make it easier to reproduce experiments. By defining the sequence of steps and their parameters in a pipeline, you can recreate the entire process exactly, ensuring consistent results. If a step fails or a model's performance deteriorates, the pipeline can be configured to raise alerts or take corrective actions.
+
+*Experimentation:* You can experiment with different data preprocessing techniques, feature selections, and models by modifying individual steps within the pipeline. This flexibility enables for rapid iteration and optimization.
+
+*Collaboration:* Pipelines make it easier for teams of data scientists and engineers to collaborate. Since the workflow is structured and documented, it's easier for team members to understand and contribute to the project.
+
+*Version control and documentation:* You can use version control systems to track changes in your pipeline's code and configuration, ensuring that you can roll back to previous versions if needed. A well-structured pipeline encourages better documentation of each step.
+
+Machine learning lifecycles can vary in complexity and may involve additional steps depending on the use case, such as hyperparameter optimization, cross-validation, and feature selection. The goal of a machine learning pipeline is to automate and standardize these processes, making it easier to develop and maintain ML models for various applications.
+
+Integration with DevOps (2010s): Machine learning pipelines started to be integrated with DevOps practices to enable continuous integration and deployment (CI/CD) of machine learning models. This integration emphasized the need for reproducibility, version control and monitoring in ML pipelines. This integration is referred to as machine learning operations, or MLOps, which helps data science teams effectively manage the complexity of managing ML orchestration. In a real-time deployment, the pipeline replies to a request within milliseconds of the request.
 
 
-OpenShift AI uses Kubeflow pipelines with Argo workflows as the engine. Kubeflow provides a rich set of tools for managing ML workloads, while Argo workflows offer powerful automation capabilities. Together, they enable us to create robust, scalable, and manageable pipelines for AI model development and serving.
-
-Pipelines can include various components, such as data ingestion, data preprocessing, model training, evaluation, and deployment. These components can be configured to run in a specific order, and the pipeline can be executed multiple times to produce different versions of models or artifacts.
-
-Additionally, pipelines can support control flows to handle complex dependencies between tasks. Once a pipeline is defined, executing it becomes a simple RUN command, and the status of each execution can be tracked and monitored, ensuring that the desired outputs are produced successfully.
-
-In summary, data science pipelines are an essential tool for automating and managing the ML lifecycle, enabling data scientists to create end-to-end workflows, reduce human error, and ensure consistent, high-quality results. 
-
-Let's explore how to build and deploy these powerful pipelines using OpenShift AI data science pipelines.

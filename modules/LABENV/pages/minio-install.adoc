@@ -16,11 +16,11 @@ This version of MinIO should not be used in production-grade environments. Addit
 === MinIO Deployment
 To Deploy MinIO, we will utilize the OpenShift Dashboard. 
 
- . Click on the Project Selection list dropdown and select the Ollama-Model project or the data science project you created in the previous step. 
+ . Click on the Project Selection list dropdown and select the "fraud-detection" project or the data science project you created in the previous step. 
 
  . Then Select the + (plus) icon from the top right of the dashboard.
 +
-image::minio_yaml_deploy.png[width=640]
+//image::minio_yaml_deploy.png[width=640]
 
  .  In the new window, we will paste the following YAML file.  In the YAML below its recommended to change the default user name & password. 
 
@@ -197,13 +197,13 @@ From the OCP Dashboard:
 
  . Select Networking / Routes from the navigation menu.
  
- . This will display two routes, one for the UI & another for the API.
-+
-image::minio_routes.png[width=640]
+ . This will display two routes, one for the UI & another for the API.  (if the routes are not visible, make sure you have the project selected that matches your data sicence project created earlier)
+//+
+//image::minio_routes.png[width=640]
 
- . For the first step, select the UI route and paste it in a browser Window.
+ . For the first step, select the UI route and paste it or open in a new browser tab or window.
   
- . This window opens the MinIO Dashboard. Log in with the username/password combination you set, or the defaults listed the in yaml file above.
+ . The displayed page is the MinIO Dashboard. Log in with the username/password combination you set, or the defaults listed below.
 
  .. username = minio
 
@@ -215,28 +215,9 @@ Once logged into the MinIO Console:
 
   . Create two Buckets: 
 
-   ..  *models* 
+   ..  *pipelines* 
 
-   ..  *storage* (optional)
-
-[NOTE]
-  When serving an LLM or other model, Openshift AI expects to search within a directory. Therefore, we need at least one subdirectory under the models folder.  
-
- . Via the Navigation menu, *select object browser*, then click on the Model Bucket.
- . From the models bucket page, click add path, and type *ollama* as the name of the sub-folder or path.  
-
-[IMPORTANT]
-In most cases, to serve a model, the trained model would be uploaded into this sub-directory. *However, Ollama is a special case, as it can download and manage Several LLM models as part of the runtime.*  
-
- . We still need a file available in this folder for the model deployment workflow to succeed.
-
- . So we will copy an *emptyfile.txt* file to the ollama subdirectory. 
+   ..  *storage* 
 
 
-You can download the file from xref:attachment$emptyfile.txt[this location]. Alternatively, you can create your own file called emptyfile.txt and upload it.
-
- . Once you have this file ready, upload it into the Ollama path in the model bucket by clicking the upload button and selecting the file from your local desktop. 
- 
-image::minio_emptyfile_view.png[width=640]
-
-With our S3 Compatible ready to go and our "model files" uploaded. Let's head back to the OpenShift AI Web UI and continue configuring resources. 
+This completes the pre-work to configure the data scicence pipeline lab environment. With our S3 Compatible storage ready to go, let's head to next section of the course and learn about DSP concepts.
