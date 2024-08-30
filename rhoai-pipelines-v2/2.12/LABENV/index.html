@@ -61,13 +61,13 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../chapter1/index.html">Introduction to ML Pipelines</a>
+    <a class="nav-link" href="../chapter1/dsp-intro.html">Introduction to ML Pipelines</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter1/section1.html">blah blah blah</a>
+    <a class="nav-link" href="../chapter1/dsp-concepts.html">Data Science Pipeline Concepts</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter1/section2.html">Data Science Pipeline Concepts</a>
+    <a class="nav-link" href="../chapter1/section1.html">RHOAI DSP specifics</a>
   </li>
 </ul>
   </li>
@@ -180,7 +180,7 @@
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The lab environment on average takes ~30-60 minutes to enter the ready state.  While your lab environment is provisioning, I recommend that you read through the course once, then return and complete the lab portions once your <strong>OpenShift Container Cluster Platform</strong> environment is ready to go.
+The lab environment on average takes ~40-60 minutes to enter the ready state.  While your lab environment is provisioning, I recommend that you read through the course once, then return and complete the lab portions once your <strong>OpenShift Container Cluster Platform</strong> environment is ready to go.
 </td>
 </tr>
 </table>
@@ -219,10 +219,7 @@ The lab environment on average takes ~30-60 minutes to enter the ready state.  W
 <h2 id="_operators_and_red_hat_openshift_container_platform"><a class="anchor" href="#_operators_and_red_hat_openshift_container_platform"></a>Operators and Red Hat OpenShift Container Platform</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Red Hat OpenShift Operators automate the creation, configuration, and management of instances of Kubernetes-native applications. Operators provide automation at every level of the stack—from managing the parts that make up the platform all the way to applications that are provided as a managed service.</p>
-</div>
-<div class="paragraph">
-<p>Red Hat OpenShift uses the power of Operators to run the entire platform in an autonomous fashion while exposing configuration natively through Kubernetes objects, allowing for quick installation and frequent, robust updates. In addition to the automation advantages of Operators for managing the platform, Red Hat OpenShift makes it easier to find, install, and manage Operators running on your clusters.</p>
+<p>Red Hat OpenShift Operators automate the creation, configuration, and management of instances of Kubernetes-native applications. Operators provide automation at every level of the stack—from managing the parts that make up the platform all the way to applications that are provided as a managed service. In addition to the automation advantages of Operators for managing the platform, Red Hat OpenShift makes it easier to find, install, and manage Operators running on your clusters.</p>
 </div>
 <div class="paragraph">
 <p>Included in Red Hat OpenShift is the Embedded OperatorHub, a registry of certified Operators from software vendors and open source projects. Within the Embedded OperatorHub you can browse and install a library of Operators that have been verified to work with Red Hat OpenShift and that have been packaged for easy lifecycle management.</p>
@@ -297,6 +294,11 @@ The installation requires a user with the <em>cluster-admin</em> role
 <div class="paragraph">
 <p>The following section discusses installing the <strong>Red&#160;Hat OpenShift Serverless</strong> operator.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/serverless_install.gif" alt="serverless install" width="600">
+</div>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -328,6 +330,11 @@ The installation requires a user with the <em>cluster-admin</em> role
 <div class="paragraph">
 <p>The following section discusses installing the <strong>Red&#160;Hat OpenShift Service Mesh</strong> operator.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/servicemesh_install.gif" alt="servicemesh install" width="600">
+</div>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -358,6 +365,11 @@ The installation requires a user with the <em>cluster-admin</em> role
 <h3 id="_installation_of_red_hat_authorino_operator"><a class="anchor" href="#_installation_of_red_hat_authorino_operator"></a>Installation of Red Hat Authorino Operator</h3>
 <div class="paragraph">
 <p>The following section discusses installing the <strong>Red&#160;Hat - Authorino</strong> operator.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/authorino_install.gif" alt="authorino install" width="600">
+</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -397,15 +409,20 @@ The installation requires a user with the <em>cluster-admin</em> role
 </table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_installation_of_red_hat_openshift_ai_operator"><a class="anchor" href="#_installation_of_red_hat_openshift_ai_operator"></a>Installation of Red Hat OpenShift AI Operator</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installation_of_red_hat_openshift_ai_operator"><a class="anchor" href="#_installation_of_red_hat_openshift_ai_operator"></a>Installation of Red Hat OpenShift AI Operator</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="_images/openshiftai_install.gif" alt="openshiftai install" width="600">
+</div>
+</div>
 <div class="ulist">
 <ul>
 <li>
 <p>Navigate to <strong>Operators</strong> &#8594; <strong>OperatorHub</strong> and search for <strong>OpenShift AI</strong>.</p>
-</li>
-</ul>
-</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -419,6 +436,8 @@ The installation requires a user with the <em>cluster-admin</em> role
 </li>
 </ol>
 </div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -430,6 +449,11 @@ The installation requires a user with the <em>cluster-admin</em> role
 </div>
 <div class="paragraph">
 <p><em>A DataScienceCluster is the plan in the form of an YAML outline for Data Science Cluster API deployment. Manually editing the YAML configuration can adjust settings of the OpenShift AI DSC.</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/dsc_install.gif" alt="dsc install" width="600">
+</div>
 </div>
 <div class="paragraph">
 <p>Return to the OpenShift Navigation Menu, Select Installed Operators, and click on the OpenShift AI Operator name to open the operator.</p>
@@ -483,6 +507,11 @@ The installation requires a user with the <em>cluster-admin</em> role
 <div class="paragraph">
 <p>Navigate to the menu selector, located at the top right of the OCP dashboard.  Select the grid of squares, then select OpenShift AI.  At the logon screen, use the OCP admin credentials to login to OpenShift AI.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/data_science_project.gif" alt="data science project" width="600">
+</div>
+</div>
 <div class="paragraph">
 <p>Explore the dashboard navigation menus to familarize yourself with the options.</p>
 </div>
@@ -495,7 +524,7 @@ The installation requires a user with the <em>cluster-admin</em> role
 <p>Select the create data science project button.</p>
 </li>
 <li>
-<p>Enter a name for your project, such as <strong>fraud detection</strong>.</p>
+<p>Enter a name for your project, such as <strong>fraud-detection</strong>.</p>
 </li>
 <li>
 <p>The resource name should be populated automatically.</p>
