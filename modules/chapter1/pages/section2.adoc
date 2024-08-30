@@ -1,38 +1,4 @@
-= Machine Learning Operations Automation
-
-== What is a machine learning pipeline
-
-A machine learning pipeline is a crucial component in the development and productionization of machine learning systems, helping data scientists and data engineers manage the complexity of the end-to-end machine learning process and helping them to develop accurate and scalable solutions for a wide range of applications.
-
-Machine learning (ML) pipelines are a key part of the data science process, helping data scientists to streamline their work and automate tasks. They can make the model development process more efficient and reproducible, while also reducing the risk of errors.
-
-*Modularization:* Pipelines enable you to break down the machine learning process into modular, well-defined steps. Each step can be developed, tested and optimized independently, making it easier to manage and maintain the workflow.
-
-*Reproducibility:* Machine learning pipelines make it easier to reproduce experiments. By defining the sequence of steps and their parameters in a pipeline, you can recreate the entire process exactly, ensuring consistent results. If a step fails or a model's performance deteriorates, the pipeline can be configured to raise alerts or take corrective actions.
-
-*Experimentation:* You can experiment with different data preprocessing techniques, feature selections, and models by modifying individual steps within the pipeline. This flexibility enables for rapid iteration and optimization.
-
-*Collaboration:* Pipelines make it easier for teams of data scientists and engineers to collaborate. Since the workflow is structured and documented, it's easier for team members to understand and contribute to the project.
-
-*Version control and documentation:* You can use version control systems to track changes in your pipeline's code and configuration, ensuring that you can roll back to previous versions if needed. A well-structured pipeline encourages better documentation of each step.
-
-Machine learning lifecycles can vary in complexity and may involve additional steps depending on the use case, such as hyperparameter optimization, cross-validation, and feature selection. The goal of a machine learning pipeline is to automate and standardize these processes, making it easier to develop and maintain ML models for various applications.
-
-Integration with DevOps (2010s): Machine learning pipelines started to be integrated with DevOps practices to enable continuous integration and deployment (CI/CD) of machine learning models. This integration emphasized the need for reproducibility, version control and monitoring in ML pipelines. This integration is referred to as machine learning operations, or MLOps, which helps data science teams effectively manage the complexity of managing ML orchestration. In a real-time deployment, the pipeline replies to a request within milliseconds of the request.
-
-== Data Science Pipeline Concepts
-
- . *Pipeline* - is a workflow definition containing the steps and their input and output artifacts.
-
- . *Run* - is a single execution of a pipeline. A run can be a one off execution of a pipeline, or pipelines can be scheduled as a recurring run.
-
- . *Task* - is a self-contained pipeline component that represents an execution stage in the pipeline.
-
- . *Artifact* - Steps have the ability to create artifacts, which are objects that can be persisted after the execution of the step completes. Other steps may use those artifacts as inputs and some artifacts may be useful references after a pipeline run has completed. Artifacts automatically stored by Data Science Pipelines in S3 compatible storage.
-
- . *Experiment* - is a logical grouping of runs for the purpose of comparing different pipelines
-
- . *Execution* -  is an instance of a Task/Component
+= Data Science Pipeline Concepts
 
 
 [NOTE]

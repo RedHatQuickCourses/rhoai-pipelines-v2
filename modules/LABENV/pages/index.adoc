@@ -5,7 +5,7 @@
 We will use the https://demo.redhat.com/catalog?item=babylon-catalog-prod%2Fopenshift-cnv.ocpmulti-wksp-cnv.prod[*Red Hat OpenShift Container Platform Cluster (AWS)*] catalog item in the Red Hat Demo Platform (RHDP) to run the hands-on exercises in this course.
 
 [TIP]
-The lab environment on average takes ~30-45 minutes to enter the ready state.  While your lab environment is provisioning, I recommend that you read through the course once, then return and complete the lab portions once your *OpenShift Container Cluster Platform* environment is ready to go. 
+The lab environment on average takes ~30-60 minutes to enter the ready state.  While your lab environment is provisioning, I recommend that you read through the course once, then return and complete the lab portions once your *OpenShift Container Cluster Platform* environment is ready to go. 
 
 // video::demohub_resources_v4.mp4[width=640]
 
@@ -217,75 +217,77 @@ Navigate to & select the Data Science Projects section.
 //image::dsp_create.png[width=640]
 
 
-== Creating a WorkBench 
+//== Creating a WorkBench 
 
 //video::openshiftai_setup_part3.mp4[width=640]
 
-Navigate to the Data Science Project section of the OpenShift AI Console /Dashboard. Select the fraud-detection project.  
+Once complete, you should be on the landing page of the "fraud-detection" Data Science Project section of the OpenShift AI Console / Dashboard. 
+
+
 
 //image::create_workbench.png[width=640]
 
- . Select the WorkBench button, then click create workbench
+// . Select the WorkBench button, then click create workbench
 
- .. Name:  `fraud-detection`
+// .. Name:  `fraud-detection`
 
- .. Notebook Image:  `standard data science`
+// .. Notebook Image:  `standard data science`
 
- .. Leave the remaining options default.
+// .. Leave the remaining options default.
 
- .. Optionally, scroll to the bottom, check the `Use data connection box`.
+// .. Optionally, scroll to the bottom, check the `Use data connection box`.
  
- .. Select *storage* from the dropdown to attach the storage bucket to the workbench.  
+// .. Select *storage* from the dropdown to attach the storage bucket to the workbench.  
 
- . Select the Create Workbench option.
+// . Select the Create Workbench option.
 
-[NOTE]
-Depending on the notebook image selected, it can take between 2-20 minutes for the container image to be fully deployed. The Open Link will be available when our container is fully deployed.  
+//[NOTE]
+// Depending on the notebook image selected, it can take between 2-20 minutes for the container image to be fully deployed. The Open Link will be available when our container is fully deployed.  
 
 
 
-== Jupyter Notebooks
+//== Jupyter Notebooks
 
 // video::llm_jupyter_v3.mp4[width=640]
 
-== Open JupyterLab 
+//== Open JupyterLab 
 
-JupyterLab enables you to work with documents and activities such as Jupyter notebooks, text editors, terminals, and custom components in a flexible, integrated, and extensible manner. For a demonstration of JupyterLab and its features, https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html#what-will-happen-to-the-classic-notebook[you can view this video.]
-
-
-Return to the fraud detection workbench dashboard in the OpenShift AI console.
-
- . Select the *Open* link to the right of the status section.
-+
-image::oai_open_jupyter.png[width=640]
-
- . When the new window opens, use the OpenShift admin user & password to login to JupyterLab. 
-
- . Click the *Allow selected permissions* button to complete login to the notebook.
+//JupyterLab enables you to work with documents and activities such as Jupyter notebooks, text editors, terminals, and custom components in a flexible, integrated, and extensible manner. For a demonstration of JupyterLab and its features, https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html#what-will-happen-to-the-classic-notebook[you can view this video.]
 
 
-[NOTE]
-If the *OPEN* link for the notebook is grayed out, the notebook container is still starting. This process can take a few minutes & up to 20+ minutes depending on the notebook image we opted to choose.
+//Return to the fraud detection workbench dashboard in the OpenShift AI console.
+
+// . Select the *Open* link to the right of the status section.
+
+//image::oai_open_jupyter.png[width=640]
+
+// . When the new window opens, use the OpenShift admin user & password to login to JupyterLab. 
+
+// . Click the *Allow selected permissions* button to complete login to the notebook.
 
 
-== Inside JupyterLab
+//[NOTE]
+//If the *OPEN* link for the notebook is grayed out, the notebook container is still starting. This process can take a few minutes & up to 20+ minutes depending on the notebook image we opted to choose.
 
-This takes us to the JupyterLab screen where we can select multiple options / tools / to work to begin our data science experimentation.
 
-Our first action is to clone a git repository that contains a collection of LLM projects including  the notebook we are going to use to interact with the LLM. 
+//== Inside JupyterLab
 
-Clone the github repository to interact with the Ollama Framework from this location:
-https://github.com/rh-aiservices-bu/llm-on-openshift.git
+//This takes us to the JupyterLab screen where we can select multiple options / tools / to work to begin our data science experimentation.
 
- . Copy the URL link above
+//Our first action is to clone a git repository that contains a collection of LLM projects including  the notebook we are going to use to interact with the LLM. 
 
- . Click on the Clone a Repo Icon above explorer section window.
-+
-image::clone_a_repo.png[width=640]
+//Clone the github repository to interact with the Ollama Framework from this location:
+//https://github.com/rh-aiservices-bu/llm-on-openshift.git
 
- . Paste the link into the *clone a repo* pop up,   make sure the *included submodules are checked*, then click the clone.
+// . Copy the URL link above
 
-+
-image::navigate_ollama_notebook.png[width=640]
+// . Click on the Clone a Repo Icon above explorer section window.
 
- . Explore the notebook, and then continue.
+//image::clone_a_repo.png[width=640]
+
+// . Paste the link into the *clone a repo* pop up,   make sure the *included submodules are checked*, then click the clone.
+
+
+//image::navigate_ollama_notebook.png[width=640]
+
+// . Explore the notebook, and then continue.

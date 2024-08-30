@@ -1,0 +1,24 @@
+This is just reference info -tb updated
+
+=== Data Science Pipelines
+
+[cols="1,1,1,1"]
+|===
+|OpenShift AI Resource Name | Kubernetes Resource Name | Custom Resource | Description 
+
+|Data Science Pipeline Application
+|datasciencepipelinesapplications.datasciencepipelinesapplications.opendatahub.io
+|Yes
+|DSPA's create an instance of Data Science Pipelines.  DSPA's require a data connection and an S3 bucket to create the instance.  DSPA's are namespace scoped to prevent leaking data across multiple projects.
+
+|Pipelines
+|N/A
+|N/A
+|When developing a pipeline, depending on the tool, users may generate a YAML based PipelineRun object that is then uploaded into the Dashboard to create an executable pipeline.  Even though this yaml object is a valid Tekton PipelineRun it is intended to be uploaded to the Dashboard, and not applied directly to the cluster.
+
+|Pipeline Runs
+|pipelineruns.tekton.dev
+|Yes
+|A pipeline can be executed in a number of different ways, including from the Dashboard, which will result in the creation of a pipelinerun.
+
+|===

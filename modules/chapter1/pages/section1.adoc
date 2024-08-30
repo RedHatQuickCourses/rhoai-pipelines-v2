@@ -25,3 +25,29 @@ This is just reference info -tb updated
 |A pipeline can be executed in a number of different ways, including from the Dashboard, which will result in the creation of a pipelinerun.
 
 |===
+
+=== Technical Knowledge
+
+OpenShift AI uses Kubeflow pipelines with Argo workflows as the engine. Kubeflow provides a rich set of tools for managing ML workloads, while Argo workflows offer powerful automation capabilities. Together, they enable us to create robust, scalable, and manageable pipelines for AI model development and serving.
+
+Pipelines can include various components, such as data ingestion, data preprocessing, model training, evaluation, and deployment. These components can be configured to run in a specific order, and the pipeline can be executed multiple times to produce different versions of models or artifacts.
+
+Additionally, pipelines can support control flows to handle complex dependencies between tasks. Once a pipeline is defined, executing it becomes a simple RUN command, and the status of each execution can be tracked and monitored, ensuring that the desired outputs are produced successfully.
+
+In summary, data science pipelines are an essential tool for automating and managing the ML lifecycle, enabling data scientists to create end-to-end workflows, reduce human error, and ensure consistent, high-quality results. 
+
+Let's explore how to build and deploy these powerful pipelines using OpenShift AI data science pipelines.
+
+== Specific Data Science Pipeline terminology in OpenShift AI DSP
+
+ . *Pipeline* - is a workflow definition containing the steps and their input and output artifacts.
+
+ . *Run* - is a single execution of a pipeline. A run can be a one off execution of a pipeline, or pipelines can be scheduled as a recurring run.
+
+ . *Task* - is a self-contained pipeline component that represents an execution stage in the pipeline.
+
+ . *Artifact* - Steps have the ability to create artifacts, which are objects that can be persisted after the execution of the step completes. Other steps may use those artifacts as inputs and some artifacts may be useful references after a pipeline run has completed. Artifacts automatically stored by Data Science Pipelines in S3 compatible storage.
+
+ . *Experiment* - is a logical grouping of runs for the purpose of comparing different pipelines
+
+ . *Execution* -  is an instance of a Task/Component

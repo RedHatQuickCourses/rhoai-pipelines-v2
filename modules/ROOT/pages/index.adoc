@@ -1,5 +1,30 @@
-= *Red{nbsp}Hat OpenShift AI* - data science pipelines
+= *Red{nbsp}Hat OpenShift AI* 
 :navtitle: Home
 
+== Automation with data science pipelines 
 
-This course is in the process of being developed, please visit again in a couple of weeks for the final draft version.
+
+This course is tailored for infrastructure solution architects and engineers who are tasked with deploying and managing data science pipelines on the OpenShift AI platform. By the end of this course, learners will have a solid understanding of how to design, build, and maintain efficient and effective data science pipelines in an OpenShift AI environment. 
+
+Data science pipelines can be a game-changer for AI model development. By breaking down complex tasks into smaller, manageable steps, we can optimize each part of the process, ensuring that our models are trained and validated. Additionally, pipelines can help us maintain consistent results by versioning inputs and outputs, allowing us to track changes and identify potential issues.
+
+Let's explore how pipelines can help us optimize training tasks, manage caching steps, and create more maintainable and reusable workloads.  
+
+== Prerequisites
+
+* Basic knowledge of OpenShift administration
+* Theory of user and role administration
+* Working knowledge of OpenShift AI components
+* Basic knowledge of using OpenShift Pipelines
+* Basic experience with Python code snippets & Jupyter notebooks
+* Understanding of an a software development kit
+
+== Objectives
+
+The overall objectives of this course include:
+
+* Describe KubeFlow and Elyra pipelines
+* Create Data Science pipelines
+* Run Data Science pipelines
+* Manage Data Science pipelines
+* Troubleshoot Data Science pipelines
