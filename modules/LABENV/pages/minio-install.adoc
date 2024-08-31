@@ -13,14 +13,16 @@ This segment describes a very quick way of deploying the community version of Mi
 [WARNING]
 This version of MinIO should not be used in production-grade environments. Additionally, MinIO is not included in RHOAI, and Red Hat does not provide support for MinIO.
 
-=== MinIO Deployment
+== MinIO Deployment
+
 To Deploy MinIO, we will utilize the OpenShift Dashboard. 
+
+image::minio_install.gif[width=600]
+
 
  . Click on the Project Selection list dropdown and select the "fraud-detection" project or the data science project you created in the previous step. 
 
  . Then Select the + (plus) icon from the top right of the dashboard.
-+
-//image::minio_yaml_deploy.png[width=640]
 
  .  In the new window, we will paste the following YAML file.  In the YAML below its recommended to change the default user name & password. 
 
@@ -191,15 +193,18 @@ spec:
 
 *This should finish in a few seconds. Now it's time to deploy our storage buckets.*
 
-=== MinIO Storage Bucket Creation
+== MinIO Storage Bucket Creation
+
+
+
+image::minio_setup.gif[width=600]
 
 From the OCP Dashboard:
 
  . Select Networking / Routes from the navigation menu.
  
  . This will display two routes, one for the UI & another for the API.  (if the routes are not visible, make sure you have the project selected that matches your data sicence project created earlier)
-//+
-//image::minio_routes.png[width=640]
+
 
  . For the first step, select the UI route and paste it or open in a new browser tab or window.
   
@@ -217,7 +222,9 @@ Once logged into the MinIO Console:
 
    ..  *pipelines* 
 
-   ..  *storage* 
+   ..  *storage*
+
+   ..  *models* (optional) 
 
 
-This completes the pre-work to configure the data scicence pipeline lab environment. With our S3 Compatible storage ready to go, let's head to next section of the course and learn about DSP concepts.
+This completes the pre-work to configure the data scicence pipeline lab environment. With our S3 Compatible storage ready to go, let's head to next section of the course and learn more about DSP concepts.
