@@ -73,6 +73,9 @@ At this point in time, if the minio instance did not contain a bucket called `pi
 A `Data Connection` is simply a standard kubernetes secret object that contains the fields required to connect to an S3 compatible solution.  This secret can be managed via GitOps just like any other standard kubernetes secret object.  However, not all fields in the Data Connection are dynamically consumed by the *DataSciencePipelineApplication* object, so be careful when updating the endpoint url or the bucket values.
 ====
 
+
+image::pipeline_server_setup.gif[width=600]
+
 . A new Data connection should now be listed in the `Data connections` section.
 //+
 //image::create-dspa-verify-data-connection.png[] 
