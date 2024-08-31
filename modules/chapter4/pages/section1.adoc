@@ -1,2 +1,27 @@
 = blah blah blah 2
 
+
+== Elyra notes
+
+Elyra provides a Pipeline Visual Editor for building AI pipelines from notebooks and Python scripts, simplifying the conversion of multiple notebooks or Python scripts into batch jobs or workflows.
+
+Currently, pipelines can be executed locally in JupyterLab or on Kubeflow Pipelines.
+
+Elyra extends the Jupyter Notebook UI to to allow for execution of a notebook as a batch job in local or remote cloud environments. This feature leverages the AI pipelines feature and requires access to a Kubeflow Pipelines deployment via a runtime configuration.
+
+By default, Elyra installs the Python Language Server package, enabling the productivity features in the notebook editor and the Python editor. Support for other languages can be added by manually installing additional Language Server packages and their prerequisites.
+
+https://elyra.readthedocs.io/en/v2.0.0/getting_started/overview.html#
+
+
+=== Runtime Configuration
+A runtime configuration provides Elyra access to external resources, such as a Kubeflow Pipelines deployment. You can manage runtime configurations using the JupyterLab UI or the Elyra CLI.
+
+
+Elyra is a set of AI-centric extensions to JupyterLab Notebooks.
+
+The Elyra Getting Started Guide includes more details on these features. A version-specific summary of new features is located on the releases page.
+
+
+A pipeline comprises one or more nodes that are (in many cases) connected with each other to define execution dependencies. A node is an instance of a configurable component that commonly only implements a single unit of work to make it reusable. A unit of work can represent any task, such as loading data, pre-processing data, analyzing data, training a machine learning model, deploying a model for serving, querying a service, or sending an email.
+
