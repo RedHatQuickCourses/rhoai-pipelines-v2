@@ -1,42 +1,20 @@
 = OpenShift AI Resources
 
-== Data connection
-
- 
-The next step is to create a *Data Connection* in our Data Science Project.  Before we can create our Data Connection, we will setup MinIO as our S3 compatible storage for this Lab. 
-
-Continue to the next section to deploy and configure Minio. 
-
-== Create Data Connection 
-
-Navigate to the Data Science Project section of the OpenShift AI Console /Dashboard. Select the Ollama-model project. 
-
-. Select the Data Connection menu, followed by create data connection
-. Provide the following values:
-..  Name:  *models*
-..  Access Key: use the minio_root-user from YAML file
-..  Secret Key: use the minio_root_password from the YAML File
-..  Endpoint: use the Minio API URL from the Routes page in Openshift Dashboard
-..  Region: This is required for AWS storage & cannot be blank (no-region-minio)
-.. Bucket: use the Minio Storage bucket name: *models* 
-
-//image::dataconnection_models.png[width=800]
-
-Repeat the same process for the Storage bucket, using *storage* for the name & bucket.
-
 == Creating a WorkBench 
 
-//video::openshiftai_setup_part3.mp4[width=640]
+image::dsp_workbench.gif[width=600]
 
-Navigate to the Data Science Project section of the OpenShift AI Console /Dashboard. Select the Ollama-model project.  
+Navigate to the Data Science Project section of the OpenShift AI Console /Dashboard. Select the fraud-detection project.  
 
 //image::create_workbench.png[width=640]
 
  . Select the WorkBench button, then click create workbench
 
- .. Name:  `tbd`
+ .. Name:  `fraud-detection`
 
- .. Notebook Image:  `Minimal Python`
+ .. Notebook Image:  `Standard Data Science`
+
+ .. Deployment Size:  select medium (small if working with resources)
 
  .. Leave the remaining options default.
 
@@ -44,10 +22,10 @@ Navigate to the Data Science Project section of the OpenShift AI Console /Dashbo
  
  .. Select *storage* from the dropdown to attach the storage bucket to the workbench.  
 
- . Select the Create Workbench option.
+ . Select the Create Workbench.
 
 [NOTE]
-Depending on the notebook image selected, it can take between 2-20 minutes for the container image to be fully deployed. The Open Link will be available when our container is fully deployed.  
+Depending on the notebook image selected and the deployment size, it can take between 2-20 minutes for the container image to be fully deployed. The Open Link will be available when our container is fully deployed.  
 
 
 
