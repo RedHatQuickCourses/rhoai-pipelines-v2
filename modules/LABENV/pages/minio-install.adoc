@@ -19,12 +19,11 @@ To Deploy MinIO, we will utilize the OpenShift Dashboard.
 
 image::minio_install.gif[width=600]
 
-
- . Click on the Project Selection list dropdown and select the "fraud-detection" project or the data science project you created in the previous step. 
-
  . Then Select the + (plus) icon from the top right of the dashboard.
 
  .  In the new window, we will paste the following YAML file.  In the YAML below its recommended to change the default user name & password. 
+
+ . Click on the Project Selection list dropdown and select the "fraud-detection" project or the data science project you created in the previous step. 
 
 
 ```yaml
@@ -207,6 +206,8 @@ From the OCP Dashboard:
 
 
  . For the first step, select the UI route and paste it or open in a new browser tab or window.
+
+ . If you see a landing page with the message *application not available*, refresh the page a few times as the service is still loading.
   
  . The displayed page is the MinIO Dashboard. Log in with the username/password combination you set, or the defaults listed below.
 
