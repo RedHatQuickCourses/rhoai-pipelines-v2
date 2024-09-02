@@ -21,9 +21,9 @@ When ordering this catalog item in RHDP:
 
   . Click order
 
-For Red Hat partners who do not have access to RHDP, you need to provision an OpenShift AI cluster on-premises, or in the supported cloud environments by following the product documentation. at https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/2.12/html/installing_and_uninstalling_openshift_ai_self-managed/index[Product Documentation for installing Red Hat OpenShift AI 2.12].
+For Red Hat partners who do not have access to RHDP, you need to provision an OpenShift AI cluster on-premises, or in the supported cloud environments by following the product documentation at https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/2.12/html/installing_and_uninstalling_openshift_ai_self-managed/index[Product Documentation for installing Red Hat OpenShift AI 2.12].
 
-The OCP environment will provide the foundation infrastructure for RHOAI. Once logged into the OCP dashboard, we need to install the Operators to enable RHOAI components in the OCP platform.
+The OCP environment will provide the foundation infrastructure for Red Hat OpenShift AI (RHOAI). Once logged into the OCP dashboard, we need to install the Operators to enable RHOAI components in the OCP platform.
 
 == Operators and Red Hat OpenShift Container Platform
 
@@ -40,8 +40,6 @@ IMPORTANT: The installation requires a user with the _cluster-admin_ role
 This exercise uses the Red Hat Demo Platform; specifically the OpenShift Container Cluster Platform Resource.  If you haven't already you'll need to launch the lab environment before continuing. 
 
 . Login to the Red Hat OpenShift using a user which has the _cluster-admin_ role assigned.
-
-. It’s sufficient to install all prerequisite operators with default settings, no additional configuration is necessary.
 
 . Navigate to **Operators** -> **OperatorHub** and search for each of the following Operators individually.  Click on the button or tile for each. In the pop up window that opens, ensure you select the latest version in the *stable* channel and click on **Install** to open the operator's installation view. For this lab you can skip the installation of the optional operators.
 
