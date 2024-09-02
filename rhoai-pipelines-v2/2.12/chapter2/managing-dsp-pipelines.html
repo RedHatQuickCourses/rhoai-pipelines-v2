@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>RHOAI Pipeline Overview :: RHOAI Data Science Pipelines</title>
-    <link rel="prev" href="data-science-pipeline-app.html">
-    <link rel="next" href="../chapter3/index.html">
+    <link rel="prev" href="index.html">
+    <link rel="next" href="data-science-pipeline-app.html">
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -66,9 +66,6 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../chapter1/dsp-concepts.html">Data Science Pipeline Concepts</a>
   </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter1/section1.html">RHOAI DSP specifics</a>
-  </li>
 </ul>
   </li>
 </ul>
@@ -79,11 +76,14 @@
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="index.html">Data Science Pipelines</a>
 <ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="managing-dsp-pipelines.html">RHOAI Pipeline Overview</a>
+  </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="data-science-pipeline-app.html">Data Science Pipeline Applications</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="managing-dsp-pipelines.html">RHOAI Pipeline Overview</a>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="rhoai-resources.html">OpenShift AI Resources</a>
   </li>
 </ul>
   </li>
@@ -93,13 +93,10 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../chapter3/index.html">Elyra Pipelines</a>
+    <a class="nav-link" href="../chapter3/index.html">Creating Pipelines with Elyra</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../chapter3/elyra-pipelines.html">Elyra Pipelines</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter3/rhoai-resources.html">OpenShift AI Resources</a>
   </li>
 </ul>
   </li>
@@ -186,12 +183,16 @@
 </li>
 <li>
 <p>If you are configuring a pipeline server with an external database</p>
-</li>
+<div class="ulist">
+<ul>
 <li>
 <p>Red Hat recommends that you use MySQL version 8.x.</p>
 </li>
 <li>
 <p>Red Hat recommends that you use at least MariaDB version 10.5.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -202,7 +203,7 @@
 <p>Use the latest Kubeflow Pipelines 2.0 SDK to build your data science pipeline in Python code. After you have built your pipeline, use the SDK to compile it into an Intermediate Representation (IR) YAML file. After defining the pipeline, you can import the YAML file to the OpenShift AI dashboard to enable you to configure its execution settings.</p>
 </div>
 <div class="paragraph">
-<p>You can also use the Elyra JupyterLab extension to create and run data science pipelines within JupyterLab. For more information about creating pipelines in JupyterLab, see Working with pipelines in JupyterLab. For more information about the Elyra JupyterLab extension, see Elyra Documentation.</p>
+<p>You can also use the Elyra JupyterLab extension to create and run data science pipelines within JupyterLab. For more information about creating pipelines in JupyterLab, see Creating Pipelines in Elyra in the section below. For more information about the Elyra JupyterLab extension, <a href="https://elyra.readthedocs.io/en/v2.0.0/getting_started/overview.html">see Elyra Documentation.</a></p>
 </div>
 </div>
 <div class="sect2">
@@ -215,24 +216,62 @@ This file contains a Kubeflow pipeline compiled by using the Kubeflow compiler. 
 <div class="sect2">
 <h3 id="_pipeline_actions"><a class="anchor" href="#_pipeline_actions"></a>Pipeline Actions</h3>
 <div class="paragraph">
-<p>Creating, Scheduling, Executing, Viewing
-Archiving, Restoring, Deleting, Stopping, and duplicating</p>
+<p>OpenShift AI data science pipelines supports the following actions:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Creating</p>
+</li>
+<li>
+<p>Scheduling</p>
+</li>
+<li>
+<p>Executing</p>
+</li>
+<li>
+<p>Viewing</p>
+</li>
+<li>
+<p>Archiving</p>
+</li>
+<li>
+<p>Restoring</p>
+</li>
+<li>
+<p>Deleting</p>
+</li>
+<li>
+<p>Stopping</p>
+</li>
+<li>
+<p>Duplicating</p>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_working_with_pipeline_logs"><a class="anchor" href="#_working_with_pipeline_logs"></a>Working with pipeline logs</h3>
 <div class="paragraph">
 <p>You can review and analyze step logs for each step in a triggered pipeline run.
-To help you troubleshoot and audit your pipelines, you can review and analyze these step logs by using the log viewer in the OpenShift AI dashboard.
- . Viewing logs
- . Downloading logs</p>
+To help you troubleshoot and audit your pipelines, you can review and analyze these step logs by using the log viewer in the OpenShift AI dashboard.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Viewing logs</p>
+</li>
+<li>
+<p>Downloading logs</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="data-science-pipeline-app.html">Data Science Pipeline Applications</a></span>
-  <span class="next"><a href="../chapter3/index.html">Elyra Pipelines</a></span>
+  <span class="prev"><a href="index.html">Data Science Pipelines</a></span>
+  <span class="next"><a href="data-science-pipeline-app.html">Data Science Pipeline Applications</a></span>
 </nav>
 </article>
   </div>

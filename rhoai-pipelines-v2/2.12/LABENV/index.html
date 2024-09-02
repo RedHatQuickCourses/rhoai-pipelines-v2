@@ -66,9 +66,6 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../chapter1/dsp-concepts.html">Data Science Pipeline Concepts</a>
   </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter1/section1.html">RHOAI DSP specifics</a>
-  </li>
 </ul>
   </li>
 </ul>
@@ -80,10 +77,13 @@
     <a class="nav-link" href="../chapter2/index.html">Data Science Pipelines</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter2/managing-dsp-pipelines.html">RHOAI Pipeline Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../chapter2/data-science-pipeline-app.html">Data Science Pipeline Applications</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter2/managing-dsp-pipelines.html">RHOAI Pipeline Overview</a>
+    <a class="nav-link" href="../chapter2/rhoai-resources.html">OpenShift AI Resources</a>
   </li>
 </ul>
   </li>
@@ -93,13 +93,10 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../chapter3/index.html">Elyra Pipelines</a>
+    <a class="nav-link" href="../chapter3/index.html">Creating Pipelines with Elyra</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../chapter3/elyra-pipelines.html">Elyra Pipelines</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter3/rhoai-resources.html">OpenShift AI Resources</a>
   </li>
 </ul>
   </li>
@@ -208,10 +205,10 @@ The lab environment on average takes ~40-60 minutes to enter the ready state.  W
 </ol>
 </div>
 <div class="paragraph">
-<p>For Red Hat partners who do not have access to RHDP, you need to provision an OpenShift AI cluster on-premises, or in the supported cloud environments by following the product documentation. at <a href="https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/2.12/html/installing_and_uninstalling_openshift_ai_self-managed/index">Product Documentation for installing Red Hat OpenShift AI 2.12</a>.</p>
+<p>For Red Hat partners who do not have access to RHDP, you need to provision an OpenShift AI cluster on-premises, or in the supported cloud environments by following the product documentation at <a href="https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/2.12/html/installing_and_uninstalling_openshift_ai_self-managed/index">Product Documentation for installing Red Hat OpenShift AI 2.12</a>.</p>
 </div>
 <div class="paragraph">
-<p>The OCP environment will provide the foundation infrastructure for RHOAI. Once logged into the OCP dashboard, we need to install the Operators to enable RHOAI components in the OCP platform.</p>
+<p>The OCP environment will provide the foundation infrastructure for Red Hat OpenShift AI (RHOAI). Once logged into the OCP dashboard, we need to install the Operators to enable RHOAI components in the OCP platform.</p>
 </div>
 </div>
 </div>
@@ -251,9 +248,6 @@ The installation requires a user with the <em>cluster-admin</em> role
 <ol class="arabic">
 <li>
 <p>Login to the Red Hat OpenShift using a user which has the <em>cluster-admin</em> role assigned.</p>
-</li>
-<li>
-<p>It’s sufficient to install all prerequisite operators with default settings, no additional configuration is necessary.</p>
 </li>
 <li>
 <p>Navigate to <strong>Operators</strong> &#8594; <strong>OperatorHub</strong> and search for each of the following Operators individually.  Click on the button or tile for each. In the pop up window that opens, ensure you select the latest version in the <strong>stable</strong> channel and click on <strong>Install</strong> to open the operator&#8217;s installation view. For this lab you can skip the installation of the optional operators.</p>
