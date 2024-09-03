@@ -107,10 +107,10 @@
     <a class="nav-link" href="index.html">KFP SDK</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="section1.html">blah blah blah 2</a>
+    <a class="nav-link" href="kfp-import.html">Kubeflow Pipelines SDK</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="section2.html">Importing Pipelines</a>
+    <a class="nav-link" href="section1.html">blah blah blah 2</a>
   </li>
 </ul>
   </li>
@@ -198,6 +198,120 @@
 </tr>
 </tbody>
 </table>
+<div class="ulist">
+<ul>
+<li>
+<p>Create a local <strong>virtualenv</strong> on your workstation, install the <strong>kfp-tekton</strong> package</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ mkdir kfp #create a folder anywhere
+$ cd kfp
+$ python3 -m venv .venv
+$ source .venv/bin/activate # activate the venv
+$(.venv) pip install kfp-tekton~=1.5.0</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Using the correct Python module versions is critical to avoid conflicts between the KFP SDK and Data Science Pipelines versions. Install the latest <strong>kfp-tekton</strong> module version 1.5.x. Installing the 1.8.x versions will result in failures during pipeline runs.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_building_and_deploying_a_pipeline"><a class="anchor" href="#_building_and_deploying_a_pipeline"></a>Building and deploying a Pipeline</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Download the <a href="#attachment$coin-toss.py" class="xref unresolved">Coin Toss Pipeline</a> Python file and copy it to your <strong>kfp</strong> folder where you created the virtualenv. Inspect the file to understand how  the pipeline is composed using plain Python functions. The pipeline name and other metadata is provided using the <strong>@dsl.pipeline</strong> annotation. Note the invocation to the <strong>TektonCompiler</strong> in the <code>main</code> function:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">...
+from kfp import dsl
+from kfp import components
+...
+
+flip_coin_op = components.create_component_from_func(
+    flip_coin, base_image='python:alpine3.6')
+print_op = components.create_component_from_func(
+    print_msg, base_image='python:alpine3.6')
+random_num_op = components.create_component_from_func(
+    random_num, base_image='python:alpine3.6')
+
+@dsl.pipeline(
+    name='conditional-execution-pipeline',
+    description='Shows how to use dsl.Condition().'
+)
+def flipcoin_pipeline():
+    flip = flip_coin_op()
+    with dsl.Condition(flip.output == 'heads'):
+        random_num_head = random_num_op(0, 9)
+        with dsl.Condition(random_num_head.output &gt; 5):
+            print_op('heads and %s &gt; 5!' % random_num_head.output)
+        with dsl.Condition(random_num_head.output &lt;= 5):
+            print_op('heads and %s &lt;= 5!' % random_num_head.output)
+
+    with dsl.Condition(flip.output == 'tails'):
+        random_num_tail = random_num_op(10, 19)
+        with dsl.Condition(random_num_tail.output &gt; 15):
+            print_op('tails and %s &gt; 15!' % random_num_tail.output)
+        with dsl.Condition(random_num_tail.output &lt;= 15):
+            print_op('tails and %s &lt;= 15!' % random_num_tail.output)
+
+
+if __name__ == '__main__':
+    from kfp_tekton.compiler import TektonCompiler
+    TektonCompiler().compile(flipcoin_pipeline, __file__.replace('.py', '.yaml'))</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Compile the Python file into a Tekton resource definition. Run the following command from within the virtualenv.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">$(.venv) python3 coin-toss.py</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>A YAML file called <code>coin-toss.yaml</code> containing a Tekton <strong><em>PipelineRun</em></strong> resource will be created. Inspect this file to understand how the <code>kfp-tekton</code> SDK has transformed your pipeline definition in Python into a runnable Tekton <code>PipelineRun</code> resource:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: coin-toss-pipeline
+  annotations:
+    tekton.dev/output_artifacts
+    ...
+    tekton.dev/input_artifacts:
+    ...</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>The resulting yaml file <strong>coin-toss.yaml</strong> can then be uploaded through the RHOAI web console. Navigate to the <code>pipelines-example</code> DS project that you created in the previous section on Elyra piplines. Under the <code>Pipelines</code> section, click on <code>Import Pipeline</code>:</p>
+<div class="imageblock unresolved">
+<div class="content">
+<img src="import-pipeline.png" alt="import pipeline">
+</div>
+<div class="title">Figure 1. Import Tekton YAML Resource File</div>
+</div>
+</li>
+<li>
+<p>Enter <strong>coin-toss-pipeline</strong> in the <code>Pipeline name</code> field, provide a brief description and upload the <code>coin-toss.yaml</code> file. Click <code>Import pipeline</code> to import the pipeline.</p>
+</li>
+</ol>
+</div>
 </div>
 </article>
   </div>
