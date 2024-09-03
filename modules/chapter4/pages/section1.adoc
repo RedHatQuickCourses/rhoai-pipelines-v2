@@ -1,27 +1,36 @@
 = blah blah blah 2
 
 
-== Elyra notes
+Overview
+To submit a pipeline for execution, you must compile it to YAML with the KFP SDK compiler.
 
-Elyra provides a Pipeline Visual Editor for building AI pipelines from notebooks and Python scripts, simplifying the conversion of multiple notebooks or Python scripts into batch jobs or workflows.
+In the following example, the compiler creates a file called pipeline.yaml, which contains a hermetic representation of your pipeline. The output is called an Intermediate Representation (IR) YAML, which is a serialized PipelineSpec protocol buffer message.
 
-Currently, pipelines can be executed locally in JupyterLab or on Kubeflow Pipelines.
+----
+  from kfp import compiler, dsl
+  @dsl.component
+  def comp(message: str) -> str:
+      print(message)
+      return message
+  @dsl.pipeline
+  def my_pipeline(message: str) -> str:
+      """My ML pipeline."""
+      return comp(message=message).output
+  compiler.Compiler().compile(my_pipeline, package_path='pipeline.yaml')
+----
 
-Elyra extends the Jupyter Notebook UI to to allow for execution of a notebook as a batch job in local or remote cloud environments. This feature leverages the AI pipelines feature and requires access to a Kubeflow Pipelines deployment via a runtime configuration.
+The contents of the file are not intended to be human-readable, however the comments at the top of the file provide a summary of the pipeline:
 
-By default, Elyra installs the Python Language Server package, enabling the productivity features in the notebook editor and the Python editor. Support for other languages can be added by manually installing additional Language Server packages and their prerequisites.
+=== IR YAML
+The IR YAML is an intermediate representation of a compiled pipeline or component. It is an instance of the PipelineSpec protocol buffer message type, which is a platform-agnostic pipeline representation protocol. It is considered an intermediate representation because the KFP backend compiles PipelineSpec to Argo Workflow YAML as the final pipeline definition for execution.
 
-https://elyra.readthedocs.io/en/v2.0.0/getting_started/overview.html#
-
-
-=== Runtime Configuration
-A runtime configuration provides Elyra access to external resources, such as a Kubeflow Pipelines deployment. You can manage runtime configurations using the JupyterLab UI or the Elyra CLI.
+Unlike the v1 component YAML, the IR YAML is not intended to be written directly. While IR YAML is not intended to be easily human-readable, you can still inspect it if you know a bit about its contents:
 
 
-Elyra is a set of AI-centric extensions to JupyterLab Notebooks.
+== What is Argo Workflows?
+Argo Workflows is an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes. Argo Workflows is implemented as a Kubernetes CRD.
 
-The Elyra Getting Started Guide includes more details on these features. A version-specific summary of new features is located on the releases page.
-
-
-A pipeline comprises one or more nodes that are (in many cases) connected with each other to define execution dependencies. A node is an instance of a configurable component that commonly only implements a single unit of work to make it reusable. A unit of work can represent any task, such as loading data, pre-processing data, analyzing data, training a machine learning model, deploying a model for serving, querying a service, or sending an email.
-
+Define workflows where each step in the workflow is a container.
+Model multi-step workflows as a sequence of tasks or capture the dependencies between tasks using a graph (DAG).
+Easily run compute intensive jobs for machine learning or data processing in a fraction of the time using Argo Workflows on Kubernetes.
+Run CI/CD pipelines natively on Kubernetes without configuring complex software development products.
