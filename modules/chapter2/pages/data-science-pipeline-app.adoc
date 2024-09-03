@@ -104,7 +104,7 @@ The OAuth Proxy requires anything attempting to access the endpoint to be authen
 ====
 To Learn more about the OpenShift OAuth Proxy, please refer to the official git repo:
 
-https://github.com/openshift/oauth-proxy
+https://github.com/openshift/oauth-proxy[, window=_blank]
 ====
 
 In particular, the *DataSciencePipelineApplication* requires that users or Service Accounts have `get` access to the *DataSciencePipelineApplication* route object.

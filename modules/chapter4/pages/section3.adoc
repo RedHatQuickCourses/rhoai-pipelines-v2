@@ -22,3 +22,89 @@ This is just reference info -tb updated
 |A pipeline can be executed in a number of different ways, including from the Dashboard, which will result in the creation of a pipelinerun.
 
 |===
+
+
+* Create a local *virtualenv* on your workstation, install the *kfp-tekton* package
++
+[source,bash]
+----
+$ mkdir kfp #create a folder anywhere
+$ cd kfp
+$ python3 -m venv .venv
+$ source .venv/bin/activate # activate the venv
+$(.venv) pip install kfp-tekton~=1.5.0
+----
++
+IMPORTANT: Using the correct Python module versions is critical to avoid conflicts between the KFP SDK and Data Science Pipelines versions. Install the latest *kfp-tekton* module version 1.5.x. Installing the 1.8.x versions will result in failures during pipeline runs.
+
+=== Building and deploying a Pipeline
+
+. Download the xref:attachment$coin-toss.py[Coin Toss Pipeline] Python file and copy it to your *kfp* folder where you created the virtualenv. Inspect the file to understand how  the pipeline is composed using plain Python functions. The pipeline name and other metadata is provided using the *@dsl.pipeline* annotation. Note the invocation to the *TektonCompiler* in the `main` function:
++
+[source,python]
+----
+...
+from kfp import dsl
+from kfp import components
+...
+
+flip_coin_op = components.create_component_from_func(
+    flip_coin, base_image='python:alpine3.6')
+print_op = components.create_component_from_func(
+    print_msg, base_image='python:alpine3.6')
+random_num_op = components.create_component_from_func(
+    random_num, base_image='python:alpine3.6')
+
+@dsl.pipeline(
+    name='conditional-execution-pipeline',
+    description='Shows how to use dsl.Condition().'
+)
+def flipcoin_pipeline():
+    flip = flip_coin_op()
+    with dsl.Condition(flip.output == 'heads'):
+        random_num_head = random_num_op(0, 9)
+        with dsl.Condition(random_num_head.output > 5):
+            print_op('heads and %s > 5!' % random_num_head.output)
+        with dsl.Condition(random_num_head.output <= 5):
+            print_op('heads and %s <= 5!' % random_num_head.output)
+
+    with dsl.Condition(flip.output == 'tails'):
+        random_num_tail = random_num_op(10, 19)
+        with dsl.Condition(random_num_tail.output > 15):
+            print_op('tails and %s > 15!' % random_num_tail.output)
+        with dsl.Condition(random_num_tail.output <= 15):
+            print_op('tails and %s <= 15!' % random_num_tail.output)
+
+
+if __name__ == '__main__':
+    from kfp_tekton.compiler import TektonCompiler
+    TektonCompiler().compile(flipcoin_pipeline, __file__.replace('.py', '.yaml'))
+----
+
+. Compile the Python file into a Tekton resource definition. Run the following command from within the virtualenv.
++
+[source,python]
+----
+$(.venv) python3 coin-toss.py
+----
+
+. A YAML file called `coin-toss.yaml` containing a Tekton *_PipelineRun_* resource will be created. Inspect this file to understand how the `kfp-tekton` SDK has transformed your pipeline definition in Python into a runnable Tekton `PipelineRun` resource:
++
+[source,yaml]
+----
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: coin-toss-pipeline
+  annotations:
+    tekton.dev/output_artifacts
+    ...
+    tekton.dev/input_artifacts:
+    ...
+----
+
+. The resulting yaml file *coin-toss.yaml* can then be uploaded through the RHOAI web console. Navigate to the `pipelines-example` DS project that you created in the previous section on Elyra piplines. Under the `Pipelines` section, click on `Import Pipeline`:
++
+image::import-pipeline.png[title=Import Tekton YAML Resource File]
+
+. Enter *coin-toss-pipeline* in the `Pipeline name` field, provide a brief description and upload the `coin-toss.yaml` file. Click `Import pipeline` to import the pipeline.

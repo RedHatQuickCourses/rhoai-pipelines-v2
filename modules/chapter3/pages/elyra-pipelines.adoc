@@ -21,8 +21,9 @@ A runtime configuration provides Elyra access to the Data Science Pipelines back
 
 In OpenShift AI, you can manage runtime configurations using the JupyterLab UI. 
  
- 
 The runtime configuration is included and is pre-configured for submitting pipelines to Data Science Pipelines *only* when the pipeline server is created in the project before the workbench is created.
+
+image::pipeline_runtime_config.gif[width=600]
 
 If the pipeline server is deployed post workbench creation, the runtime configuration will not appear in Jupyter notebooks and there are two options to establish the pipeline. 
 
@@ -30,12 +31,19 @@ If the pipeline server is deployed post workbench creation, the runtime configur
 
   . Manually create the runtime configuration
 
-  .. you will need the following required fields
+  .. you will need the following required fields:
+
+  ... Runtime: *Display Name*
+  ... Data Science Pipelines API Endpoint:
+  ... Data Science Pipeline Engine Type:  *Argo*
+  ... Cloud Object Storage Endpoint:
+  ... Cloud Object Storage Bucket Name:
+  ... Data Storage User Credentials
 
 
  
  
-Refer to the https://elyra.readthedocs.io/en/latest/user_guide/runtime-conf.html#kubeflow-pipelines-configuration-settings[Elyra documentation] for more information about Elyra and the available runtime configuration options.
+Refer to the https://elyra.readthedocs.io/en/latest/user_guide/runtime-conf.html#kubeflow-pipelines-configuration-settings[Elyra documentation, window=_blank] for more information about Elyra and the available runtime configuration options.
 
 == Exercise: Offline scoring for fraud detection
 
