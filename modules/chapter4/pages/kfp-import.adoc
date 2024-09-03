@@ -64,7 +64,7 @@ In this scenario we have a remote edge device which uses an AI model to manage t
 image::openshift-ai-dsp-edge.png[title=AI/ML at the edge example]
 ****
 
-The entire pipeline definition is available xref:attachment$sample-pipeline-full.py[here] for inspection. We're not going to go through all of it but focus on the key aspects of it. 
+The entire pipeline definition is available xref:attachment$sample-pipeline-full.py[here, window=_blank] for inspection. We're not going to go through all of it but focus on the key aspects of it. 
 
 The actual pipeline is defined by the following function:
 
@@ -128,7 +128,7 @@ include::example$sample-pipeline-full.py[lines=495]
 The execution order of the graph is top down but also can be controlled by using the *_.after()_* operator. 
 
 There are other operators which control the flow of pipeline execution such as _Condition_ , _ExitHandler_, _ParallelFor_ .
-These are not covered as part of this course but the https://github.com/kubeflow/pipelines/blob/master/samples/tutorials/DSL%20-%20Control%20structures/DSL%20-%20Control%20structures.py[KFP documentation] has examples.
+These are not covered as part of this course but the https://github.com/kubeflow/pipelines/blob/master/samples/tutorials/DSL%20-%20Control%20structures/DSL%20-%20Control%20structures.py[KFP documentation, window=_blank] has examples.
 ====
 
 The following diagram shows the order of execution.
@@ -193,7 +193,7 @@ include::example$sample-pipeline-full.py[lines=482]
 There are other parameter annotations available to handle specialised file types 
 such as _InputBinaryFile_, _OutputBinaryFile_. 
 
-The full annotation list is in the https://kubeflow-pipelines.readthedocs.io/en/1.8.22/source/kfp.components.html[KFP component documentation].
+The full annotation list is in the https://kubeflow-pipelines.readthedocs.io/en/1.8.22/source/kfp.components.html[KFP component documentation, window=_blank].
 
 ====
 
@@ -201,7 +201,7 @@ The full annotation list is in the https://kubeflow-pipelines.readthedocs.io/en/
 If you return a single small value from your component using the _return_ statement, the output parameter is named *_output_*.
 It is, however, possible to return multiple small values using the Python _collection_ library method _namedtuple_.
 
-From a https://github.com/kubeflow/pipelines/blob/master/samples/tutorials/Data%20passing%20in%20python%20components.ipynb[Kubeflow pipelines example]
+From a https://github.com/kubeflow/pipelines/blob/master/samples/tutorials/Data%20passing%20in%20python%20components.ipynb[Kubeflow pipelines example, window=_blank]
  
 [source,python]
 ----
@@ -284,7 +284,7 @@ include::example$sample-pipeline-full.py[lines=477..480]
 ====
 You could also use this approach to ensure that pods without GPU needs are *not* scheduled to nodes with GPUs.
 
-For global pipeline pod settings take a look at the *_PipelineConf_* class in the 'https://kubeflow-pipelines.readthedocs.io/en/1.8.22/source/kfp.dsl.html?highlight=add_env_variable#kfp.dsl.PipelineConf'[KFP SDK Documentation]. 
+For global pipeline pod settings take a look at the *_PipelineConf_* class in the 'https://kubeflow-pipelines.readthedocs.io/en/1.8.22/source/kfp.dsl.html?highlight=add_env_variable#kfp.dsl.PipelineConf'[KFP SDK Documentation, window=_blank]. 
 ====
 
 
@@ -300,7 +300,7 @@ It is also possible to customize significant parts of the _pod spec_ definition 
 * Retries and Timeouts
 * Resource requests and limits
 
-See the the https://kubeflow-pipelines.readthedocs.io/en/1.8.22/source/kfp.dsl.html[KFP SDK Documentation] for more details.
+See the the https://kubeflow-pipelines.readthedocs.io/en/1.8.22/source/kfp.dsl.html[KFP SDK Documentation, window=_blank] for more details.
 ====
 
 === Compiling to Tekton 
@@ -317,12 +317,12 @@ In our example we've chosen the second option:
 include::example$sample-pipeline-full.py[lines=511]
 
 
-The Tekton compiler also has a number of _global settings_, which are not covered here, see https://github.com/kubeflow/kfp-tekton/blob/master/sdk/python/kfp_tekton/compiler/pipeline_utils.py[here] for more details.
+The Tekton compiler also has a number of _global settings_, which are not covered here, see https://github.com/kubeflow/kfp-tekton/blob/master/sdk/python/kfp_tekton/compiler/pipeline_utils.py[here, window=_blank] for more details.
 
 
 [IMPORTANT]
 ====
-We have only covered a subset of the functionality available in DSP as it pertains to our real-life scenario. Please see the https://github.com/kubeflow/kfp-tekton/blob/master/sdk/FEATURES.md[kfp-tekton features] document for more advanced functionality. The https://github.com/kubeflow/kfp-tekton/blob/master/guides/advanced_user_guide.md[KFP Tekton Advanced User Guide] also has more information.
+We have only covered a subset of the functionality available in DSP as it pertains to our real-life scenario. Please see the https://github.com/kubeflow/kfp-tekton/blob/master/sdk/FEATURES.md[kfp-tekton features, window=_blank] document for more advanced functionality. The https://github.com/kubeflow/kfp-tekton/blob/master/guides/advanced_user_guide.md[KFP Tekton Advanced User Guide, window=_blank] also has more information.
 ====
 
 === Pipeline Execution
@@ -409,7 +409,7 @@ include::example$sample-pipeline-full.py[lines=503..505]
 
 === Volume-based data passing method
 This approach uses a pre-created OpenShift storage volume (aka _PVC_) to pass data between the pipeline steps.
-An example of this is in the https://github.com/kubeflow/kfp-tekton/blob/master/sdk/python/tests/compiler/testdata/artifact_passing_using_volume.py[KFP compiler tests] which we will discuss here.
+An example of this is in the https://github.com/kubeflow/kfp-tekton/blob/master/sdk/python/tests/compiler/testdata/artifact_passing_using_volume.py[KFP compiler tests, window=_blank] which we will discuss here.
 
 First create the volume to be used and assign it to a variable:
 [source,python]

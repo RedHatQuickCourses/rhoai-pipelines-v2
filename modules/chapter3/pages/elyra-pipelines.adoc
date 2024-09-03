@@ -43,7 +43,7 @@ If the pipeline server is deployed post workbench creation, the runtime configur
 
  
  
-Refer to the https://elyra.readthedocs.io/en/latest/user_guide/runtime-conf.html#kubeflow-pipelines-configuration-settings[Elyra documentation] for more information about Elyra and the available runtime configuration options.
+Refer to the https://elyra.readthedocs.io/en/latest/user_guide/runtime-conf.html#kubeflow-pipelines-configuration-settings[Elyra documentation, window=_blank] for more information about Elyra and the available runtime configuration options.
 
 == Exercise: Offline scoring for fraud detection
 
