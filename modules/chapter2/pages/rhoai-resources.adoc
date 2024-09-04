@@ -12,15 +12,13 @@ Navigate to the Data Science Project section of the OpenShift AI Console /Dashbo
 
  .. Name:  `fraud-detection`
 
- .. Notebook Image:  `Standard Data Science`
+ .. Notebook Image:  `TensorFlow`
 
- .. Deployment Size:  select medium (small if working with resources)
+ .. Deployment Size:  select medium (small if working with limited resources)
 
- .. Leave the remaining options default.
-
- .. Optionally, scroll to the bottom, check the `Use data connection box`.
+ .. Scroll to the bottom, check the `Use data connection box`.
  
- .. Select *storage* from the dropdown to attach the storage bucket to the workbench.  
+ .. Select *my-storage* from the dropdown to attach the storage bucket to the workbench.  
 
  . Select the Create Workbench.
 
