@@ -8,9 +8,9 @@ Machine learning (ML) pipelines are a key part of the data science process, help
 
 === Data science pipeline benefits:
 
-*Modularization:* Pipelines enable you to break down the machine learning process into modular, well-defined steps. Each step can be developed, tested and optimized independently, making it easier to manage and maintain the workflow.
+ . *Modularization:* Pipelines enable you to break down the machine learning process into modular, well-defined steps. Each step can be developed, tested and optimized independently, making it easier to manage and maintain the workflow.
 
-*Reproducibility:* Machine learning pipelines make it easier to reproduce experiments. By defining the sequence of steps and their parameters in a pipeline, you can recreate the entire process exactly, ensuring consistent results. If a step fails or a model's performance deteriorates, the pipeline can be configured to raise alerts or take corrective actions.
+ . *Reproducibility:* Machine learning pipelines make it easier to reproduce experiments. By defining the sequence of steps and their parameters in a pipeline, you can recreate the entire process exactly, ensuring consistent results. If a step fails or a model's performance deteriorates, the pipeline can be configured to raise alerts or take corrective actions.
 
 *Experimentation:* You can experiment with different data preprocessing techniques, feature selections, and models by modifying individual steps within the pipeline. This flexibility enables for rapid iteration and optimization.
 

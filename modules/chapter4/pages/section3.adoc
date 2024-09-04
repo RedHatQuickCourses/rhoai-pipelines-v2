@@ -108,3 +108,72 @@ metadata:
 image::import-pipeline.png[title=Import Tekton YAML Resource File]
 
 . Enter *coin-toss-pipeline* in the `Pipeline name` field, provide a brief description and upload the `coin-toss.yaml` file. Click `Import pipeline` to import the pipeline.
+
+== Real World Example
+
+WARNING: This entire section is to cover some theoretical concepts around creating Kubeflow pipelines using the KFP SDK. You are *NOT* expected to run this in your set up since the system has numerous complex components which are missing in your runtime environment. Do *NOT* execute any code or commands in this section. This section is for informational and pedagogical purposes only!
+
+In this section we're going to demonstrate a real world Data Science Pipelines scenario. 
+
+****
+In this scenario we have a remote edge device which uses an AI model to manage the characteristics of its battery usage depending on the environment it's deployed in. On a regular schedule it uploads battery events via a data gateway, and those battery events are used to train a model which is then retrieved by the device and used. 
+
+image::openshift-ai-dsp-edge.png[title=AI/ML at the edge example]
+****
+
+The entire pipeline definition is available xref:attachment$sample-pipeline-full.py[here, window=_blank] for inspection. We're not going to go through all of it but focus on the key aspects of it. 
+
+The actual pipeline is defined by the following function:
+
+****
+[source,python]
+include::example$sample-pipeline-full.py[lines=445..454]
+****
+
+The *@dsl.pipeline* parameters provide the name and description if you were uploading the pipeline via an API call. The DSP UI can overwrite these values.
+
+The function *_edgetest_pipeline_* function is the implementation of the pipeline.
+
+=== Pipeline Parameters
+The pipeline has four parameters:
+
+* _file_obj_ and _src_bucket_ refer to S3 bucket details and can be ignored.
+* _VIN_ is the edge device identifier and has a default value of 412356.
+* _epoch_count_ is the number of training epochs to be used.
+
+In the _Create Run_ UI these parameters are available so that users can override the values as they need.
+
+****
+image::pipeline-parameters.png[]
+****
+
+=== Pipeline Steps
+The file contains the following Python functions, which roughly correspond to the steps in the diagram above
+
+* load_trigger_data()
+* prep_data_train_model()
+* model_upload_notify()
+* model_inference()
+
+These functions are mapped into individual containers by using the _create_component_from_func_ function. You can specify the container _base_image_ to use as well as any additional Python packages to be installed into the container at execution time.
+
+
+The Python functions can be used in multiple different step definitions; in the example the _prep_data_train_model_ function is used in the _prep_data_train_op_ and the _prep_inference_data_op_ containers.
+
+The pipeline execution _graph_ is created using the following code:
+
+
+
+[IMPORTANT] 
+====
+The execution order of the graph is top down but also can be controlled by using the *_.after()_* operator. 
+
+There are other operators which control the flow of pipeline execution such as _Condition_ , _ExitHandler_, _ParallelFor_ .
+These are not covered as part of this course but the https://github.com/kubeflow/pipelines/blob/master/samples/tutorials/DSL%20-%20Control%20structures/DSL%20-%20Control%20structures.py[KFP documentation, window=_blank] has examples.
+====
+
+The following diagram shows the order of execution.
+
+****
+image::pipeline-graph.png[]
+****

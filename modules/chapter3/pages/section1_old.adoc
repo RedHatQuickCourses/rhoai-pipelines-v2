@@ -1,5 +1,30 @@
 = notes - tbd
 
+
+[NOTE]
+====
+In Elyra, each pipeline step is implemented by a separate file such as Python modules in our example. In line with software development best practices, pipelines are best implemented in a modular fashion, i.e. across several components. This way, generic pipeline tasks like data ingestion can be re-used in many different pipelines addressing different use cases.
+====
+
+. Explore these Python modules to get an understanding of the workflow.
+
+
+ A few points of note:
++
+The two notebooks (`experiment_train & save_model`) access the S3 backend. Instead of hardcoding the connection parameters into the pipeline code, these parameters are instead read from the environment at runtime:
++
+```python
+s3_endpoint_url = environ.get('AWS_S3_ENDPOINT')
+s3_access_key = environ.get('AWS_ACCESS_KEY_ID')
+s3_secret_key = environ.get('AWS_SECRET_ACCESS_KEY')
+s3_bucket_name = environ.get('AWS_S3_BUCKET')
+```
++
+This approach is in line with best practices of handling credentials and allows us to control which S3 buckets are consumed in a given runtime context without changing the code. Importantly, these parameters are stored in a data connection, which is mounted into workbenches and pipeline pods to expose their values to the pipeline tasks.
++
+Three tasks (`preprocessing, scoring, results upload`) require access to files that were stored by previous tasks. This is not an issue if we execute the code within the same filesystem like in the workbench, *but since each task is later executed within a separate container in Data Science Pipelines, we can't assume that the tasks automatically have access to each other's files.* Note that the dataset and result files are stored and read within a given data folder (`/data`), while the model artifact is stored and read in the respective working directory. We will see later how Elyra is capable of handling data passing in these contexts.
+
+
 Demo - Data Science Pipelines
 
 – how does it look in OAI -
