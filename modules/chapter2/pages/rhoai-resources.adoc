@@ -12,20 +12,18 @@ Navigate to the Data Science Project section of the OpenShift AI Console /Dashbo
 
  .. Name:  `fraud-detection`
 
- .. Notebook Image:  `Standard Data Science`
+ .. Notebook Image:  `TensorFlow`
 
- .. Deployment Size:  select medium (small if working with resources)
+ .. Deployment Size:  select medium (small if working with limited resources)
 
- .. Leave the remaining options default.
-
- .. Optionally, scroll to the bottom, check the `Use data connection box`.
+ .. Scroll to the bottom, check the `Use data connection box`.
  
- .. Select *storage* from the dropdown to attach the storage bucket to the workbench.  
+ .. Select *my-storage* from the dropdown to attach the storage bucket to the workbench.  
 
  . Select the Create Workbench.
 
 [NOTE]
-Depending on the notebook image selected and the deployment size, it can take between 2-20 minutes for the container image to be fully deployed. The Open Link will be available when our container is fully deployed.  
+Depending on the notebook image selected and the deployment size, it can take between 2-20 minutes for the container image to be fully deployed. The *Open* link will be available when our container is fully deployed.  
 
 
 
@@ -35,14 +33,14 @@ Depending on the notebook image selected and the deployment size, it can take be
 
 == Open JupyterLab 
 
-JupyterLab enables you to work with documents and activities such as Jupyter notebooks, text editors, terminals, and custom components in a flexible, integrated, and extensible manner. For a demonstration of JupyterLab and its features, https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html#what-will-happen-to-the-classic-notebook[you can view this video.]
+JupyterLab enables you to work with documents and activities such as Jupyter notebooks, text editors, terminals, and custom components in a flexible, integrated, and extensible manner. For a demonstration of JupyterLab and its features, https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html#what-will-happen-to-the-classic-notebook[you can view this video., window=blank]
 
 
 Return to the fraud-detection workbench dashboard in the OpenShift AI console.
 
  . Select the *Open* link to the right of the status section of the fraud-detection workbench
-+
-image::oai_open_jupyter.png[width=640]
+//+
+//image::oai_open_jupyter.png[width=640]
 
  . When the new window opens, use the OpenShift admin user & password to login to JupyterLab. 
 
@@ -62,11 +60,9 @@ This takes us to the JupyterLab screen where we can select multiple options / to
 
 Our first action is to clone a git repository that contains a notebooks including an example notebook to familize yourself with the Jupiter notebook environment. 
 
-[NOTE}
-====
-Add github repo here 
-====
-
+```yaml
+https://github.com/rh-aiservices-bu/fraud-detection.git
+```
 
  . Copy the URL link above
 
@@ -75,10 +71,9 @@ Add github repo here
 image::clone_a_repo.png[width=640]
 
  . Paste the link into the *clone a repo* pop up,   make sure the *included submodules are checked*, then click the clone.
- 
- . Navigate to the XYZ_ADD_CORRECT_FOLDER_HERE folder:
 
- . Then open the file: ABC_ADD_CORRECT_FILE
+
+ . Then open the file: SandBox
 +
 image::navigate_ollama_notebook.png[width=640]
 

@@ -4,7 +4,7 @@ Elyra provides a visual pipeline editor for building pipelines from Python and R
 
 Elyra's visual pipeline editor lets you assemble pipelines by dragging and dropping supported files onto the canvas and defining their dependencies. After you've assembled the pipeline and are ready to run it, the editor takes care of generating the YAML definition on the fly and submitting it to the Data Science Pipelines backend.
 
-== Creating a Data Science Pipeline with Elyra
+== Data Science Pipeline with Elyra
 
 In order to create Elyra pipelines with the visual pipeline editor:
 
