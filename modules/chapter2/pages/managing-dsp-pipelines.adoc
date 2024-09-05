@@ -6,9 +6,10 @@
 
 Before you can successfully create a pipeline in OpenShift AI, you must configure a pipeline server. This task includes configuring where your pipeline artifacts and data are stored.
  
- * You have an existing S3-compatible object storage bucket and you have configured write access to your S3 bucket on your storage account.
+ * You have an existing S3-compatible object storage bucket and you have configured write access to your S3 bucket on your storage account. 
  * You have created a data science project that you can add a pipeline server to.
- * If you are configuring a pipeline server with an external database
+ * By default in RHOAI when a pipeline server is created it deploys a namespace mariaDB.
+ * If you are configuring a pipeline server with an external database.
  ** Red Hat recommends that you use MySQL version 8.x.
  ** Red Hat recommends that you use at least MariaDB version 10.5.
 
