@@ -46,11 +46,11 @@ Data science pipelines may consists of several key activities that are performed
 
 A single pipeline may include the ability to train multiple models, complete complex hyperparameter searches, or more.  Data Scientists can use a well crafted pipeline to quickly iterate on a model, adjust how data is transformed, test different algorithms, and more.  While the steps described above describe a common pattern for model training, different use cases and projects may have vastly different requirements and the tools and framework selected for creating a data science pipeline should help to enable a flexible design.
 
-=== Technical Knowledge
+=== RHOAI Data Science Pipeline Engine
 
 OpenShift AI uses Kubeflow pipelines with Argo workflows as the engine. Kubeflow provides a rich set of tools for managing ML workloads, while Argo workflows offer powerful automation capabilities. Together, they enable us to create robust, scalable, and manageable pipelines for AI model development and serving.
 
-Pipelines can include various components, such as data ingestion, data preprocessing, model training, evaluation, and deployment. These components can be configured to run in a specific order, and the pipeline can be executed multiple times to produce different versions of models or artifacts.
+Pipelines can include various components, such as data ingestion, data preprocessing, model training, evaluation, and deployment. _These components can be configured to run in a specific order, and the pipeline can be executed multiple times to produce different versions of models or artifacts._
 
 Additionally, pipelines can support control flows to handle complex dependencies between tasks. Once a pipeline is defined, executing it becomes a simple RUN command, and the status of each execution can be tracked and monitored, ensuring that the desired outputs are produced successfully.
 

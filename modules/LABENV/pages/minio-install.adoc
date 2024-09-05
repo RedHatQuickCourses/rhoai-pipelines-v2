@@ -200,7 +200,7 @@ image::minio_setup.gif[width=600]
 
 From the OCP Dashboard:
 
- . Select Networking / Routes from the navigation menu.
+ . Select Networking / Routes from the navigation menu. 
  
  . This will display two routes, one for the UI & another for the API.  (if the routes are not visible, make sure you have the project selected that matches your data sicence project created earlier)
 
@@ -223,7 +223,7 @@ Once logged into the MinIO Console:
 
    ..  *pipelines* 
 
-   ..  *storage*
+   ..  *my-storage*
 
    ..  *models* (optional) 
 

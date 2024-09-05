@@ -1,6 +1,6 @@
 = Data Science Pipeline Applications
 
-The *DataSciencePipelineApplication* (dspa) custom resource creates several pods that are necessary to utilize the tools.  This includes the creation of an API endpoint and a database where metadata is stored.  The API endpoint is used by the OpenShift AI Dashboard, as well as tools like *Elyra* and the *kfp* package to manage and execute pipelines.
+The *DataSciencePipelineApplication* (dspa) custom resource creates several pods that are necessary to utilize the tooling.  This includes the creation of an API endpoint and a database where metadata is stored.  The API endpoint is used by the OpenShift AI Dashboard, as well as tools like *Elyra* and the *kfp* package to manage and execute pipelines.
 
 image::dpsa_services.gif[width=600]
 
@@ -30,7 +30,7 @@ While a *DataSciencePipelineApplication* is a namespace scoped object, workbench
 
 Only one dpsa deployment can exist per data science project. (nampespace)
 
-== Exercise: Create a Data Science Pipeline Instance
+== Lab Exercise: Create a Data Science Pipeline Instance
 
 To begin we will use the *Minio* instance created with the lab environment to act as the S3 artifact storage for the *DataSciencePipelineApplication*.  
 
@@ -55,7 +55,7 @@ Bucket: pipelines
 ```
 +
 ```
-Name: storage
+Name: my-storage
 Access key: minio
 Secret key: minio321!
 Endpoint: http://minio-service.pipelines-example.svc:9000
@@ -84,11 +84,11 @@ image::pipeline_server_setup.gif[width=600]
 //+
 //image::create-dspa-create-pipeline-server.png[]
 
-. Click the key icon in the right side of the `Access Key` field, and select the `data-science-pipelines` data connection. The fields in the form are automatically populated.
+. Click the key icon in the right side of the `Access Key` field, and select the `pipelines` data connection. The fields in the form are automatically populated.
 //+
 //image::create-dspa-configure-pipeline-server.png[]
 
-. Click `Configure pipeline server`. After several seconds, the loading icon should complete and the `Pipelines` section will now show an option to `Import pipeline` along with a message that says `No pipelines`.
+. Click `Configure pipeline server`. After several seconds, the loading icon should complete and the `Pipelines` section will now show an option to `Import pipeline`.
 //+
 //image::create-dspa-verify-pipeline-server.png[]
 

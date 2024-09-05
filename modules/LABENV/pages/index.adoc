@@ -31,9 +31,9 @@ Red Hat OpenShift Operators automate the creation, configuration, and management
 
 Included in Red Hat OpenShift is the Embedded OperatorHub, a registry of certified Operators from software vendors and open source projects. Within the Embedded OperatorHub you can browse and install a library of Operators that have been verified to work with Red Hat OpenShift and that have been packaged for easy lifecycle management.
 
-== Lab: Installation of Red Hat OpenShift AI
+== Lab Exercise: Installation of Red Hat OpenShift AI
 
-This section will discuss the process for installing the dependent operators using the OpenShift Web Console.
+This section will discuss the process for installing the dependent operators using the OpenShift Web Console. ( ~15 minutes )
 
 IMPORTANT: The installation requires a user with the _cluster-admin_ role
 
@@ -41,7 +41,7 @@ This exercise uses the Red Hat Demo Platform; specifically the OpenShift Contain
 
 . Login to the Red Hat OpenShift using a user which has the _cluster-admin_ role assigned.
 
-. Navigate to **Operators** -> **OperatorHub** and search for each of the following Operators individually.  Click on the button or tile for each. In the pop up window that opens, ensure you select the latest version in the *stable* channel and click on **Install** to open the operator's installation view. For this lab you can skip the installation of the optional operators.
+. Navigate to **Operators** -> **OperatorHub** and search for each of the following Operators individually. For this lab you can skip the installation of the optional operators.
 
 [*] You do not have to wait for the previous Operator to complete before installing the next. For this lab you can skip the installation of the optional operators as there is no accelerator required.
 // Should this be a note?

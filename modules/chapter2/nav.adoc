@@ -1,4 +1,4 @@
 * xref:index.adoc[]
-** xref:managing-dsp-pipelines.adoc[]
+//** xref:managing-dsp-pipelines.adoc[]
 ** xref:data-science-pipeline-app.adoc[]
 ** xref:rhoai-resources.adoc[]
