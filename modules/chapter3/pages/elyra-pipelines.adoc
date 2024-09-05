@@ -45,30 +45,10 @@ In order to create Elyra pipelines with the visual pipeline editor:
 * Once the pipeline is complete, you can submit it to the Data Science Pipelines engine.
 
 
-== Exercise: Offline scoring for fraud detection
+== Lab Exercise: Fraud Detection Pipeline
 
 
 === Working with Elyra
-
-==== Exploring the Code
-
-Once the `fraud-detection` workbench has successfully started, we will being the process of exploring and building our pipeline.
-
-. Ensure that the `fraud-detection` workbench is in `Running` state. Click the `Open` link on the far right of the work bench menu. Log in to the workbench as the `admin` user. If you are running the workbench for the first time, click `Allow selected permissions` in the `Authorize Access` page to open the Jupyter Notebook interface.
-
-== In Jupyter Clone Repository for Fraud-Detection
-. If you haven't already, clone the git repository below in the Jupyter notebook:
-+
-```
-https://github.com/rh-aiservices-bu/fraud-detection.git
-```
-
-. Double click or open the fraud-detection folder in the explorer window
-
-image::elyra_pipeline_nodes.gif[width=600]
-
-
-=== Building the Pipeline
 
 Let's now use Elyra to package the code into a pipeline and submit it to the Data Science Pipelines backend in order to:
 
@@ -76,7 +56,29 @@ Let's now use Elyra to package the code into a pipeline and submit it to the Dat
 * Keep track of the pipeline execution along with the previous executions.
 * Be able to control resource usage of individual pipeline tasks in a fine-grained manner.
 
+==== Review opening JupyterLab
+
+Once the `fraud-detection` workbench has successfully started, we will being the process of exploring and building our pipeline.
+
+. Ensure that the `fraud-detection` workbench is in `Running` state. Click the `Open` link on the far right of the work bench menu. Log in to the workbench as the `admin` user. If you are running the workbench for the first time, click `Allow selected permissions` in the `Authorize Access` page to open the Jupyter Notebook interface.
+
+=== In Jupyter Clone Repository for Fraud-Detection
+. If you haven't already, clone the git repository below in the Jupyter notebook:
++
+```
+https://github.com/rh-aiservices-bu/fraud-detection.git
+```
+
+. Double click or open the *fraud-detection folder* in the explorer window
+
+
+== Lab Exercise: Building the Pipeline
+
+image::elyra_pipeline_nodes.gif[width=600]
+
 . Click on the `Pipeline Editor` tile in the launcher menu. This opens up Elyra's visual pipeline editor. You will use the visual pipeline editor to drag-and-drop files from the file browser onto the canvas area. These files then define the individual tasks of your pipeline.
+
+. Rename the pipeline file to `fraud-detection-elyra.pipeline` and hit `Save Pipeline` in the top toolbar.
 
 . Drag the `experiment_train.ipynb` notebook onto the empty canvas.  This will allow the pipeline to ingest the data we want to classify, pre-process the data, train a model, and run a sample test to validate the model is working as intended.
 +
@@ -114,13 +116,15 @@ Before we can submit our pipeline, we have to configure the pipeline to specify:
 
 .. Select the `PIPELINE PROPERTIES` tab of the settings menu. Configurations in this section apply defaults to all nodes in the pipeline.
 
-.. Scroll down to `Generic Node Defaults` and click on the drop down menu of `Runtime Image`. Select the `fraud detection runtime` that we previously defined.
+.. Scroll down to `Generic Node Defaults` and click on the drop down menu of `Runtime Image`. Select the `TensorFlow with Cuda and Python 3.9 (UBI)` runtime image.
 +
 image::experiment_node_config.gif[width=600]
 +
 NOTE: Do not select any of the nodes in the canvas when you open the panel. You will see the `PIPELINE PROPERTIES` tab only when none of the nodes are selected. Click anywhere on the canvas and then open the panel.
 
-. Next we will configure the data connection to the `my-storage` bucket as a Kubernetes secret.  In the `PIPELINE PROPERTIES` section, click `Add` beneath the `Kubernetes Secrets` section and add the following five entries:
+. Next we will configure the data connection to the `my-storage` bucket as a Kubernetes secret.  By default these secrets are created in the environment variable of pipeline properties, but need to be located in the Kubernetes secrets to be used in the pipeline. Copy entries from the environment variables section; add these in the kubernetes secrets for save_model (node2) task in Elyra.  
+
+. In the `PIPELINE PROPERTIES` section, click `Add` beneath the `Kubernetes Secrets` section and add the following five entries:
 +
 --
 * `AWS_ACCESS_KEY_ID`
@@ -133,32 +137,33 @@ NOTE: Do not select any of the nodes in the canvas when you open the panel. You 
 Each parameter will include the following options:
 +
 --
-* `Environment Variable`: the parameter name
+* `Environment Variable`: *the parameter name*
 * `Secret Name`: `aws-connection-my-storage` (the name of the Kubernetes secret belonging to the data connection)
-* `Secret Key`: the parameter name
+* `Secret Key`: *the parameter name*
 --
 +
-//image::pipeline-config-3.png[]
-+
-[NOTE]
-====
-A data connection in OpenShift AI is a standard Kubernetes secret that adheres to a specific format.  A data connection name is always pre-pended with `aws-connection-`.  To explore the data connection you can find the secret in the `Workloads` -> `Secrets` menu in the OpenShift Web Console.
-====
+image::save_model_storage.gif[width=600]
 +
 [NOTE]
 ====
 The AWS default region is another parameter in the data connection, which is used for AWS S3-based connections. 
 ====
 
-. Next we will configure the data to be passed between the nodes. Click on the `model_loading.py` node. If you're still in the configuration menu, you should now see the `NODE PROPERTIES` tab. If not, right-click on the node and select `Open Properties`.
+. Next we will configure the data to be passed between the nodes. Click on the `experiment_train` node. If you're still in the configuration menu, you should now see the `NODE PROPERTIES` tab. If not, right-click on the node and select `Open Properties`.
 +
 //image::pipeline-config-4.png[]
 
 . Under `Runtime Image` and `Kubernetes Secrets`, you can see that the global pipeline settings are used by default.
 
+image::experiment_node_config_2.gif[width=600]
+
+. In the `File Dependencies` section, you can declare one or more _input files_. These input files are consumed by this pipeline task as the data needed to train to the model.
+
+.. Under file dependencies *click add*, next select browse and choose the data/card_transdata.csv file which provides a sampling of credit card to be used. 
+
 . In the `Outputs` section, you can declare one or more _output files_. These output files are created by this pipeline task and are made available to all subsequent tasks.
 
-. Click `Add` in the `Outputs` section and input `models/fraud/1/model.onnx`. This ensures that the downloaded model artifact is available to downstream tasks, including the `save_models` task.
+.. Click `Add` in the `Outputs` section and input `models/fraud/1/model.onnx`. This ensures that the downloaded model artifact is available to downstream tasks, including the `save_models` task.
 +
 //image::pipeline-config-5.png[]
 +
@@ -184,15 +189,14 @@ Output files are automatically managed by Data Science Pipelines, and stored in 
 We could have declared the data volume as a global pipeline property for simplicity. However, this would have prevented parallel execution of model loading and data ingestion/preprocessing since data volumes can only be used by a single task by default.
 ====
 
-. Rename the pipeline file to `fraud-detection-elyra.pipeline` and hit `Save Pipeline` in the top toolbar.
-+
-//image::pipeline-config-7.png[]
 
 ==== Running the pipeline
 
 We have now fully created and configured the pipeline, so let's now see it in action!
 
 . In the visual editor, click on the *Play* icon (`Run Pipeline`). Leave the default values and hit `OK`.
+
+image::elyra_pipeline_submit.gif[width=600]
 +
 [TIP]
 ====
@@ -200,7 +204,7 @@ We have now fully created and configured the pipeline, so let's now see it in ac
 
 If you wish to use *DataSciencePipelinesApplication* that is located in a different namespace from your workbench you can manually configure an execution environment.
 ====
-+
+
 [WARNING]
 ====
 If you configure the pipeline server after you have created a workbench and specified a notebook image within the workbench, you will not be able to execute the pipeline, even after restarting the notebook.

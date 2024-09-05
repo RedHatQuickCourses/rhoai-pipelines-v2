@@ -1,3 +1,11 @@
 = KFP SDK
 
-write imported pipelines section.  
+Red Hat OpenShift AI offers two out-of-the-box mechanisms to work with Data Science Pipelines in terms of building and running machine learning pipelines.
+
+The first mechanism is the *Elyra Pipelines* JupyterLab extension, which provides a visual editor for creating pipelines based on Jupyter notebooks as well as `Python` or `R` scripts. 
+
+The second mechanism, and the one discussed here is based on the *Kubeflow Pipelines SDK*. With the SDK, pipelines are built using `Python` scripts and submitted to the Data Science Pipelines runtime to be scheduled for execution.
+
+While the Elyra extension offers an easy to use visual editor to compose pipelines, and is generally used for simple workflows, the Kubeflow Pipelines SDK (*kfp*) offers a flexible Python Domain Specific Language (DSL) API to create pipelines from Python code. This approach offers you flexibility in composing complex workflows and has the added benefit of offering all the Python tooling, frameworks and developer experience that comes with writing Python code.
+
+OpenShift AI uses the *_Argo Wotkflows_* runtime to execute pipelines, which is why your Kubeflow pipeline containing Python code needs to be compiled into a yaml definition before it can be submitted to the runtime. Steps in the pipeline are executed as ephemeral pods (one per step).
