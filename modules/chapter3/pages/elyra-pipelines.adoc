@@ -183,7 +183,7 @@ Output files are automatically managed by Data Science Pipelines, and stored in 
 
 `Mount Volumes` can be helpful when a large amount of files, or a large dataset is required to be stored.  `Mount Volumes` also have the ability to persist data between runs of a pipeline, which can allow a volume to act as a cache for files between executions.
 ====
-+
+
 [NOTE]
 ====
 We could have declared the data volume as a global pipeline property for simplicity. However, this would have prevented parallel execution of model loading and data ingestion/preprocessing since data volumes can only be used by a single task by default.
@@ -197,7 +197,7 @@ We have now fully created and configured the pipeline, so let's now see it in ac
 . In the visual editor, click on the *Play* icon (`Run Pipeline`). Leave the default values and hit `OK`.
 
 image::elyra_pipeline_submit.gif[width=600]
-+
+
 [TIP]
 ====
 *Data Science Pipelines* should be selected as the default execution environment automatically when starting the pipeline run. OpenShift AI will automatically configure and select the *DataSciencePipelinesApplication* instance we created previously as the default execution environment. This will happen provided the *DataSciencePipelinesApplication* was created before the workbench was started and it is located in the same namespace as the workbench.
@@ -239,7 +239,7 @@ Save your changes.
 . In the `Scheduled` tab you're able to schedule runs of the offline scoring pipeline according to a predefined schedule such as daily or according to a Cron statement.
 +
 //image::pipeline-scheduled.png[]
-+
+
 [WARNING]
 ====
 Pipeline versioning implemented in Data Science Pipelines.
@@ -258,7 +258,7 @@ Let's finally peek behind the scenes and inspect the S3 bucket that Elyra and Da
 * `artifacts`: A folder used by Data Science Pipelines to store the metadata of each pipeline task for each pipeline run.
 * One folder for each pipeline run with name `[pipeline-name]-[timestamp]`. These folders are managed by Elyra and contain all file dependencies, log files, and output files of each task.
 --
-+
+
 [NOTE]
 ====
 The logs from the Pipeline submitted from Elyra will show generic task information and logs, including showing the execution of our python files as a subtask.  Log details from our code is not recorded in the pipeline logs.  
