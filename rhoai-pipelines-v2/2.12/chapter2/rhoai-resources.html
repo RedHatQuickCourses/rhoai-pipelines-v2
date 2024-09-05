@@ -77,9 +77,6 @@
     <a class="nav-link" href="index.html">Data Science Pipelines</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="managing-dsp-pipelines.html">RHOAI Pipeline Overview</a>
-  </li>
-  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="data-science-pipeline-app.html">Data Science Pipeline Applications</a>
   </li>
   <li class="nav-item is-current-page" data-depth="2">
@@ -166,7 +163,7 @@
 <article class="doc">
 <h1 class="page">OpenShift AI Resources</h1>
 <div class="sect1">
-<h2 id="_creating_a_workbench"><a class="anchor" href="#_creating_a_workbench"></a>Creating a WorkBench</h2>
+<h2 id="_lab_exercise_creating_a_workbench"><a class="anchor" href="#_lab_exercise_creating_a_workbench"></a>Lab Exercise: Creating a WorkBench</h2>
 <div class="sectionbody">
 <div class="imageblock">
 <div class="content">
@@ -174,7 +171,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Navigate to the Data Science Project section of the OpenShift AI Console /Dashboard. Select the fraud-detection project.</p>
+<p>Navigate to the Data Science Project section of the OpenShift AI Console / Dashboard. Select the fraud-detection project.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -220,29 +217,23 @@ Depending on the notebook image selected and the deployment size, it can take be
 </div>
 </div>
 <div class="sect1">
-<h2 id="_jupyter_notebooks"><a class="anchor" href="#_jupyter_notebooks"></a>Jupyter Notebooks</h2>
-<div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="_open_jupyterlab"><a class="anchor" href="#_open_jupyterlab"></a>Open JupyterLab</h2>
+<h2 id="_lab_exercise_access_jupyterlab"><a class="anchor" href="#_lab_exercise_access_jupyterlab"></a>Lab Exercise: Access JupyterLab</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>JupyterLab enables you to work with documents and activities such as Jupyter notebooks, text editors, terminals, and custom components in a flexible, integrated, and extensible manner. For a demonstration of JupyterLab and its features, <a href="https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html#what-will-happen-to-the-classic-notebook" target="_blank" rel="noopener">you can view this video.</a></p>
 </div>
 <div class="paragraph">
-<p>Return to the fraud-detection workbench dashboard in the OpenShift AI console.</p>
+<p>Return to the <code>fraud-detection</code> workbench dashboard in the OpenShift AI console.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/logon_jupyterlab.gif" alt="logon jupyterlab" width="600">
+</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>Select the <strong>Open</strong> link to the right of the status section of the fraud-detection workbench</p>
-<div class="imageblock unresolved">
-<div class="content">
-<img src="oai_open_jupyter.png" alt="oai open jupyter" width="640">
-</div>
-</div>
 </li>
 <li>
 <p>When the new window opens, use the OpenShift admin user &amp; password to login to JupyterLab.</p>
@@ -280,22 +271,22 @@ If the <strong>OPEN</strong> link for the notebook is grayed out, the notebook c
 </div>
 </div>
 <div class="sect1">
-<h2 id="_inside_jupyterlab"><a class="anchor" href="#_inside_jupyterlab"></a>Inside JupyterLab</h2>
+<h2 id="_lab_exercise_working_with_files_in_jupyterlab"><a class="anchor" href="#_lab_exercise_working_with_files_in_jupyterlab"></a>Lab Exercise: Working with files in JupyterLab</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This takes us to the JupyterLab screen where we can select multiple options / tools / to work to begin our data science experimentation.</p>
 </div>
 <div class="paragraph">
-<p>Our first action is to clone a git repository that contains a notebooks including an example notebook to familize yourself with the Jupiter notebook environment.</p>
+<p>Our first action is to clone a git repository that contains notebooks including an sample notebook to familize yourself with the Jupiter notebook environment.</p>
 </div>
-<div class="paragraph">
-<p>[NOTE}</p>
-</div>
-<div class="exampleblock">
+<div class="imageblock">
 <div class="content">
-<div class="paragraph">
-<p>Add github repo here</p>
+<img src="_images/clone_repo_jupyter.gif" alt="clone repo jupyter" width="600">
 </div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">https://github.com/rh-aiservices-bu/fraud-detection.git</code></pre>
 </div>
 </div>
 <div class="olist arabic">
@@ -315,20 +306,18 @@ If the <strong>OPEN</strong> link for the notebook is grayed out, the notebook c
 <p>Paste the link into the <strong>clone a repo</strong> pop up,   make sure the <strong>included submodules are checked</strong>, then click the clone.</p>
 </li>
 <li>
-<p>Navigate to the XYZ_ADD_CORRECT_FOLDER_HERE folder:</p>
+<p>Navigate to the <code>fraud-detection</code> folder:</p>
 </li>
 <li>
-<p>Then open the file: ABC_ADD_CORRECT_FILE</p>
-<div class="imageblock unresolved">
-<div class="content">
-<img src="navigate_ollama_notebook.png" alt="navigate ollama notebook" width="640">
-</div>
-</div>
+<p>Then open the file: 0_sandbox.ipynb</p>
 </li>
 <li>
-<p>Explore the notebook, and then continue.</p>
+<p>Follow the directions in the notebook to explore Jupyter.</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>Continue onto the next section: Creating Pipelines with Elyra.</p>
 </div>
 </div>
 </div>

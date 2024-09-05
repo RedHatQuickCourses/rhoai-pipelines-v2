@@ -75,9 +75,6 @@
     <a class="nav-link" href="index.html">Data Science Pipelines</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="managing-dsp-pipelines.html">RHOAI Pipeline Overview</a>
-  </li>
-  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="data-science-pipeline-app.html">Data Science Pipeline Applications</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -162,7 +159,63 @@
 </aside>
 <article class="doc">
 <h1 class="page">kubeflow</h1>
-
+<div class="sect1">
+<h2 id="_why_pipelines"><a class="anchor" href="#_why_pipelines"></a>Why Pipelines</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Help break complex AI tasks into multi step workloads that is more maintainable and reusable
+Each step can be optimized for specific accelerators, configured and automated individually.
+Complex training tasks that require optimizations, validations, scoring, data analysis, parallel training.
+caching steps
+Track and Versions
+Different algorithms models and architecture to select the best combination
+Keep track of variables and configurations.
+Compare experiments to select the best one
+Gain insights between inputs and results produced
+Version the changes across the experiments - track versions, changes, outcomes</p>
+</div>
+<div class="sect2">
+<h3 id="_how_do_we_do_it"><a class="anchor" href="#_how_do_we_do_it"></a>How do we do it?</h3>
+<div class="paragraph">
+<p>DSP - helps data scientists track, automate, and version</p>
+</div>
+<div class="paragraph">
+<p>Data scientist can Configure a pipeline
+Which is sequence of components or tasks
+Represented by a directed acyclic graph. DAG</p>
+</div>
+<div class="paragraph">
+<p>Visualization of the sequence of tasks, also track outputs or artifcacts produced</p>
+</div>
+<div class="paragraph">
+<p>Pipeline control flows such as loops</p>
+</div>
+<div class="paragraph">
+<p>Pipeline is only a definition. - different versions of pipelines.
+Executing a pipeline definition become a RUN
+Understand the status of each of the executions
+Were the artifacts produced successfully.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_two_basic_principles"><a class="anchor" href="#_two_basic_principles"></a>Two basic principles:</h3>
+<div class="paragraph">
+<p>Automate - Automated reduced human error
+Track and version inputs &amp; outputs of your model lifecycle to improve AI solution quality.</p>
+</div>
+<div class="paragraph">
+<p>Automation - Separated by Role
+Inner  loop -  Model Development
+Outer Loop - Model serving &amp; availability
+Monitoring and metrics
+Tools of the data scientist:
+Choice is notebooks &amp; python for AI Model Development
+Create notebooks that can automate the whole lifecycle process
+Package model -</p>
+</div>
+</div>
+</div>
+</div>
 </article>
   </div>
 </main>

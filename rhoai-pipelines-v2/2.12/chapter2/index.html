@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Data Science Pipelines :: RHOAI Data Science Pipelines</title>
     <link rel="prev" href="../chapter1/dsp-concepts.html">
-    <link rel="next" href="managing-dsp-pipelines.html">
+    <link rel="next" href="data-science-pipeline-app.html">
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -76,9 +76,6 @@
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="index.html">Data Science Pipelines</a>
 <ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="managing-dsp-pipelines.html">RHOAI Pipeline Overview</a>
-  </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="data-science-pipeline-app.html">Data Science Pipeline Applications</a>
   </li>
@@ -165,65 +162,45 @@
 <article class="doc">
 <h1 class="page">Data Science Pipelines</h1>
 <div class="sect1">
-<h2 id="_why_pipelines"><a class="anchor" href="#_why_pipelines"></a>Why Pipelines</h2>
+<h2 id="_managing_data_science_pipelines_2_0"><a class="anchor" href="#_managing_data_science_pipelines_2_0"></a>Managing Data Science Pipelines 2.0</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Help break complex AI tasks into multi step workloads that is more maintainable and reusable
-Each step can be optimized for specific accelerators, configured and automated individually.
-Complex training tasks that require optimizations, validations, scoring, data analysis, parallel training.
-caching steps
-Track and Versions
-Different algorithms models and architecture to select the best combination
-Keep track of variables and configurations.
-Compare experiments to select the best one
-Gain insights between inputs and results produced
-Version the changes across the experiments - track versions, changes, outcomes</p>
-</div>
 <div class="sect2">
-<h3 id="_how_do_we_do_it"><a class="anchor" href="#_how_do_we_do_it"></a>How do we do it?</h3>
+<h3 id="_configuring_a_pipeline_server"><a class="anchor" href="#_configuring_a_pipeline_server"></a>Configuring a pipeline server</h3>
 <div class="paragraph">
-<p>DSP - helps data scientists track, automate, and version</p>
+<p>Before you can successfully create a pipeline in OpenShift AI, you must configure a pipeline server. This task includes configuring where your pipeline artifacts and data are stored.</p>
 </div>
-<div class="paragraph">
-<p>Data scientist can Configure a pipeline
-Which is sequence of components or tasks
-Represented by a directed acyclic graph. DAG</p>
+<div class="ulist">
+<ul>
+<li>
+<p>You have an existing S3-compatible object storage bucket and you have configured write access to your S3 bucket on your storage account.</p>
+</li>
+<li>
+<p>You have created a data science project that you can add a pipeline server to.</p>
+</li>
+<li>
+<p>By default in RHOAI when a pipeline server is created it deploys a namespace mariaDB.</p>
+</li>
+<li>
+<p>If you are configuring a pipeline server with an external database.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Red Hat recommends that you use MySQL version 8.x.</p>
+</li>
+<li>
+<p>Red Hat recommends that you use at least MariaDB version 10.5.</p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p>Visualization of the sequence of tasks, also track outputs or artifcacts produced</p>
-</div>
-<div class="paragraph">
-<p>Pipeline control flows such as loops</p>
-</div>
-<div class="paragraph">
-<p>Pipeline is only a definition. - different versions of pipelines.
-Executing a pipeline definition become a RUN
-Understand the status of each of the executions
-Were the artifacts produced successfully.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_two_basic_principles"><a class="anchor" href="#_two_basic_principles"></a>Two basic principles:</h3>
-<div class="paragraph">
-<p>Automate - Automated reduced human error
-Track and version inputs &amp; outputs of your model lifecycle to improve AI solution quality.</p>
-</div>
-<div class="paragraph">
-<p>Automation - Separated by Role
-Inner  loop -  Model Development
-Outer Loop - Model serving &amp; availability
-Monitoring and metrics
-Tools of the data scientist:
-Choice is notebooks &amp; python for AI Model Development
-Create notebooks that can automate the whole lifecycle process
-Package model -</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
 <nav class="pagination">
   <span class="prev"><a href="../chapter1/dsp-concepts.html">Data Science Pipeline Concepts</a></span>
-  <span class="next"><a href="managing-dsp-pipelines.html">RHOAI Pipeline Overview</a></span>
+  <span class="next"><a href="data-science-pipeline-app.html">Data Science Pipeline Applications</a></span>
 </nav>
 </article>
   </div>

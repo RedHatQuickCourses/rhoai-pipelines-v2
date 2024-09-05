@@ -77,9 +77,6 @@
     <a class="nav-link" href="../chapter2/index.html">Data Science Pipelines</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter2/managing-dsp-pipelines.html">RHOAI Pipeline Overview</a>
-  </li>
-  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../chapter2/data-science-pipeline-app.html">Data Science Pipeline Applications</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -168,55 +165,26 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Red Hat OpenShift AI offers two out-of-the-box mechanisms to work with Data Science Pipelines in terms of building and running machine learning pipelines.</p>
+<p>In the previous section, we created a two task pipeline by using the Elyra GUI pipeline editor. It’s often desirable to create pipelines by using code that can be version-controlled and shared with others. The kfp SDK provides a Python API for creating pipelines. The SDK is available as a Python package that you can install by using the <code>pip install kfp</code> command. With this package, you can use Python code to create a pipeline and then compile it to YAML format. Then we can import the YAML code into OpenShift AI.</p>
 </div>
 <div class="paragraph">
-<p>The first mechanism is the <strong>Elyra Pipelines</strong> JupyterLab extension, which provides a visual editor for creating pipelines based on Jupyter notebooks as well as <code>Python</code> or <code>R</code> scripts.</p>
-</div>
-<div class="paragraph">
-<p>The second mechanism, and the one discussed here is based on the <strong>Kubeflow Pipelines SDK</strong>. With the SDK, pipelines are built using <code>Python</code> scripts and submitted to the Data Science Pipelines runtime to be scheduled for execution.</p>
-</div>
-<div class="paragraph">
-<p>While the Elyra extension offers an easy to use visual editor to compose pipelines, and is generally used for simple workflows, the Kubeflow Pipelines SDK (<strong>kfp</strong>) offers a flexible Python Domain Specific Language (DSL) API to create pipelines from Python code. This approach offers you flexibility in composing complex workflows and has the added benefit of offering all the Python tooling, frameworks and developer experience that comes with writing Python code.</p>
-</div>
-<div class="paragraph">
-<p>OpenShift AI uses the <strong><em>Argo Wotkflows</em></strong> runtime to execute pipelines, which is why your Kubeflow pipeline containing Python code needs to be compiled into a yaml definition before it can be submitted to the runtime. Steps in the pipeline are executed as ephemeral pods (one per step).</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Data Science Pipelines in Red Hat OpenShift AI are managed by the <strong>data-science-pipelines-operator-controller-manager</strong> operator in the <strong>redhat-ods-applications</strong> namespace. The Custom Resource (CR) is an instance of <strong>datasciencepipelinesapplications.datasciencepipelinesapplications.opendatahub.io</strong>.</p>
-</div>
-</td>
-</tr>
-</table>
+<p>This course does not delve into the details of how to use the SDK. Instead, it provides the files for you to view and upload.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercise_creating_a_simple_data_science_pipeline_with_the_kfp_sdk"><a class="anchor" href="#_exercise_creating_a_simple_data_science_pipeline_with_the_kfp_sdk"></a>Exercise: Creating a Simple Data Science Pipeline with the KFP SDK</h2>
+<h2 id="_exercise_importing_a_data_science_pipeline"><a class="anchor" href="#_exercise_importing_a_data_science_pipeline"></a>Exercise: Importing a Data Science Pipeline</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Continue to use the <code>fraud-detection</code> Data Science Project that you created in the previous section. Ensure you complete the exercises in the previous section on Elyra. You will reuse several components from the previous exercise.</p>
+<p>Continue to use the <code>fraud-detection</code> Data Science Project that you created in the previous section. We won&#8217;t need a workbench in this section, but you should have completed all exercises through the Data Science Pipelines section of the course.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>In the RHOAI side navigation menu, click `Data Science Pipelines &gt; Pipelines`It&#8217;s possible to click on the graph nodes to reveal information of the steps.</p>
-</li>
-<li>
-<p>Once the pipeline has completed, it is possible to access the output and pipeline artifacts (if used) in the object storage browser of the Minio web console. Open the Minio web console (you installed and configured Minio in the previous exercise on Elyra pipelines).</p>
-<div class="paragraph">
-<p>In the Minio web console, click <code>Object Browser &gt; data-science-pipelines &gt; artifacts &gt; PIPELINE_NAME-XXX</code>, where <code>xxxxx</code> is a randomly generated number for the pipeline run. You should the output artifacts generated by the pipeline.</p>
-</div>
 </li>
 </ol>
 </div>
