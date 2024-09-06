@@ -14,7 +14,7 @@ image::pipeline_runtime_config.gif[width=600]
 
 If the pipeline server is deployed post workbench creation, the runtime configuration will not appear in Jupyter notebooks and there are two options to establish the pipeline. 
 
-  . Make a change to the workbench by adding an environment variable
+  . Make a change to the workbench by adding an irrelevant environment variable (recommended)
 
   . Manually create the runtime configuration
 
@@ -37,6 +37,7 @@ Refer to the https://elyra.readthedocs.io/en/latest/user_guide/runtime-conf.html
 In order to create Elyra pipelines with the visual pipeline editor:
 
 * Launch JupyterLab with the Elyra extension installed.
+** select a workbench / notebook image with Elyra installed
 * Create a new pipeline by clicking on the Elyra `Pipeline Editor` icon.
 * Add each node to the pipeline by dragging and dropping notebooks or scripts from the file browser onto the pipeline editor canvas.
 * Connect the nodes to define the flow of execution.
@@ -92,14 +93,14 @@ image::elyra_pipeline_nodes.gif[width=600]
 +
 //image::pipeline-3.png[]
 +
-You should now see the two nodes connected through a solid line. We have now defined a simple pipeline with two tasks, which are executed sequentially, first experiment_train to product a model articfact, then save-model to move the model to workbench S3 storage.
+You should now see the two nodes connected through a solid line. We have now defined a simple pipeline with two tasks, which are executed sequentially, first experiment_train to produce a model articfact, then save-model to move the model to workbench S3 storage.
 +
 [NOTE]
 ====
 By visually defining pipeline tasks and connections, we can define _graphs_ spanning many nodes and interconnections. Elyra and Data Science Pipelines support the creation and execution of arbitrary _directed acyclic graphs_ (DAGs), i.e. graphs with a sequential order of nodes and without loops.
 ====
 
-We have now created the final graph representation of the fraud detection pipeline using the two of five available notebooks. With this we have fully defined the full pipeline code and its order of execution. 
+We have now created the final graph representation of the fraud detection pipeline using the two of five available notebooks. With this we have fully defined the pipeline code and its order of execution. 
 
 
 ==== Configuring the pipeline
@@ -122,7 +123,9 @@ image::experiment_node_config.gif[width=600]
 +
 NOTE: Do not select any of the nodes in the canvas when you open the panel. You will see the `PIPELINE PROPERTIES` tab only when none of the nodes are selected. Click anywhere on the canvas and then open the panel.
 
-. Next we will configure the data connection to the `my-storage` bucket as a Kubernetes secret.  By default these secrets are created in the environment variable of pipeline properties, but need to be located in the Kubernetes secrets to be used in the pipeline. Copy entries from the environment variables section; add these in the kubernetes secrets for save_model (node2) task in Elyra.  
+. Next we will configure the data connection to the `my-storage` bucket as a Kubernetes secret.  
+.. By default these secrets are created in the environment variable section in pipeline properties 
+.. They need to be located in the Kubernetes secrets section of pipeline properties.   
 
 . In the `PIPELINE PROPERTIES` section, click `Add` beneath the `Kubernetes Secrets` section and add the following five entries:
 +
@@ -134,7 +137,7 @@ NOTE: Do not select any of the nodes in the canvas when you open the panel. You 
 * `AWS_DEFAULT_REGION`
 --
 + 
-Each parameter will include the following options:
+Each Kubernetes Secret parameter will include the following options:
 +
 --
 * `Environment Variable`: *the parameter name*
@@ -146,7 +149,7 @@ image::save_model_storage.gif[width=600]
 +
 [NOTE]
 ====
-The AWS default region is another parameter in the data connection, which is used for AWS S3-based connections. 
+The AWS default region is another parameter in the data connection, which is used for AWS S3-based connections. My experience is that if this field is missing the pipeline will fail to connect regardless of the storage system used.
 ====
 
 . Next we will configure the data to be passed between the nodes. Click on the `experiment_train` node. If you're still in the configuration menu, you should now see the `NODE PROPERTIES` tab. If not, right-click on the node and select `Open Properties`.

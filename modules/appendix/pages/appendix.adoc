@@ -1,3 +1,18 @@
 = Appendix A
 
-Content for Appendix A...
+Additional training examples to understand the resources available in RHOAI. 
+
+== Fraud Detection workshop with Red Hat OpenShift AI
+
+Thanks to the Red Hat Developer team for an excellent workshop.  Parts of this workshop where used in the Elyra section of this course. If you would like the full experience, you can use the RHOAI environment from this course to complete the workshop.  
+
+https://rh-aiservices-bu.github.io/fraud-detection/fraud-detection-workshop/index.html[In this workshop, window=_blank], you learn how to incorporate data science and artificial intelligence and machine learning (AI/ML) into an OpenShift development workflow.
+
+You will use an example fraud detection model to complete the following tasks:
+
+ . Explore a pre-trained fraud detection model by using a Jupyter notebook.
+
+ . Deploy the model by using OpenShift AI model serving.
+
+ . Refine and train the model by using automated pipelines.
+

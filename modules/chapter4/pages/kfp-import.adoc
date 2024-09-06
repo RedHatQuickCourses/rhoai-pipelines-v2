@@ -1,16 +1,16 @@
 = Kubeflow Pipelines SDK
 
-In the previous section, we created a two task pipeline by using the Elyra GUI pipeline editor. It’s often desirable to create pipelines by using code that can be version-controlled and shared with others. The kfp SDK provides a Python API for creating pipelines. The SDK is available as a Python package that you can install by using the `pip install kfp` command. With this package, you can use Python code to create a pipeline and then compile it to YAML format. Then we can import the YAML code into OpenShift AI.
+In the previous section, we created a two task pipeline by using the Elyra GUI pipeline editor. The kfp SDK provides a Python API for creating pipelines. The SDK is available as a Python package that you can install by using the `pip install kfp` command. With this package, you can use Python code to create a pipeline and then compile it to YAML format. Then we can import the YAML code into OpenShift AI.
 
 This course does not delve into the details of how to use the SDK. Instead, it provides the files for you to view and upload.
 
 
 
-== Exercise: Importing a Data Science Pipeline
+== Lab Exercise: Importing a Data Science Pipeline
 
 === Prerequisites 
 
-* Continue to use the `fraud-detection` Data Science Project that you created in the previous section. We won't need a workbench in this section, but you should have completed all exercises up through Data Science Pipelines / OpenShift AI Resources  section of the course.
+* Continue to use the `fraud-detection` Data Science Project that you created in the previous section. We won't need a workbench in this section, but you should have completed all lab exercises up through Data Science Pipelines / OpenShift AI Resources section of the course in order for the environment to support pipeline creation.
 
 image::import_pipeline_yaml.gif[width=600]
 
@@ -21,7 +21,7 @@ image::import_pipeline_yaml.gif[width=600]
 
 . For the pipeline name use: fraud-detection-example
 
-. select the import by url option
+. Select the import by url option
 
 +
 ```
@@ -29,15 +29,15 @@ https://github.com/RedHatQuickCourses/rhoai-pipelines-v2/blob/main/downloads/fra
 ```
 . Select the Import Pipeline button at the bottom.
 
-Once the pipeline definition is imported, it cab be viewed in the data science pipeline dashboard.  
+Once the pipeline definition is imported, it can be viewed in the data science pipeline dashboard.  
 
-There are three tabs:
+There are three tabs in DSP dashboard:
 
- * graph - the DAG view of the pipeline defined
- * summary - shows the pipeline spec and version IDs
- * pipeline spec - is the import yaml file that defined the pipeline.
+ * Graph - the DAG view of the pipeline defined
+ * Summary - shows the pipeline spec and version IDs
+ * Pipeline spec - is the import yaml file that defined the pipeline.
 
-The pipeline is now available to be executed, but currently there have been no "one-off" or scheduled *runs* for this pipeline, it has only been defined in the system. 
+The pipeline is now available to be executed, but currently there have been no *one-off or scheduled runs* for this pipeline, it has only been defined in the system. 
 
 
 
@@ -49,13 +49,13 @@ The pipeline is now available to be executed, but currently there have been no "
 
 === Experiments And Runs
 
-An experiment is a workspace where you can try different configurations of your pipelines. You can use experiments to organize your runs into logical groups. Experiments can contain arbitrary runs, including recurring runs. 
+An experiment is a workspace where you can try different configurations of your pipelines. You can use experiments to organize pipeline runs into logical groups. Experiments can contain arbitrary runs, including recurring runs. 
 
-A run can be configured using the DSP UI or programmatically using the _KFP SDK_.
+A run can be configured using the Data Science Pipeline UI or programmatically using the _KFP SDK_.
 
 image::create_pipeline_run.gif[]
 
-To create a run for the fraud-detection-example pipeline we just imported.
+To create a _run_ for the fraud-detection-example pipeline we just imported.
 
  . Locate the fraud-detection-example in the data science pipeline menu / dashboard.
 
@@ -63,25 +63,25 @@ To create a run for the fraud-detection-example pipeline we just imported.
 
   .. upload a new version of the pipeline
   .. create a schedule run for sometime in the future
-  .. create a one-off run now
+  .. create a one-off run
 
- . select the option to create a new run.
+ . Select the option to create a new run.
 
 To execute the run, we need to imput some information:
 
  . Run Type: Scheduled runs are exectued from different dashboard - skip this step
 
- . define the project and experiment name:
+ . Define the project and experiment name:
 
- .. the project name is immutable and cannot be changed at this time.
+ .. The project name is immutable and cannot be changed at this time.
 
- .. for the experiment, choose an existing experiment from the list or create a new one.  Select create a new experiment. 
+ .. For the experiment, choose an existing experiment from the list or create a new one.  Select create a new experiment. 
 
  . Run Details:  
  
- .. specify a name for this run
+ .. Specify a name for this run
 
- .. add a description
+ .. Add a description
 
 The final section describes the pipeline 
 
@@ -91,11 +91,11 @@ The final section describes the pipeline
 
 Depending on Pipeline Definition, some parameters must be specified at runtime.
 
-In this case there are two requirement parameters, allow this pipeline to have different inputs.
+In this case there are two required parameters, which allow this pipeline to have different inputs.
 
- . the first parameter is a url of the data file to be imported during the Run.
+ . The first parameter is a url location of the data file to be imported during the Run.
 
- . the second paramenter is number of epochs or complete passes of the training dataset through the algorithm. 
+ . The second paramenter is number of epochs.
  +
  [NOTE]
 This epoch's number is an important hyperparameter for the algorithm. It specifies the number of epochs or complete passes of the entire training dataset passing through the training or learning process of the algorithm.
@@ -122,10 +122,9 @@ As each step of our pipeline is executed in an independent container, input para
 To pass an input parameter as a file, the function argument needs to be annotated using the _InputPath_ annotation.
 For returning data from a step as a file, the function argument needs to be annotated using the _OutputPath_ annotation.
 
-In both cases the actual value of the parameter is the file path and not the actual data. So the pipeline will have to read/write to the file as necessary.
+*In both cases the actual value of the parameter is the file path and not the actual data. So the pipeline will have to read/write to the file as necessary.*
 
-For example, in our sample pipeline we use the _parameter_data_ argument of the _prep_data_train_model_ function to return multiple data values as a file. Here's the function definition with the _OutputPath_ annotation
-
+// For example, in our sample pipeline we use the _parameter_data_ argument of the _fraud-detection.yaml_ return multiples performance metrics data values as a file. Here's the function definition with the _OutputPath_ annotation
 
 [TIP]
 ====
@@ -136,7 +135,7 @@ The full annotation list is in the https://kubeflow-pipelines.readthedocs.io/en/
 
 ====
 
-==== Returning multiple values from a step 
+==== Returning multiple values from a task 
 If you return a single small value from your component using the _return_ statement, the output parameter is named *_output_*.
 It is, however, possible to return multiple small values using the Python _collection_ library method _namedtuple_.
 
