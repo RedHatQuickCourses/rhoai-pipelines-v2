@@ -194,7 +194,7 @@ The runtime configuration is included and is pre-configured for submitting pipel
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Make a change to the workbench by adding an environment variable</p>
+<p>Make a change to the workbench by adding an irrelevant environment variable (recommended)</p>
 </li>
 <li>
 <p>Manually create the runtime configuration</p>
@@ -245,6 +245,13 @@ The runtime configuration is included and is pre-configured for submitting pipel
 <ul>
 <li>
 <p>Launch JupyterLab with the Elyra extension installed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>select a workbench / notebook image with Elyra installed</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Create a new pipeline by clicking on the Elyra <code>Pipeline Editor</code> icon.</p>
@@ -348,7 +355,7 @@ The runtime configuration is included and is pre-configured for submitting pipel
 <li>
 <p>Connect the <code>Output Port</code> (right black dot of the task icon) of the <code>experiment_train</code> task with the <code>Input Port</code> (left black dot of the task icon) of the <code>save_model</code> task by drawing a line between these ports (click, hold &amp; draw, release).</p>
 <div class="paragraph">
-<p>You should now see the two nodes connected through a solid line. We have now defined a simple pipeline with two tasks, which are executed sequentially, first experiment_train to product a model articfact, then save-model to move the model to workbench S3 storage.</p>
+<p>You should now see the two nodes connected through a solid line. We have now defined a simple pipeline with two tasks, which are executed sequentially, first experiment_train to produce a model articfact, then save-model to move the model to workbench S3 storage.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -368,7 +375,7 @@ The runtime configuration is included and is pre-configured for submitting pipel
 </ol>
 </div>
 <div class="paragraph">
-<p>We have now created the final graph representation of the fraud detection pipeline using the two of five available notebooks. With this we have fully defined the full pipeline code and its order of execution.</p>
+<p>We have now created the final graph representation of the fraud detection pipeline using the two of five available notebooks. With this we have fully defined the pipeline code and its order of execution.</p>
 </div>
 <div class="sect3">
 <h4 id="_configuring_the_pipeline"><a class="anchor" href="#_configuring_the_pipeline"></a>Configuring the pipeline</h4>
@@ -427,7 +434,17 @@ Do not select any of the nodes in the canvas when you open the panel. You will s
 </div>
 </li>
 <li>
-<p>Next we will configure the data connection to the <code>my-storage</code> bucket as a Kubernetes secret.  By default these secrets are created in the environment variable of pipeline properties, but need to be located in the Kubernetes secrets to be used in the pipeline. Copy entries from the environment variables section; add these in the kubernetes secrets for save_model (node2) task in Elyra.</p>
+<p>Next we will configure the data connection to the <code>my-storage</code> bucket as a Kubernetes secret.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>By default these secrets are created in the environment variable section in pipeline properties</p>
+</li>
+<li>
+<p>They need to be located in the Kubernetes secrets section of pipeline properties.</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
 <p>In the <code>PIPELINE PROPERTIES</code> section, click <code>Add</code> beneath the <code>Kubernetes Secrets</code> section and add the following five entries:</p>
@@ -455,7 +472,7 @@ Do not select any of the nodes in the canvas when you open the panel. You will s
 </div>
 </div>
 <div class="paragraph">
-<p>Each parameter will include the following options:</p>
+<p>Each Kubernetes Secret parameter will include the following options:</p>
 </div>
 <div class="openblock">
 <div class="content">
@@ -487,7 +504,7 @@ Do not select any of the nodes in the canvas when you open the panel. You will s
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The AWS default region is another parameter in the data connection, which is used for AWS S3-based connections.</p>
+<p>The AWS default region is another parameter in the data connection, which is used for AWS S3-based connections. My experience is that if this field is missing the pipeline will fail to connect regardless of the storage system used.</p>
 </div>
 </td>
 </tr>

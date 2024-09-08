@@ -201,7 +201,7 @@ A DAG is a directed graph without any cycles, i.e. direct loops.</p>
 <p><strong>Task</strong> - is a self-contained pipeline component that represents an execution stage in the pipeline.</p>
 </li>
 <li>
-<p><strong>Artifact</strong> - Steps have the ability to create artifacts, which are objects that can be persisted after the execution of the step completes. Other steps may use those artifacts as inputs and some artifacts may be useful references after a pipeline run has completed. Artifacts automatically stored by Data Science Pipelines in S3 compatible storage.</p>
+<p><strong>Artifact</strong> - <em>Tasks</em> have the ability to create artifacts, which are objects that can be persisted after the execution of the task completes. Other tasks may use those artifacts as inputs and some artifacts may be useful references after a pipeline run has completed. Artifacts automatically stored by Data Science Pipelines in S3 compatible storage.</p>
 </li>
 <li>
 <p><strong>Experiment</strong> - is a logical grouping of runs for the purpose of comparing different pipelines</p>
@@ -259,7 +259,7 @@ A DAG is a directed graph without any cycles, i.e. direct loops.</p>
 <p>Pipelines can include various components, such as data ingestion, data preprocessing, model training, evaluation, and deployment. <em>These components can be configured to run in a specific order, and the pipeline can be executed multiple times to produce different versions of models or artifacts.</em></p>
 </div>
 <div class="paragraph">
-<p>Additionally, pipelines can support control flows to handle complex dependencies between tasks. Once a pipeline is defined, executing it becomes a simple RUN command, and the status of each execution can be tracked and monitored, ensuring that the desired outputs are produced successfully.</p>
+<p>Additionally, pipelines can support control flows to handle complex dependencies between tasks. Once a pipeline is defined, executing it becomes a simple <code>Run command</code>, and the status of each execution can be tracked and monitored, ensuring that the desired outputs are produced successfully.</p>
 </div>
 <div class="paragraph">
 <p>In summary, data science pipelines are an essential tool for automating and managing the ML lifecycle, enabling data scientists to create end-to-end workflows, reduce human error, and ensure consistent, high-quality results.</p>

@@ -165,7 +165,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>In the previous section, we created a two task pipeline by using the Elyra GUI pipeline editor. It’s often desirable to create pipelines by using code that can be version-controlled and shared with others. The kfp SDK provides a Python API for creating pipelines. The SDK is available as a Python package that you can install by using the <code>pip install kfp</code> command. With this package, you can use Python code to create a pipeline and then compile it to YAML format. Then we can import the YAML code into OpenShift AI.</p>
+<p>In the previous section, we created a two task pipeline by using the Elyra GUI pipeline editor. The kfp SDK provides a Python API for creating pipelines. The SDK is available as a Python package that you can install by using the <code>pip install kfp</code> command. With this package, you can use Python code to create a pipeline and then compile it to YAML format. Then we can import the YAML code into OpenShift AI.</p>
 </div>
 <div class="paragraph">
 <p>This course does not delve into the details of how to use the SDK. Instead, it provides the files for you to view and upload.</p>
@@ -173,55 +173,185 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercise_importing_a_data_science_pipeline"><a class="anchor" href="#_exercise_importing_a_data_science_pipeline"></a>Exercise: Importing a Data Science Pipeline</h2>
+<h2 id="_lab_exercise_importing_a_data_science_pipeline"><a class="anchor" href="#_lab_exercise_importing_a_data_science_pipeline"></a>Lab Exercise: Importing a Data Science Pipeline</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Continue to use the <code>fraud-detection</code> Data Science Project that you created in the previous section. We won&#8217;t need a workbench in this section, but you should have completed all exercises through the Data Science Pipelines section of the course.</p>
+<p>Continue to use the <code>fraud-detection</code> Data Science Project that you created in the previous section. We won&#8217;t need a workbench in this section, but you should have completed all lab exercises up through Data Science Pipelines / OpenShift AI Resources section of the course in order for the environment to support pipeline creation.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/import_pipeline_yaml.gif" alt="import pipeline yaml" width="600">
+</div>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>In the RHOAI side navigation menu, click `Data Science Pipelines &gt; Pipelines`It&#8217;s possible to click on the graph nodes to reveal information of the steps.</p>
+<p>In the RHOAI side navigation menu, click `Data Science Pipelines</p>
+</li>
+<li>
+<p>Select the import pipeline button</p>
+</li>
+<li>
+<p>For the pipeline name use: fraud-detection-example</p>
+</li>
+<li>
+<p>Select the import by url option</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">https://github.com/RedHatQuickCourses/rhoai-pipelines-v2/blob/main/downloads/fraud_detection.yaml</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Select the Import Pipeline button at the bottom.</p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>Once the pipeline definition is imported, it can be viewed in the data science pipeline dashboard.</p>
+</div>
+<div class="paragraph">
+<p>There are three tabs in DSP dashboard:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Graph - the DAG view of the pipeline defined</p>
+</li>
+<li>
+<p>Summary - shows the pipeline spec and version IDs</p>
+</li>
+<li>
+<p>Pipeline spec - is the import yaml file that defined the pipeline.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>The pipeline is now available to be executed, but currently there have been no <strong>one-off or scheduled runs</strong> for this pipeline, it has only been defined in the system.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_experiments_and_runs"><a class="anchor" href="#_experiments_and_runs"></a>Experiments And Runs</h3>
 <div class="paragraph">
-<p>An experiment is a workspace where you can try different configurations of your pipelines. You can use experiments to organize your runs into logical groups. Experiments can contain arbitrary runs, including recurring runs.</p>
+<p>An experiment is a workspace where you can try different configurations of your pipelines. You can use experiments to organize pipeline runs into logical groups. Experiments can contain arbitrary runs, including recurring runs.</p>
 </div>
 <div class="paragraph">
-<p>A run can be configured using the DSP UI or programmatically using the <em>KFP SDK</em>.</p>
+<p>A run can be configured using the Data Science Pipeline UI or programmatically using the <em>KFP SDK</em>.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Experiments are part of the KFP SDK and are not currently covered in this course.
-</td>
-</tr>
-</table>
+<div class="imageblock">
+<div class="content">
+<img src="_images/create_pipeline_run.gif" alt="create pipeline run">
+</div>
 </div>
 <div class="paragraph">
-<p>This is also visible in the Red Hat OpenShift AI user interface:</p>
+<p>To create a <em>run</em> for the fraud-detection-example pipeline we just imported.</p>
 </div>
-<div class="sidebarblock">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Locate the fraud-detection-example in the data science pipeline menu / dashboard.</p>
+</li>
+<li>
+<p>Use the menu at the far right to:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>upload a new version of the pipeline</p>
+</li>
+<li>
+<p>create a schedule run for sometime in the future</p>
+</li>
+<li>
+<p>create a one-off run</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Select the option to create a new run.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>To execute the run, we need to imput some information:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Run Type: Scheduled runs are exectued from different dashboard - skip this step</p>
+</li>
+<li>
+<p>Define the project and experiment name:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>The project name is immutable and cannot be changed at this time.</p>
+</li>
+<li>
+<p>For the experiment, choose an existing experiment from the list or create a new one.  Select create a new experiment.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Run Details:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Specify a name for this run</p>
+</li>
+<li>
+<p>Add a description</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The final section describes the pipeline</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select the pipeline to Run from the drop down</p>
+</li>
+<li>
+<p>Select the version of the pipeline if available.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Depending on Pipeline Definition, some parameters must be specified at runtime.</p>
+</div>
+<div class="paragraph">
+<p>In this case there are two required parameters, which allow this pipeline to have different inputs.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The first parameter is a url location of the data file to be imported during the Run.</p>
+</li>
+<li>
+<p>The second paramenter is number of epochs.
+<br>
+ [NOTE]
+This epoch&#8217;s number is an important hyperparameter for the algorithm. It specifies the number of epochs or complete passes of the entire training dataset passing through the training or learning process of the algorithm.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Select <em>Create</em> Run to start the run.</p>
+</div>
+<div class="listingblock">
 <div class="content">
-<div class="imageblock unresolved">
-<div class="content">
-<img src="oai-pipeline-graph.png" alt="oai pipeline graph">
-</div>
-</div>
+<pre></pre>
 </div>
 </div>
 </div>
@@ -260,26 +390,7 @@ Experiments are part of the KFP SDK and are not currently covered in this course
 For returning data from a step as a file, the function argument needs to be annotated using the <em>OutputPath</em> annotation.</p>
 </div>
 <div class="paragraph">
-<p>In both cases the actual value of the parameter is the file path and not the actual data. So the pipeline will have to read/write to the file as necessary.</p>
-</div>
-<div class="paragraph">
-<p>For example, in our sample pipeline we use the <em>parameter_data</em> argument of the <em>prep_data_train_model</em> function to return multiple data values as a file. Here&#8217;s the function definition with the <em>OutputPath</em> annotation</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">Unresolved include directive in modules/chapter4/pages/kfp-import.adoc - include::example$sample-pipeline-full.py[]</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Here&#8217;s the actual writing of the data to the file</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">Unresolved include directive in modules/chapter4/pages/kfp-import.adoc - include::example$sample-pipeline-full.py[]</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This data is then consumed in the <em>model_upload_notify</em> function, passed via the <em>paramater_data</em> with the <em>InputPath</em> annotation.</p>
+<p><strong>In both cases the actual value of the parameter is the file path and not the actual data. So the pipeline will have to read/write to the file as necessary.</strong></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -301,7 +412,7 @@ such as <em>InputBinaryFile</em>, <em>OutputBinaryFile</em>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_returning_multiple_values_from_a_step"><a class="anchor" href="#_returning_multiple_values_from_a_step"></a>Returning multiple values from a step</h4>
+<h4 id="_returning_multiple_values_from_a_task"><a class="anchor" href="#_returning_multiple_values_from_a_task"></a>Returning multiple values from a task</h4>
 <div class="paragraph">
 <p>If you return a single small value from your component using the <em>return</em> statement, the output parameter is named <strong><em>output</em></strong>.
 It is, however, possible to return multiple small values using the Python <em>collection</em> library method <em>namedtuple</em>.</p>
@@ -507,49 +618,6 @@ consume_task3 = consume_two_arguments(produce2_task.outputs['text'], produce2_ta
 </div>
 </div>
 <div class="sect2">
-<h3 id="_compiling_to_tekton"><a class="anchor" href="#_compiling_to_tekton"></a>Compiling to Tekton</h3>
-<div class="paragraph">
-<p>As stated previously, DSP Python scripts need to be compiled into Tekton definitions for execution.
-This can be achieved in multiple ways:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Explicitly calling the "dsl-compile" command from the <em>kfp</em> Python package giving the input and output files, then uploading the resultant yaml file to the DSP server via the UI.</p>
-</li>
-<li>
-<p>Adding the compile step to the Python script and then uploading the resultant yaml file to the DSP server via the UI.</p>
-</li>
-<li>
-<p>Adding the compile step to the Python script and uploading the resulting Tekton definition via an api call.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>In our example we&#8217;ve chosen the second option:</p>
-</div>
-<div class="paragraph">
-<p>Unresolved include directive in modules/chapter4/pages/kfp-import.adoc - include::example$sample-pipeline-full.py[]</p>
-</div>
-<div class="paragraph">
-<p>The Tekton compiler also has a number of <em>global settings</em>, which are not covered here, see <a href="https://github.com/kubeflow/kfp-tekton/blob/master/sdk/python/kfp_tekton/compiler/pipeline_utils.py" target="_blank" rel="noopener">here</a> for more details.</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>We have only covered a subset of the functionality available in DSP as it pertains to our real-life scenario. Please see the <a href="https://github.com/kubeflow/kfp-tekton/blob/master/sdk/FEATURES.md" target="_blank" rel="noopener">kfp-tekton features</a> document for more advanced functionality. The <a href="https://github.com/kubeflow/kfp-tekton/blob/master/guides/advanced_user_guide.md" target="_blank" rel="noopener">KFP Tekton Advanced User Guide</a> also has more information.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
 <h3 id="_pipeline_execution"><a class="anchor" href="#_pipeline_execution"></a>Pipeline Execution</h3>
 <div class="sect3">
 <h4 id="_submitting_a_pipeline_and_triggering_a_run"><a class="anchor" href="#_submitting_a_pipeline_and_triggering_a_run"></a>Submitting a Pipeline and Triggering a run</h4>
@@ -647,7 +715,7 @@ This can be achieved in multiple ways:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><strong><em>Tekton Workspaces</em></strong>.</p>
+<p><strong><em>Argo Workspaces</em></strong>.</p>
 </li>
 <li>
 <p><strong><em>Volume based data passing method</em></strong>.</p>
@@ -667,40 +735,6 @@ This can be achieved in multiple ways:</p>
 </td>
 </tr>
 </table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_tekton_workspaces"><a class="anchor" href="#_tekton_workspaces"></a>Tekton Workspaces</h3>
-<div class="paragraph">
-<p>This uses the native Tekton mechanism for storing and passing data between stages of a <em>Tekton Pipeline</em>.
-Tekton creates a <strong>Workspace</strong> to share large data files among tasks that run in the same pipeline. These <em>Workspaces</em> are backed by dynamically created storage volumes which are removed once the pipeline has completed.</p>
-</div>
-<div class="paragraph">
-<p>By default the storage is set to <strong><em>ReadWriteMany</em></strong>, the size is set to <strong><em>2Gi</em></strong> and uses the storage class called <strong><em>kfp-csi-s3</em></strong>.</p>
-</div>
-<div class="paragraph">
-<p>However, this can be changed to suit the target environment needs by setting the following <strong><em>Environment Variables</em></strong>:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><em>DEFAULT_ACCESSMODES</em></p>
-</li>
-<li>
-<p><em>DEFAULT_STORAGE_SIZE</em></p>
-</li>
-<li>
-<p><em>DEFAULT_STORAGE_CLASS</em></p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>An example of this in the <em>Sample Pipeline</em> is shown below:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">Unresolved include directive in modules/chapter4/pages/kfp-import.adoc - include::example$sample-pipeline-full.py[]</code></pre>
-</div>
 </div>
 </div>
 <div class="sect2">
