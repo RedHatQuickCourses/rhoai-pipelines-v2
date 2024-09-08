@@ -55,7 +55,7 @@ If the *OPEN* link for the notebook is grayed out, the notebook container is sti
 
 This takes us to the JupyterLab screen where we can select multiple options / tools / to work to begin our data science experimentation.
 
-Our first action is to clone a git repository that contains notebooks including an sample notebook to familize yourself with the Jupiter notebook environment. 
+Our first action is to clone a git repository that contains notebooks including a sample notebook to familiarize yourself with the Jupyter notebook environment. 
 
 image::clone_repo_jupyter.gif[width=600]
 
@@ -67,7 +67,7 @@ https://github.com/rh-aiservices-bu/fraud-detection.git
 
  . Copy the URL link above
 
- . Click on the Clone a Repo Icon above explorer section window.
+ . Click on the Clone a Repo Icon above the explorer section window.
 //+
 //image::clone_a_repo.png[width=640]
 

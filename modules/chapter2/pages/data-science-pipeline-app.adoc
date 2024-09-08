@@ -28,7 +28,7 @@ This multi-tenancy capability does require that each user or group needs their o
 
 While a *DataSciencePipelineApplication* is a namespace scoped object, workbenches and pods running in other namespaces can still interact with the pipeline instance if they have the correct permissions.
 
-Only one dpsa deployment can exist per data science project. (nampespace)
+Only one dpsa deployment can exist per data science project. (namespace)
 
 == Lab Exercise: Create a Data Science Pipeline Instance
 
@@ -75,26 +75,19 @@ image::pipeline_server_setup.gif[width=600]
 === Create a Data Science Pipeline Application
 
 . A new Data connection should now be listed in the `Data connections` section.
-//+
-//image::create-dspa-verify-data-connection.png[] 
 
 . Switch to the pipelines tab in the data science project.
 
 . Click on the `Configure pipeline server` in the `Pipelines` section of the Data Science Project view.
-//+
-//image::create-dspa-create-pipeline-server.png[]
 
 . Click the key icon in the right side of the `Access Key` field, and select the `pipelines` data connection. The fields in the form are automatically populated.
-//+
-//image::create-dspa-configure-pipeline-server.png[]
 
 . Select the option to use the default database stored in the cluster
 
-.. There is an option to specifiy the details of an external database required for the datasciencepipelineapplication.
+.. There is an option to specify the details of an external database required for the datasciencepipelineapplication.
 
 . Click `Configure pipeline server`. After several seconds, the loading icon should complete and the `Pipelines` section will now show an option to `Import pipeline`.
-//+
-//image::create-dspa-verify-pipeline-server.png[]
+
 
 The *DataSciencePipelineApplication* has now successfully been configured and is ready for use.
 

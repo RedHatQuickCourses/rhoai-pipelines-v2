@@ -202,7 +202,7 @@ From the OCP Dashboard:
 
  . Select Networking / Routes from the navigation menu. 
  
- . This will display two routes, one for the UI & another for the API.  (if the routes are not visible, make sure you have the project selected that matches your data sicence project created earlier)
+ . This will display two routes, one for the UI & another for the API.  (if the routes are not visible, make sure you have the project selected that matches your data science project created earlier)
 
 
  . For the first step, select the UI route and paste it or open in a new browser tab or window.
@@ -228,4 +228,4 @@ Once logged into the MinIO Console:
    ..  *models* (optional) 
 
 
-This completes the pre-work to configure the data scicence pipeline lab environment. With our S3 Compatible storage ready to go, let's head to next section of the course and learn more about DSP concepts.
+This completes the pre-work to configure the data science pipeline lab environment. With our S3 Compatible storage ready to go, let's head to the next section of the course and learn more about DSP concepts.

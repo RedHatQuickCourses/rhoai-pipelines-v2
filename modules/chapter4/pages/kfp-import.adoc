@@ -10,7 +10,7 @@ This course does not delve into the details of how to use the SDK. Instead, it p
 
 === Prerequisites 
 
-* Continue to use the `fraud-detection` Data Science Project that you created in the previous section. We won't need a workbench in this section, but you should have completed all lab exercises up through Data Science Pipelines / OpenShift AI Resources section of the course in order for the environment to support pipeline creation.
+* Continue to use the `fraud-detection` Data Science Project that you created in the previous section. We won't need a workbench in this section, but you should have completed all lab exercises up through the Data Science Pipelines / OpenShift AI Resources section of the course in order for the environment to support pipeline creation.
 
 image::import_pipeline_yaml.gif[width=600]
 
@@ -41,7 +41,7 @@ There are three tabs in DSP dashboard:
 
  * Graph - the DAG view of the pipeline defined
  * Summary - shows the pipeline spec and version IDs
- * Pipeline spec - is the import yaml file that defined the pipeline.
+ * Pipeline spec - is the import yaml file that defines the pipeline.
 
 The pipeline is now available to be executed, but currently there have been no *one-off or scheduled runs* for this pipeline, it has only been defined in the system. 
 
@@ -73,9 +73,9 @@ To create a _run_ for the fraud-detection-example pipeline we just imported.
 
  . Select the option to create a new run.
 
-To execute the run, we need to imput some information:
+To execute the run, we need to input some information:
 
- . Run Type: Scheduled runs are exectued from different dashboard - skip this step
+ . Run Type: Scheduled runs are executed from different dashboard - skip this step
 
  . Define the project and experiment name:
 
@@ -101,7 +101,7 @@ In this case there are two required parameters, which allow this pipeline to hav
 
  . The first parameter is a url location of the data file to be imported during the Run.
 
- . The second paramenter is number of epochs.
+ . The second parameter is the number of epochs.
  +
  [NOTE]
 This epoch's number is an important hyperparameter for the algorithm. It specifies the number of epochs or complete passes of the entire training dataset passing through the training or learning process of the algorithm.
