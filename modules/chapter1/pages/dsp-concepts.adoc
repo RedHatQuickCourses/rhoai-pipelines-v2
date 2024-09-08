@@ -28,9 +28,9 @@ image::pipeline_dag_overview.gif[width=600]
 
 A data science pipeline is typically implemented to improve the repeatability of a data science experiment.  While the larger experimentation process may include steps such as data exploration, where data scientists seek to create a fundamental understanding of the characteristics of the data, data science pipelines tend to focus on turning a viable experiment into a repeatable solution that can be iterated on.
 
-A data science pipeline, may also fit within the context of a larger pipeline that manages the complete lifecycle of an application, and the data science pipeline is responsible for the process of training the machine learning model.
+A data science pipeline may also fit within the context of a larger pipeline that manages the complete lifecycle of an application, and the data science pipeline is responsible for the process of training the machine learning model.
 
-Data science pipelines may consists of several key activities that are performed in a structured sequence to train a machine learning model. These activities may include:
+Data science pipelines may consist of several key activities that are performed in a structured sequence to train a machine learning model. These activities may include:
 
 * *Data Collection*: Gathering the data from various sources, such as databases, APIs, spreadsheets, or external datasets.
 

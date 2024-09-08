@@ -18,9 +18,9 @@ Enabling data scientists and data engineers manage the complexity of the end-to-
 
  . *Version control and documentation:* You can use version control systems to track changes in your pipeline's code and configuration, ensuring that you can roll back to previous versions if needed. A well-structured pipeline encourages better documentation of each step.
 
-=== Machine learning lifecycles & DevOps
+=== Machine learning life cycles & DevOps
 
-Machine learning lifecycles can vary in complexity and may involve additional steps depending on the use case, such as hyperparameter optimization, cross-validation, and feature selection. The goal of a machine learning pipeline is to automate and standardize these processes, making it easier to develop and maintain ML models for various applications.
+Machine learning life cycles can vary in complexity and may involve additional steps depending on the use case, such as hyperparameter optimization, cross-validation, and feature selection. The goal of a machine learning pipeline is to automate and standardize these processes, making it easier to develop and maintain ML models for various applications.
 
 Machine learning pipelines started to be integrated with DevOps practices to enable continuous integration and deployment (CI/CD) of machine learning models. This integration emphasized the need for reproducibility, version control and monitoring in ML pipelines. This integration is referred to as machine learning operations, or *MLOps*, which helps data science teams effectively manage the complexity of managing ML orchestration. In a real-time deployment, the pipeline replies to a request within milliseconds of the request.
 
