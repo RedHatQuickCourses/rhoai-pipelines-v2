@@ -35,9 +35,9 @@ Only one dpsa deployment can exist per data science project. (nampespace)
 To begin we will use the *Minio* instance created with the lab environment to act as the S3 artifact storage for the *DataSciencePipelineApplication*.  
 
 
-=== Create a Data Science Pipeline Application
+=== Create Data Connections in Data Science Project
 
-Next we will create a data connection for the Minio instance, and use that data connection to create a *DataSciencePipelineApplication*.
+Next we will create a data connection for the Minio instance, and use that data connection to deploy a *DataSciencePipelineApplication*.
 
 image::data_connection_setup.gif[width=600]
 
@@ -51,6 +51,7 @@ Name: pipelines
 Access key: minio
 Secret key: minio321!
 Endpoint: http://minio-service.pipelines-example.svc:9000
+Region: us-east-1 (when using minio this value can be any text but not blank)
 Bucket: pipelines
 ```
 +
@@ -59,14 +60,9 @@ Name: my-storage
 Access key: minio
 Secret key: minio321!
 Endpoint: http://minio-service.pipelines-example.svc:9000
+Region: no-region-minio (when using minio this value can be any text but not blank)
 Bucket: storage
 ```
-
-
-[NOTE]
-====
-At this point in time, if the minio instance did not contain a bucket called `pipelines`.  Once the *DataSciencePipelineApplication* object is created, it will automatically create the bucket for us if it doesn't exist.
-====
 
 [TIP]
 ====
@@ -76,9 +72,13 @@ A `Data Connection` is simply a standard kubernetes secret object that contains 
 
 image::pipeline_server_setup.gif[width=600]
 
+=== Create a Data Science Pipeline Application
+
 . A new Data connection should now be listed in the `Data connections` section.
 //+
 //image::create-dspa-verify-data-connection.png[] 
+
+. Switch to the pipelines tab in the data science project.
 
 . Click on the `Configure pipeline server` in the `Pipelines` section of the Data Science Project view.
 //+
@@ -88,11 +88,21 @@ image::pipeline_server_setup.gif[width=600]
 //+
 //image::create-dspa-configure-pipeline-server.png[]
 
+. Select the option to use the default database stored in the cluster
+
+.. There is an option to specifiy the details of an external database required for the datasciencepipelineapplication.
+
 . Click `Configure pipeline server`. After several seconds, the loading icon should complete and the `Pipelines` section will now show an option to `Import pipeline`.
 //+
 //image::create-dspa-verify-pipeline-server.png[]
 
 The *DataSciencePipelineApplication* has now successfully been configured and is ready for use.
+
+[TIP]
+You are not required to specify any storage directories when configuring a data connection for your pipeline server. When you import a pipeline, the /pipelines folder is created in the root folder of the bucket, containing a YAML file for the pipeline. If you upload a new version of the same pipeline, a new YAML file with a different ID is added to the /pipelines folder. When you run a pipeline, the artifacts are stored in the /pipeline-name folder in the root folder of the bucket.
+
+[WARNING]
+If you specify incorrect data connection settings, you cannot update these settings on the same pipeline server. Therefore, you must delete the pipeline server and configure another one.
 
 == Managing Permissions to the DataSciencePipelineApplication
 

@@ -68,8 +68,8 @@ https://github.com/rh-aiservices-bu/fraud-detection.git
  . Copy the URL link above
 
  . Click on the Clone a Repo Icon above explorer section window.
-+
-image::clone_a_repo.png[width=640]
+//+
+//image::clone_a_repo.png[width=640]
 
  . Paste the link into the *clone a repo* pop up,   make sure the *included submodules are checked*, then click the clone.
  
