@@ -182,7 +182,9 @@ There should now be 5 entries under kubernetes secrets, each of the entries unde
 
 . Next we will configure the data to be passed between the nodes. If you're still in the configuration menu, scroll to the Outputs section of `NODE PROPERTIES` tab. If not, right-click on the node and select `Open Properties` before performing this step. 
 
- . Click `Add` in the `Outputs` section and input `models/fraud/1/model.onnx`. This ensures that the model artifact will be saved to the S3 storage location.
+ . Click `Add` in the `Outputs` section. In the field insert: `models/fraud/1/model.onnx`. This ensures that the model artifact will be saved to the S3 storage location.
+
+ .. This is the same output file input that was set for the experiment_train task.
 
 . Save the pipeline
 
@@ -214,7 +216,6 @@ image::elyra_pipeline_submit.gif[width=600]
 [NOTE]
 You can manage incremental changes to pipelines in OpenShift AI by using versioning. This allows you to develop and deploy pipelines iteratively, preserving a record of your changes. You can track and manage your changes on the OpenShift AI dashboard, allowing you to schedule and execute runs against all available versions of your pipeline.
 
-
 [WARNING]
 ====
 If you configure the pipeline server after you have created a workbench and specified a notebook image within the workbench, you will not be able to execute the pipeline, even after restarting the notebook.
@@ -242,6 +243,7 @@ Navigate back to the `Experiment and Runs` overview in the RHOAI dashboard. Clic
 
 In the `Scheduled` tab you're able to view runs of the fraud-detection-elyra pipeline according to a predefined schedule such as daily or according to a Cron statement.
 
+image::pipeline_versions.gif[width=600]
 
 [WARNING]
 ====
@@ -254,6 +256,8 @@ If you change or sumit an Elyra pipeline that you have already submitted before,
 ==== Tracking the pipeline artifacts
 
 Let's finally peek behind the scenes and inspect the S3 bucket that Elyra and Data Science Pipelines use to store the pipeline artifacts.
+
+image::s3_storage_files.gif[width=600]
 
 . View the contents of the `data-science-pipelines` bucket, which we referenced through the `pipelines` data connection. You can see three types of folders:
 +
