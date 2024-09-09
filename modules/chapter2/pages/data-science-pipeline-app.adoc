@@ -11,7 +11,7 @@ In Red Hat OpenShift AI, the Data Science Pipeline runtime consists of the follo
 * A Pipeline scheduler for scheduling pipeline runs.
 * Metadata envoy and grpc pods
 * A workflow controller for dspa
-* A Persistent Agent to record the set of containers that are executed as well as their inputs and outputs.
+* A persistent agent to record the set of runtime containers that are executed as well as their inputs and outputs.
 
 Additionally, the *DataSciencePipelineApplication* requires an S3 compatible storage solution to store artifacts that are generated in the pipeline.
 
@@ -74,28 +74,28 @@ image::pipeline_server_setup.gif[width=600]
 
 === Create a Data Science Pipeline Application
 
-. A new Data connection should now be listed in the `Data connections` section.
+. A new data connection should now be listed in the `data connections` section.
 
 . Switch to the pipelines tab in the data science project.
 
-. Click on the `Configure pipeline server` in the `Pipelines` section of the Data Science Project view.
+. Click on the `configure pipeline server` in the `pipelines` section of the data science project view.
 
 . Click the key icon in the right side of the `Access Key` field, and select the `pipelines` data connection. The fields in the form are automatically populated.
 
-. Select the option to use the default database stored in the cluster
+. Select the option to use the default database stored in the cluster.
 
 .. There is an option to specify the details of an external database required for the datasciencepipelineapplication.
 
-. Click `Configure pipeline server`. After several seconds, the loading icon should complete and the `Pipelines` section will now show an option to `Import pipeline`.
+. Click `configure pipeline server`. After several seconds, the loading icon should complete and the `pipelines` section will now show an option to `import pipeline`.
 
 
 The *DataSciencePipelineApplication* has now successfully been configured and is ready for use.
 
-[TIP]
-You are not required to specify any storage directories when configuring a data connection for your pipeline server. When you import a pipeline, the /pipelines folder is created in the root folder of the bucket, containing a YAML file for the pipeline. If you upload a new version of the same pipeline, a new YAML file with a different ID is added to the /pipelines folder. When you run a pipeline, the artifacts are stored in the /pipeline-name folder in the root folder of the bucket.
-
 [WARNING]
-If you specify incorrect data connection settings, you cannot update these settings on the same pipeline server. Therefore, you must delete the pipeline server and configure another one.
+If you specify incorrect data connection settings, you cannot update these settings on the same pipeline server. You must delete the pipeline server and configure another one.
+
+[TIP]
+You are not required to specify any storage directories (folders) when configuring a data connection for your pipeline server. When you import a pipeline, the /pipelines folder is created in the root folder of the bucket, containing a YAML file for the pipeline. If you upload a new version of the same pipeline, a new YAML file with a different ID is added to the /pipelines folder. When you run a pipeline, the artifacts are stored in the /pipeline-name folder in the root folder of the bucket.
 
 == Managing Permissions to the DataSciencePipelineApplication
 

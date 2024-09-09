@@ -1,6 +1,4 @@
-= Data Science Pipelines
-
-== Managing Data Science Pipelines 2.0 
+= Managing Data Science Pipelines
 
 [NOTE]
 From OpenShift AI version 2.9, data science pipelines are based on KubeFlow Pipelines (KFP) version 2.0. Data science pipelines 2.0 is enabled and deployed by default in OpenShift AI.

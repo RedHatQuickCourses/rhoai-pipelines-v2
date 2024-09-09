@@ -27,7 +27,6 @@ If the pipeline server is deployed post workbench creation, the runtime configur
   ... Cloud Object Storage Bucket Name: Name of the S3 bucket
   ... Data Storage User Credentials:  Credentials to the S3 endpoint
 
-
  
 Refer to the https://elyra.readthedocs.io/en/latest/user_guide/runtime-conf.html#kubeflow-pipelines-configuration-settings[Elyra documentation, window=_blank] for more information about Elyra and the available runtime configuration options.
 
@@ -183,7 +182,9 @@ There should now be 5 entries under kubernetes secrets, each of the entries unde
 
 . Next we will configure the data to be passed between the nodes. If you're still in the configuration menu, scroll to the Outputs section of `NODE PROPERTIES` tab. If not, right-click on the node and select `Open Properties` before performing this step. 
 
- . Click `Add` in the `Outputs` section and input `models/fraud/1/model.onnx`. This ensures that the model artifact will be saved to the S3 storage location.
+ . Click `Add` in the `Outputs` section. In the field insert: `models/fraud/1/model.onnx`. This ensures that the model artifact will be saved to the S3 storage location.
+
+ .. This is the same output file input that was set for the experiment_train task.
 
 . Save the pipeline
 
@@ -193,12 +194,9 @@ There should now be 5 entries under kubernetes secrets, each of the entries unde
 
 `Output Files` are generally easy to configure and don't require the creation of any additional kubernetes resources.  One disadvantage is that Output files can generate a large amount of additional read and writes to S3 which may slow down pipeline execution.
 
-`Mount Volumes` can be helpful when a large amount of files, or a large dataset is required to be stored.  `Mount Volumes` also have the ability to persist data between runs of a pipeline, which can allow a volume to act as a cache for files between executions.
-====
+`Mount Volumes` can be helpful when a large amount of files, or a large dataset is required to be stored. `Mount Volumes` also have the ability to persist data between runs of a pipeline, which can allow a volume to act as a cache for files between executions.
 
-[NOTE]
-====
-We could have declared the data volume as a global pipeline property for simplicity. However, this would have prevented parallel execution of model loading and data ingestion/preprocessing since data volumes can only be used by a single task by default.
+It is possible to declare the data volumes as a global pipeline property for simplicity. However, this prevents parallel execution of model loading and data ingestion/preprocessing since data volumes can only be used by a single task by default.
 ====
 
 
@@ -206,7 +204,10 @@ We could have declared the data volume as a global pipeline property for simplic
 
 We have now fully created and configured the pipeline, so let's now see it in action!
 
-. In the visual editor, click on the *Play* icon (`Run Pipeline`). Leave the default values and hit `OK`.
+ . In the visual editor, click on the *Play* icon (`Run Pipeline`). 
+ . Leave the default pipeline name and runtime configuration and click OK.
+ . In a minute or so, a job submission to data science pipeline status window will appear.
+ .. succeed messages will provide links to run details in the RHOAI dashboards and a link to the S3 storage location where pipeline artifacts are stored.
 
 image::elyra_pipeline_submit.gif[width=600]
 
@@ -214,13 +215,6 @@ image::elyra_pipeline_submit.gif[width=600]
 
 [NOTE]
 You can manage incremental changes to pipelines in OpenShift AI by using versioning. This allows you to develop and deploy pipelines iteratively, preserving a record of your changes. You can track and manage your changes on the OpenShift AI dashboard, allowing you to schedule and execute runs against all available versions of your pipeline.
-
-[TIP]
-====
-*Data Science Pipeline* should be selected as the default execution environment automatically when starting the pipeline run. OpenShift AI will automatically configure and select the *DataSciencePipelinesApplication* instance we created previously as the default execution environment. This will happen provided the *DataSciencePipelinesApplication* was created before the workbench was started and it is located in the same namespace as the workbench.
-
-If you wish to use *DataSciencePipelinesApplication* that is located in a different namespace from your workbench you can manually configure an execution environment.
-====
 
 [WARNING]
 ====
@@ -249,6 +243,7 @@ Navigate back to the `Experiment and Runs` overview in the RHOAI dashboard. Clic
 
 In the `Scheduled` tab you're able to view runs of the fraud-detection-elyra pipeline according to a predefined schedule such as daily or according to a Cron statement.
 
+image::pipeline_versions.gif[width=600]
 
 [WARNING]
 ====
@@ -261,6 +256,8 @@ If you change or sumit an Elyra pipeline that you have already submitted before,
 ==== Tracking the pipeline artifacts
 
 Let's finally peek behind the scenes and inspect the S3 bucket that Elyra and Data Science Pipelines use to store the pipeline artifacts.
+
+image::s3_storage_files.gif[width=600]
 
 . View the contents of the `data-science-pipelines` bucket, which we referenced through the `pipelines` data connection. You can see three types of folders:
 +
