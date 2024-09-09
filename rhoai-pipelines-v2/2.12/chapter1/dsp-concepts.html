@@ -74,7 +74,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../chapter2/index.html">Data Science Pipelines</a>
+    <a class="nav-link" href="../chapter2/index.html">Managing Data Science Pipelines</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../chapter2/data-science-pipeline-app.html">Data Science Pipeline Applications</a>
@@ -184,27 +184,39 @@ A DAG is a directed graph without any cycles, i.e. direct loops.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_specific_data_science_pipeline_terminology_in_openshift_ai_dsp"><a class="anchor" href="#_specific_data_science_pipeline_terminology_in_openshift_ai_dsp"></a>Specific Data Science Pipeline terminology in OpenShift AI DSP</h2>
+<h2 id="_specific_data_science_pipeline_terminology_in_openshift_ai"><a class="anchor" href="#_specific_data_science_pipeline_terminology_in_openshift_ai"></a>Specific Data Science Pipeline terminology in OpenShift AI</h2>
 <div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Read through these terms more than once, they are key to data science pipelines.
+</td>
+</tr>
+</table>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><strong>Pipeline</strong> - is a workflow definition containing the steps and their input and output artifacts.</p>
+<p><strong>Pipeline</strong> - is a workflow definition containing the <code>tasks</code> and their input and output artifacts.</p>
 </li>
 <li>
-<p><strong>Run</strong> - is a single execution of a pipeline. A run can be a one off execution of a pipeline, or pipelines can be scheduled as a recurring run.</p>
+<p><strong>Run</strong> - is a single execution of a pipeline. A run can be a one off execution of a pipeline, or pipelines can be scheduled as a recurring.</p>
 </li>
 <li>
 <p><strong>Task</strong> - is a self-contained pipeline component that represents an execution stage in the pipeline.</p>
 </li>
 <li>
-<p><strong>Artifact</strong> - <em>Tasks</em> have the ability to create artifacts, which are objects that can be persisted after the execution of the task completes. Other tasks may use those artifacts as inputs and some artifacts may be useful references after a pipeline run has completed. Artifacts automatically stored by Data Science Pipelines in S3 compatible storage.</p>
+<p><strong>Artifact</strong> - <em>Tasks</em> have the ability to create artifacts, which are objects that can be persisted after the execution of the task completes. Other tasks may use those artifacts as inputs and some artifacts may be useful references after a pipeline run has completed. Artifacts automatically stored by data science pipelines in S3 compatible storage.</p>
 </li>
 <li>
-<p><strong>Experiment</strong> - is a logical grouping of runs for the purpose of comparing different pipelines</p>
+<p><strong>Experiment</strong> - is a logical grouping of runs for the purpose of comparing different pipelines or pipeline versions.</p>
 </li>
 <li>
-<p><strong>Execution</strong> -  is an instance of a Task/Component</p>
+<p><strong>Execution</strong> -  is an instance of a task (pipeline component) during a run.</p>
 </li>
 </ol>
 </div>
@@ -214,10 +226,7 @@ A DAG is a directed graph without any cycles, i.e. direct loops.</p>
 <h2 id="_why_data_science_pipelines"><a class="anchor" href="#_why_data_science_pipelines"></a>Why data science pipelines</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A data science pipeline is typically implemented to improve the repeatability of a data science experiment.  While the larger experimentation process may include steps such as data exploration, where data scientists seek to create a fundamental understanding of the characteristics of the data, data science pipelines tend to focus on turning a viable experiment into a repeatable solution that can be iterated on.</p>
-</div>
-<div class="paragraph">
-<p>A data science pipeline may also fit within the context of a larger pipeline that manages the complete lifecycle of an application, and the data science pipeline is responsible for the process of training the machine learning model.</p>
+<p>A data science pipeline is typically implemented to improve the repeatability of a data science experiment.  While the larger experimentation process may include steps such as data exploration, where data scientists seek to create a fundamental understanding of the characteristics of the data, <strong>data science pipelines tend to focus on turning a viable experiment into a repeatable solution that can be iterated on.</strong></p>
 </div>
 <div class="paragraph">
 <p>Data science pipelines may consist of several key activities that are performed in a structured sequence to train a machine learning model. These activities may include:</p>
@@ -253,12 +262,6 @@ A DAG is a directed graph without any cycles, i.e. direct loops.</p>
 <p>OpenShift AI uses Kubeflow pipelines with Argo workflows as the engine. Kubeflow provides a rich set of tools for managing ML workloads, while Argo workflows offer powerful automation capabilities. Together, they enable us to create robust, scalable, and manageable pipelines for AI model development and serving.</p>
 </div>
 <div class="paragraph">
-<p>Pipelines can include various components, such as data ingestion, data preprocessing, model training, evaluation, and deployment. <em>These components can be configured to run in a specific order, and the pipeline can be executed multiple times to produce different versions of models or artifacts.</em></p>
-</div>
-<div class="paragraph">
-<p>Additionally, pipelines can support control flows to handle complex dependencies between tasks. Once a pipeline is defined, executing it becomes a simple <code>Run command</code>, and the status of each execution can be tracked and monitored, ensuring that the desired outputs are produced successfully.</p>
-</div>
-<div class="paragraph">
 <p>In summary, data science pipelines are an essential tool for automating and managing the ML lifecycle, enabling data scientists to create end-to-end workflows, reduce human error, and ensure consistent, high-quality results.</p>
 </div>
 <div class="paragraph">
@@ -269,7 +272,7 @@ A DAG is a directed graph without any cycles, i.e. direct loops.</p>
 </div>
 <nav class="pagination">
   <span class="prev"><a href="dsp-intro.html">Introduction to ML Pipelines</a></span>
-  <span class="next"><a href="../chapter2/index.html">Data Science Pipelines</a></span>
+  <span class="next"><a href="../chapter2/index.html">Managing Data Science Pipelines</a></span>
 </nav>
 </article>
   </div>

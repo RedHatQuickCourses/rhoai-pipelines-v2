@@ -74,7 +74,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="index.html">Data Science Pipelines</a>
+    <a class="nav-link" href="index.html">Managing Data Science Pipelines</a>
 <ul class="nav-list">
   <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="data-science-pipeline-app.html">Data Science Pipeline Applications</a>
@@ -148,7 +148,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">RHOAI Data Science Pipelines</a></li>
-    <li><a href="index.html">Data Science Pipelines</a></li>
+    <li><a href="index.html">Managing Data Science Pipelines</a></li>
     <li><a href="data-science-pipeline-app.html">Data Science Pipeline Applications</a></li>
   </ul>
 </nav>
@@ -190,7 +190,7 @@
 <p>A workflow controller for dspa</p>
 </li>
 <li>
-<p>A Persistent Agent to record the set of containers that are executed as well as their inputs and outputs.</p>
+<p>A persistent agent to record the set of runtime containers that are executed as well as their inputs and outputs.</p>
 </li>
 </ul>
 </div>
@@ -301,19 +301,19 @@ Bucket: storage</code></pre>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>A new Data connection should now be listed in the <code>Data connections</code> section.</p>
+<p>A new data connection should now be listed in the <code>data connections</code> section.</p>
 </li>
 <li>
 <p>Switch to the pipelines tab in the data science project.</p>
 </li>
 <li>
-<p>Click on the <code>Configure pipeline server</code> in the <code>Pipelines</code> section of the Data Science Project view.</p>
+<p>Click on the <code>configure pipeline server</code> in the <code>pipelines</code> section of the data science project view.</p>
 </li>
 <li>
 <p>Click the key icon in the right side of the <code>Access Key</code> field, and select the <code>pipelines</code> data connection. The fields in the form are automatically populated.</p>
 </li>
 <li>
-<p>Select the option to use the default database stored in the cluster</p>
+<p>Select the option to use the default database stored in the cluster.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -323,24 +323,12 @@ Bucket: storage</code></pre>
 </div>
 </li>
 <li>
-<p>Click <code>Configure pipeline server</code>. After several seconds, the loading icon should complete and the <code>Pipelines</code> section will now show an option to <code>Import pipeline</code>.</p>
+<p>Click <code>configure pipeline server</code>. After several seconds, the loading icon should complete and the <code>pipelines</code> section will now show an option to <code>import pipeline</code>.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
 <p>The <strong>DataSciencePipelineApplication</strong> has now successfully been configured and is ready for use.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-You are not required to specify any storage directories when configuring a data connection for your pipeline server. When you import a pipeline, the /pipelines folder is created in the root folder of the bucket, containing a YAML file for the pipeline. If you upload a new version of the same pipeline, a new YAML file with a different ID is added to the /pipelines folder. When you run a pipeline, the artifacts are stored in the /pipeline-name folder in the root folder of the bucket.
-</td>
-</tr>
-</table>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -349,7 +337,19 @@ You are not required to specify any storage directories when configuring a data 
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-If you specify incorrect data connection settings, you cannot update these settings on the same pipeline server. Therefore, you must delete the pipeline server and configure another one.
+If you specify incorrect data connection settings, you cannot update these settings on the same pipeline server. You must delete the pipeline server and configure another one.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You are not required to specify any storage directories (folders) when configuring a data connection for your pipeline server. When you import a pipeline, the /pipelines folder is created in the root folder of the bucket, containing a YAML file for the pipeline. If you upload a new version of the same pipeline, a new YAML file with a different ID is added to the /pipelines folder. When you run a pipeline, the artifacts are stored in the /pipeline-name folder in the root folder of the bucket.
 </td>
 </tr>
 </table>
@@ -445,7 +445,7 @@ roleRef:
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="index.html">Data Science Pipelines</a></span>
+  <span class="prev"><a href="index.html">Managing Data Science Pipelines</a></span>
   <span class="next"><a href="rhoai-resources.html">OpenShift AI Resources</a></span>
 </nav>
 </article>

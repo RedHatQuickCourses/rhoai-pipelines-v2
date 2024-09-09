@@ -74,7 +74,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../chapter2/index.html">Data Science Pipelines</a>
+    <a class="nav-link" href="../chapter2/index.html">Managing Data Science Pipelines</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../chapter2/data-science-pipeline-app.html">Data Science Pipeline Applications</a>
@@ -569,7 +569,14 @@ Do not select any of the nodes in the canvas when you open the panel. You will s
 <p>Next we will configure the data to be passed between the nodes. If you&#8217;re still in the configuration menu, scroll to the Outputs section of <code>NODE PROPERTIES</code> tab. If not, right-click on the node and select <code>Open Properties</code> before performing this step.</p>
 </li>
 <li>
-<p>Click <code>Add</code> in the <code>Outputs</code> section and input <code>models/fraud/1/model.onnx</code>. This ensures that the model artifact will be saved to the S3 storage location.</p>
+<p>Click <code>Add</code> in the <code>Outputs</code> section. In the field insert: <code>models/fraud/1/model.onnx</code>. This ensures that the model artifact will be saved to the S3 storage location.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>This is the same output file input that was set for the experiment_train task.</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
 <p>Save the pipeline</p>
@@ -590,21 +597,10 @@ Do not select any of the nodes in the canvas when you open the panel. You will s
 <p><code>Output Files</code> are generally easy to configure and don&#8217;t require the creation of any additional kubernetes resources.  One disadvantage is that Output files can generate a large amount of additional read and writes to S3 which may slow down pipeline execution.</p>
 </div>
 <div class="paragraph">
-<p><code>Mount Volumes</code> can be helpful when a large amount of files, or a large dataset is required to be stored.  <code>Mount Volumes</code> also have the ability to persist data between runs of a pipeline, which can allow a volume to act as a cache for files between executions.</p>
+<p><code>Mount Volumes</code> can be helpful when a large amount of files, or a large dataset is required to be stored. <code>Mount Volumes</code> also have the ability to persist data between runs of a pipeline, which can allow a volume to act as a cache for files between executions.</p>
 </div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
 <div class="paragraph">
-<p>We could have declared the data volume as a global pipeline property for simplicity. However, this would have prevented parallel execution of model loading and data ingestion/preprocessing since data volumes can only be used by a single task by default.</p>
+<p>It is possible to declare the data volumes as a global pipeline property for simplicity. However, this prevents parallel execution of model loading and data ingestion/preprocessing since data volumes can only be used by a single task by default.</p>
 </div>
 </td>
 </tr>
@@ -619,7 +615,20 @@ Do not select any of the nodes in the canvas when you open the panel. You will s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>In the visual editor, click on the <strong>Play</strong> icon (<code>Run Pipeline</code>). Leave the default values and hit <code>OK</code>.</p>
+<p>In the visual editor, click on the <strong>Play</strong> icon (<code>Run Pipeline</code>).</p>
+</li>
+<li>
+<p>Leave the default pipeline name and runtime configuration and click OK.</p>
+</li>
+<li>
+<p>In a minute or so, a job submission to data science pipeline status window will appear.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>succeed messages will provide links to run details in the RHOAI dashboards and a link to the S3 storage location where pipeline artifacts are stored.</p>
+</li>
+</ol>
+</div>
 </li>
 </ol>
 </div>
@@ -639,23 +648,6 @@ Do not select any of the nodes in the canvas when you open the panel. You will s
 </td>
 <td class="content">
 You can manage incremental changes to pipelines in OpenShift AI by using versioning. This allows you to develop and deploy pipelines iteratively, preserving a record of your changes. You can track and manage your changes on the OpenShift AI dashboard, allowing you to schedule and execute runs against all available versions of your pipeline.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p><strong>Data Science Pipeline</strong> should be selected as the default execution environment automatically when starting the pipeline run. OpenShift AI will automatically configure and select the <strong>DataSciencePipelinesApplication</strong> instance we created previously as the default execution environment. This will happen provided the <strong>DataSciencePipelinesApplication</strong> was created before the workbench was started and it is located in the same namespace as the workbench.</p>
-</div>
-<div class="paragraph">
-<p>If you wish to use <strong>DataSciencePipelinesApplication</strong> that is located in a different namespace from your workbench you can manually configure an execution environment.</p>
-</div>
 </td>
 </tr>
 </table>
@@ -716,6 +708,11 @@ Save your changes.</p>
 <div class="paragraph">
 <p>In the <code>Scheduled</code> tab you&#8217;re able to view runs of the fraud-detection-elyra pipeline according to a predefined schedule such as daily or according to a Cron statement.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/pipeline_versions.gif" alt="pipeline versions" width="600">
+</div>
+</div>
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -735,6 +732,11 @@ If you change or sumit an Elyra pipeline that you have already submitted before,
 <h4 id="_tracking_the_pipeline_artifacts"><a class="anchor" href="#_tracking_the_pipeline_artifacts"></a>Tracking the pipeline artifacts</h4>
 <div class="paragraph">
 <p>Let&#8217;s finally peek behind the scenes and inspect the S3 bucket that Elyra and Data Science Pipelines use to store the pipeline artifacts.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/s3_storage_files.gif" alt="s3 storage files" width="600">
+</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
