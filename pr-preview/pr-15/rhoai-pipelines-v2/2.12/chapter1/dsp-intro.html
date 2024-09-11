@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Introduction to ML Pipelines :: RHOAI Data Science Pipelines</title>
+    <link rel="prev" href="../LABENV/minio-install.html">
+    <link rel="next" href="dsp-concepts.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">RHOAI Data Science Pipelines</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rhoai-pipelines-v2" data-version="2.12">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">RHOAI Data Science Pipelines</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../LABENV/minio-install.html">MinIO S3 Compatible Storage Setup</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="dsp-intro.html">Introduction to ML Pipelines</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dsp-concepts.html">Data Science Pipeline Concepts</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../chapter2/index.html">Managing Data Science Pipelines</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter2/data-science-pipeline-app.html">Data Science Pipeline Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter2/rhoai-resources.html">OpenShift AI Resources</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../chapter3/index.html">Creating Pipelines with Elyra</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter3/elyra-pipelines.html">Elyra Pipelines</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../chapter4/index.html">KFP SDK</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter4/kfp-import.html">Kubeflow Pipelines SDK</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix - Lab Examples</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">RHOAI Data Science Pipelines</span>
+    <span class="version">2.12</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">RHOAI Data Science Pipelines</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">2.12</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">RHOAI Data Science Pipelines</a></li>
+    <li><a href="dsp-intro.html">Introduction to ML Pipelines</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Introduction to ML Pipelines</h1>
+<div class="sect1">
+<h2 id="_what_is_a_machine_learning_pipeline"><a class="anchor" href="#_what_is_a_machine_learning_pipeline"></a>What is a machine learning pipeline</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Machine learning (ML) pipelines are a key part of the data science process, helping data scientists to streamline their work and automate tasks. They can make the model development process more efficient and reproducible, while also reducing the risk of errors.</p>
+</div>
+<div class="paragraph">
+<p>Enabling data scientists and data engineers manage the complexity of the end-to-end machine learning process and helping them to develop accurate and scalable solutions for a wide range of applications.</p>
+</div>
+<div class="sect2">
+<h3 id="_data_science_pipeline_benefits"><a class="anchor" href="#_data_science_pipeline_benefits"></a>Data science pipeline benefits:</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Modularization:</strong> Pipelines enable you to break down the machine learning process into modular, well-defined steps. Each step can be developed, tested and optimized independently, making it easier to manage and maintain the workflow.</p>
+</li>
+<li>
+<p><strong>Reproducibility:</strong> Machine learning pipelines make it easier to reproduce experiments. By defining the sequence of steps and their parameters in a pipeline, you can recreate the entire process exactly, ensuring consistent results. If a step fails or a model&#8217;s performance deteriorates, the pipeline can be configured to raise alerts or take corrective actions.</p>
+</li>
+<li>
+<p><strong>Experimentation:</strong> You can experiment with different data preprocessing techniques, feature selections, and models by modifying individual steps within the pipeline. This flexibility enables for rapid iteration and optimization.</p>
+</li>
+<li>
+<p><strong>Collaboration:</strong> Pipelines make it easier for teams of data scientists and engineers to collaborate. Since the workflow is structured and documented, it&#8217;s easier for team members to understand and contribute to the project.</p>
+</li>
+<li>
+<p><strong>Version control and documentation:</strong> You can use version control systems to track changes in your pipeline&#8217;s code and configuration, ensuring that you can roll back to previous versions if needed. A well-structured pipeline encourages better documentation of each step.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_machine_learning_life_cycles_devops"><a class="anchor" href="#_machine_learning_life_cycles_devops"></a>Machine learning life cycles &amp; DevOps</h3>
+<div class="paragraph">
+<p>Machine learning life cycles can vary in complexity and may involve additional steps depending on the use case, such as hyperparameter optimization, cross-validation, and feature selection. The goal of a machine learning pipeline is to automate and standardize these processes, making it easier to develop and maintain ML models for various applications.</p>
+</div>
+<div class="paragraph">
+<p>Machine learning pipelines started to be integrated with DevOps practices to enable continuous integration and deployment (CI/CD) of machine learning models. This integration emphasized the need for reproducibility, version control and monitoring in ML pipelines. This integration is referred to as machine learning operations, or <strong>MLOps</strong>, which helps data science teams effectively manage the complexity of managing ML orchestration. In a real-time deployment, the pipeline replies to a request within milliseconds of the request.</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../LABENV/minio-install.html">MinIO S3 Compatible Storage Setup</a></span>
+  <span class="next"><a href="dsp-concepts.html">Data Science Pipeline Concepts</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
