@@ -14,16 +14,17 @@ Let's explore how pipelines can help us optimize training tasks, manage caching 
 * Basic knowledge of OpenShift administration
 * Theory of user and role administration
 * Working knowledge of OpenShift AI components
-* Basic knowledge of using OpenShift Pipelines
 * Basic experience with Python code snippets & Jupyter notebooks
-* Understanding of an a software development kit
+
 
 == Objectives
 
 The overall objectives of this course include:
 
-* Describe KubeFlow and Elyra pipelines
-* Create Data Science pipelines
-* Run Data Science pipelines
-* Manage Data Science pipelines
-* Troubleshoot Data Science pipelines
+ * Understand how pipelines can make model development more efficient.
+ * Define the terms and components in RHOAI used to organize and view pipelines
+ * Configure a pipeline server in a RHOAI data science project.
+ * Build and Submit a Pipeline using the Elyra plugin for jupyter notebooks
+ * Execute the import of a pipeline into the data science pipelines
+ * Create a pipeline run and understand how to schedule recurring pipeline runs.
+ * Use the Data science pipeline dashboard to analyze the status of pipeline experiments and executions, and artifacts.
