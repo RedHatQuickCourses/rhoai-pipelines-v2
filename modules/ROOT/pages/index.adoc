@@ -22,9 +22,9 @@ Let's explore how pipelines can help us optimize training tasks, manage caching 
 The overall objectives of this course include:
 
  * Understand how pipelines can make model development more efficient.
- * Define the terms and components in RHOAI used to organize and view pipelines
+ * Define the terms and components in RHOAI used to organize and view pipelines.
  * Configure a pipeline server in a RHOAI data science project.
- * Build and Submit a Pipeline using the Elyra plugin for jupyter notebooks
- * Execute the import of a pipeline into the data science pipelines
- * Create a pipeline run and understand how to schedule recurring pipeline runs.
- * Use the Data science pipeline dashboard to analyze the status of pipeline experiments and executions, and artifacts.
+ * Build and submit a pipeline using the Elyra plugin for Jupyter Notebooks.
+ * Execute the import of a pipeline into the data science pipelines.
+ * Create a pipeline run and schedule recurring pipeline runs.
+ * Use the data science pipeline dashboard to analyze the status of pipeline experiments and executions, and artifacts.
