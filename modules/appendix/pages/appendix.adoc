@@ -1,4 +1,4 @@
-= Appendix A
+= Appendix - Lab Examples
 
 Additional training examples to understand the resources available in RHOAI. 
 
@@ -15,4 +15,12 @@ You will use an example fraud detection model to complete the following tasks:
  . Deploy the model by using OpenShift AI model serving.
 
  . Refine and train the model by using automated pipelines.
+
+== Updated Fraud Detection Demo for KFP
+
+Thanks to Humair Khan for the example used in the KFP section of the course. If you would like the full experience of bulding the pipeline definition yaml file from python code modules visit the following github repository.
+
+https://github.com/opendatahub-io/dsp-dev-tools/tree/main/example-pipelines/fraud-detection[Fraud Detection Demo, window=blank]
+
+
 
