@@ -4,13 +4,13 @@ Additional training examples to understand the resources available in RHOAI.
 
 == Fraud Detection workshop with Red Hat OpenShift AI
 
-Thanks to the Red Hat Developer team for an excellent workshop.  Parts of this workshop were used in the Elyra section of this course. If you would like the full experience, you can use the RHOAI environment from this course to complete the workshop.  
+Thanks to the Red Hat Developer team for an excellent workshop. Parts of this workshop were used in the Elyra section of this course. If you would like the full experience, you can use the RHOAI environment from this course to complete the workshop.  
 
-https://rh-aiservices-bu.github.io/fraud-detection/fraud-detection-workshop/index.html[In this workshop, window=_blank], you learn how to incorporate data science and artificial intelligence and machine learning (AI/ML) into an OpenShift development workflow.
+https://rh-aiservices-bu.github.io/fraud-detection/fraud-detection-workshop/index.html[In this workshop, window=_blank], you learn how to incorporate data science, artificial intelligence, and machine learning (AI/ML) into an OpenShift development workflow.
 
 You will use an example fraud detection model to complete the following tasks:
 
- . Explore a pre-trained fraud detection model by using a Jupyter notebook.
+ . Explore a pre-trained fraud detection model by using a Jupyter Notebook.
 
  . Deploy the model by using OpenShift AI model serving.
 
@@ -18,7 +18,7 @@ You will use an example fraud detection model to complete the following tasks:
 
 == Updated Fraud Detection Demo for KFP
 
-Thanks to Humair Khan for the example used in the KFP section of the course. If you would like the full experience of bulding the pipeline definition yaml file from python code modules visit the following github repository.
+Thanks to Humair Khan for the example used in the KFP section of the course. If you would like the full experience of building the pipeline definition YAML file from Python code modules visit the following GitHub repository.
 
 https://github.com/opendatahub-io/dsp-dev-tools/tree/main/example-pipelines/fraud-detection[Fraud Detection Demo, window=blank]
 

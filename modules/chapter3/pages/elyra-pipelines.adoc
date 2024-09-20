@@ -21,7 +21,7 @@ If the pipeline server is deployed post workbench creation, the runtime configur
   .. you will need the following required fields:
 
   ... Runtime: *Display Name*
-  ... Data Science Pipelines API Endpoint: found in the Network / Routes section of OCP Dashboard
+  ... Data Science Pipelines API Endpoint: found in the Network / Routes section of the OCP Dashboard
   ... Data Science Pipeline Engine Type:  *Argo* (pre-configured)
   ... Cloud Object Storage Endpoint: S3 compatible storage (same as data connection endpoint)
   ... Cloud Object Storage Bucket Name: Name of the S3 bucket
@@ -36,12 +36,12 @@ Refer to the https://elyra.readthedocs.io/en/latest/user_guide/runtime-conf.html
 In order to create Elyra pipelines with the visual pipeline editor:
 
 * Launch JupyterLab with the Elyra extension installed.
-** select a workbench / notebook image with Elyra installed
+** select a workbench/notebook image with Elyra installed
 * Create a new pipeline by clicking on the Elyra `Pipeline Editor` icon.
 * Add each node to the pipeline by dragging and dropping notebooks or scripts from the file browser onto the pipeline editor canvas.
 * Connect the nodes to define the flow of execution.
 * Configure each node by right-clicking on it, clicking 'Open Properties', and setting the appropriate runtime image and file dependencies.
-* You can also inject environment variables, secrets, and define output files.
+* You can also inject environment variables, and secrets, and define output files.
 * Once the pipeline is complete, you can submit it to the Data Science Pipelines engine.
 
 === Working with Elyra
@@ -56,10 +56,10 @@ Let's now use Elyra to package the nodes into a pipeline and submit it to the Da
 
 Once the `fraud-detection` workbench has successfully started, we will begin the process of exploring and building our pipeline.
 
-. Ensure that the `fraud-detection` workbench is in `Running` state. Click the `Open` link on the far right of the work bench menu. Log in to the workbench as the `admin` user. If you are running the workbench for the first time, click `Allow selected permissions` in the `Authorize Access` page to open the Jupyter Notebook interface.
+. Ensure that the `fraud-detection` workbench is in a `Running` state. Click the `Open` link on the far right of the workbench menu. Log in to the workbench as the `admin` user. If you are running the workbench for the first time, click `Allow selected permissions` in the `Authorize Access` page to open the Jupyter Notebook interface.
 
 ==== In Jupyter Clone Repository for Fraud-Detection
-. If you haven't already, clone the git repository below in the Jupyter notebook:
+. If you haven't already, clone the git repository below in the Jupyter Notebook:
 +
 ```
 https://github.com/rh-aiservices-bu/fraud-detection.git
@@ -74,9 +74,9 @@ image::elyra_pipeline_nodes.gif[width=600]
 
 . Click on the `Pipeline Editor` tile in the launcher menu. This opens up Elyra's visual pipeline editor. You will use the visual pipeline editor to drag-and-drop files from the file browser onto the canvas area. These files then define the individual tasks of your pipeline.
 
-. Rename the pipeline file to `fraud-detection-elyra.pipeline: Right click the untitled pipeline name, choose rename, and then select `Save Pipeline` in the top toolbar.
+. Rename the pipeline file to `fraud-detection-elyra.pipeline: Right-click the untitled pipeline name, choose rename, and then select `Save Pipeline` in the top toolbar.
 
-. Drag the `experiment_train.ipynb` notebook onto the empty canvas.  This will allow the pipeline to ingest the data we want to classify, pre-process the data, train a model, and run a sample test to validate the model is working as intended.
+. Drag the `experiment_train.ipynb` notebook onto the empty canvas.  This will allow the pipeline to ingest the data we want to classify, pre-process the data, train a model, and run a sample test to validate that the model is working as intended.
 +
 //image::pipeline-1.png[]
 
@@ -88,14 +88,14 @@ image::elyra_pipeline_nodes.gif[width=600]
 +
 //image::pipeline-3.png[]
 +
-You should now see the two nodes connected through a solid line. We have now defined a simple pipeline with two tasks, which are executed sequentially, first experiment_train to produce a model artifact, then save-model to move the model to workbench S3 storage.
+You should now see the two nodes connected through a solid line. We have now defined a simple pipeline with two tasks, which are executed sequentially, first experiment_train to produce a model artifact, and then save-model to move the model to workbench S3 storage.
 +
 [NOTE]
 ====
 By visually defining pipeline tasks and connections, we can define _graphs_ spanning many task nodes and interconnections. Elyra and Data Science Pipelines support the creation and execution of arbitrary _directed acyclic graphs_ (DAGs), i.e. graphs with a sequential order of nodes and without loops.
 ====
 
-We have now created the final graph representation of the fraud detection pipeline using the two of five available notebooks. With this we have fully defined the pipeline code and its order of execution. 
+We have now created the final graph representation of the fraud detection pipeline using the two of five available notebooks. With this, we have fully defined the pipeline code and its order of execution. 
 
 
 == Configuring the pipeline
@@ -111,7 +111,7 @@ Before we can submit our pipeline, we have to configure the pipeline to:
 
 NOTE: Do not select any of the nodes in the canvas when you open the panel. You will see the `PIPELINE PROPERTIES` tab only when none of the nodes are selected. Click anywhere on the canvas and then open the panel.
 
-. Next we will configure this runtime image to be used by our pipeline. Open the pipeline settings in the Elyra pipeline editor via `Open Panel` in the top right corner of the editor. 
+. Next, we will configure this runtime image to be used by our pipeline. Open the pipeline settings in the Elyra pipeline editor via `Open Panel` in the top right corner of the editor. 
 
 . Scroll down to `Generic Node Defaults` and click on the drop down menu of `Runtime Image`. Select the `TensorFlow with Cuda and Python 3.9 (UBI)` runtime image.
 +
@@ -119,7 +119,7 @@ image::experiment_node_config.gif[width=600]
 
 === Set File Dependencies and Outputs
 
-. Next we will configure the data to be passed between the nodes. Click on the `experiment_train` node. If you're still in the configuration menu, you should now see the `NODE PROPERTIES` tab. If not, right-click on the node and select `Open Properties`.
+. Next, we will configure the data to be passed between the nodes. Click on the `experiment_train` node. If you're still in the configuration menu, you should now see the `NODE PROPERTIES` tab. If not, right-click on the node and select `Open Properties`.
 +
 //image::pipeline-config-4.png[]
 
@@ -127,7 +127,7 @@ image::experiment_node_config.gif[width=600]
 +
 image::experiment_node_config_2.gif[width=600]
 
- . In the `File Dependencies` section, you can declare one or more _input files_. These input files are consumed by this pipeline task as the data needed to train to the model.
+ . In the `File Dependencies` section, you can declare one or more _input files_. These input files are consumed by this pipeline task as the data needed to train the model.
 
  . Under file dependencies *click add*, then select browse and choose the data/card_transdata.csv file which provides a sampling of credit card transaction data to be used to train the model.
 
@@ -147,8 +147,8 @@ Output files are automatically managed by Data Science Pipelines, and stored in 
 
  . Click on the `save_model` node. Then select the open panel to view the "Node Properties" configuration panel. If not, right-click on the node and select `Open Properties`.
 
- . Next we will configure the data connection to the `my-storage` bucket as a Kubernetes secret.  
- .. By default these secrets are created in the environment variable section in pipeline properties 
+ . Next, we will configure the data connection to the `my-storage` bucket as a Kubernetes secret.  
+ .. By default, these secrets are created in the environment variable section in pipeline properties 
  .. They need to be located in the Kubernetes secrets section of pipeline properties.   
 
 . In the `NODE PROPERTIES` section, click `Add` beneath the `Kubernetes Secrets` section and add the following five entries:
@@ -180,7 +180,7 @@ There should now be 5 entries under kubernetes secrets, each of the entries unde
 
 === Set Outputs file for Save_Model task
 
-. Next we will configure the data to be passed between the nodes. If you're still in the configuration menu, scroll to the Outputs section of `NODE PROPERTIES` tab. If not, right-click on the node and select `Open Properties` before performing this step. 
+. Next, we will configure the data to be passed between the nodes. If you're still in the configuration menu, scroll to the Outputs section of the  `NODE PROPERTIES` tab. If not, right-click on the node and select `Open Properties` before performing this step. 
 
  . Click `Add` in the `Outputs` section. In the field insert: `models/fraud/1/model.onnx`. This ensures that the model artifact will be saved to the S3 storage location.
 
@@ -206,8 +206,8 @@ We have now fully created and configured the pipeline, so let's now see it in ac
 
  . In the visual editor, click on the *Play* icon (`Run Pipeline`). 
  . Leave the default pipeline name and runtime configuration and click OK.
- . In a minute or so, a job submission to data science pipeline status window will appear.
- .. succeed messages will provide links to run details in the RHOAI dashboards and a link to the S3 storage location where pipeline artifacts are stored.
+ . In a minute or so, a job submission to the data science pipeline status window will appear.
+ .. Succeed messages will provide links to run details in the RHOAI dashboards and a link to the S3 storage location where pipeline artifacts are stored.
 
 image::elyra_pipeline_submit.gif[width=600]
 
@@ -237,7 +237,7 @@ Elyra is now converting your pipeline definition into a YAML representation and 
 
 To monitor the pipeline's execution, click on the `_Run Details_` link, which takes you to the pipeline run view within the RHOAI dashboard. Here you can track in real-time how each pipeline task is processed and whether it fails or resolves successfully.
 
-To confirm that the pipeline has indeed produced fraud detection scoring results, view the content of the pipeline storage bucket. In the folder for the fraud-detection-elyra folder, there will be two html files that show the status of each of the task executions.
+To confirm that the pipeline has indeed produced fraud detection scoring results, view the content of the pipeline storage bucket. In the folder for the fraud-detection-elyra folder, there will be two HTML files that show the status of each of the task executions.
 
 Navigate back to the `Experiment and Runs` overview in the RHOAI dashboard. Click the fraud-detection-elyra experiment to see the history of all ongoing and previous pipeline executions of the same name and compare their run durations and status.
 
@@ -248,7 +248,7 @@ image::pipeline_versions.gif[width=600]
 [WARNING]
 ====
 Pipeline versioning implemented in Data Science Pipelines.
-If you change or sumit an Elyra pipeline that you have already submitted before, a new version is automatically created and executed.
+If you change or submit an Elyra pipeline that you have already submitted before, a new version is automatically created and executed.
 
 ====
 
@@ -269,7 +269,7 @@ image::s3_storage_files.gif[width=600]
 
 [NOTE]
 ====
-The logs from the Pipeline submitted from Elyra will show generic task information and logs, including showing the execution of our python files as a subtask.  Log details from our code is not recorded in the pipeline logs.  
+The logs from the Pipeline submitted by Elyra will show generic task information and logs, including showing the execution of our python files as a subtask.  Log details from our code are not recorded in the pipeline logs.  
 
 To view logs from the execution of our code, you can find the log files from our tasks in the runs in the Data Science Pipelines bucket.
 ====
