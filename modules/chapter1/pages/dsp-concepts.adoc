@@ -45,7 +45,7 @@ Data science pipelines may consist of several key activities that are performed 
 
 * *Model Evaluation*: The model performance is assessed with the previously unseen test dataset using various metrics, such as accuracy, precision, recall, F1 score, or mean squared error. Cross-validation techniques may be used to ensure the model's robustness.
 
-A single pipeline may include the ability to train multiple models, complete complex hyperparameter searches, or more.  Data Scientists can use a well crafted pipeline to quickly iterate on a model, adjust how data is transformed, test different algorithms, and more.  While the steps described above describe a common pattern for model training, different use cases and projects may have vastly different requirements and the tools and framework selected for creating a data science pipeline should help to enable a flexible design.
+A single pipeline may include the ability to train multiple models, complete complex hyperparameter searches, or more.  Data Scientists can use a well-crafted pipeline to quickly iterate on a model, adjust how data is transformed, test different algorithms, and more.  While the steps described above describe a common pattern for model training, different use cases and projects may have vastly different requirements and the tools and framework selected for creating a data science pipeline should help to enable a flexible design.
 
 === RHOAI Data Science Pipeline Engine
 

@@ -1,8 +1,8 @@
-= MinIO S3 Compatible Storage Setup
+= MinIO S3-Compatible Storage Setup
 
 // video::llm_minio_v3.mp4[width=640]
 
-== Deploy MinIO as S3 compatible storage
+== Deploy MinIO as S3-compatible storage
 
 === MinIO overview
 
@@ -21,7 +21,7 @@ image::minio_install.gif[width=600]
 
  . Then Select the + (plus) icon from the top right of the dashboard.
 
- .  In the new window, we will paste the following YAML file.  In the YAML below its recommended to change the default user name & password. 
+ .  In the new window, we will paste the following YAML file.  In the YAML below it's recommended to change the default user name & password. 
 
  . Click on the Project Selection list dropdown and select the "fraud-detection" project or the data science project you created in the previous step. 
 
@@ -205,7 +205,7 @@ From the OCP Dashboard:
  . This will display two routes, one for the UI & another for the API.  (if the routes are not visible, make sure you have the project selected that matches your data science project created earlier)
 
 
- . For the first step, select the UI route and paste it or open in a new browser tab or window.
+ . For the first step, select the UI route and paste it or open it in a new browser tab or window.
 
  . If you see a landing page with the message *application not available*, refresh the page a few times as the service is still loading.
   
@@ -228,4 +228,4 @@ Once logged into the MinIO Console:
    ..  *models* (optional) 
 
 
-This completes the pre-work to configure the data science pipeline lab environment. With our S3 Compatible storage ready to go, let's head to the next section of the course and learn more about DSP concepts.
+This completes the pre-work to configure the data science pipeline lab environment. With our S3-Compatible storage ready to go, let's head to the next section of the course and learn more about DSP concepts.

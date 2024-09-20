@@ -1,10 +1,10 @@
 = Managing Data Science Pipelines
 
 [NOTE]
-From OpenShift AI version 2.9, data science pipelines are based on KubeFlow Pipelines (KFP) version 2.0. Data science pipelines 2.0 is enabled and deployed by default in OpenShift AI.
-https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/2.12/html/working_with_data_science_pipelines/enabling-data-science-pipelines-2_ds-pipelines#upgrading_to_data_science_pipelines_2_0[Reference the OpenShift AI 2.12 data science pipeline installation documentation, window=blank]
+From OpenShift AI version 2.9, data science pipelines are based on KubeFlow Pipelines (KFP) version 2.0. Data Science Pipelines 2.0 is enabled and deployed by default in OpenShift AI.
+https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/2.12/html/working_with_data_science_pipelines/enabling-data-science-pipelines-2_ds-pipelines#upgrading_to_data_science_pipelines_2_0[Reference the OpenShift AI 2.12 data science pipeline installation documentation., window=blank]
 
-=== Configuring a pipeline server
+== Configuring a pipeline server
 
 Before you can successfully create a pipeline in OpenShift AI, you must configure a pipeline server. This task includes configuring where your pipeline artifacts and data are stored.
  

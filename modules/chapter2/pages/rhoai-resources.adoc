@@ -8,7 +8,7 @@ Navigate to the Data Science Project section of the OpenShift AI Console / Dashb
 
 //image::create_workbench.png[width=640]
 
- . Select the WorkBench button, then click create workbench
+ . Select the WorkBench button, then click Create Workbench
 
  .. Name:  `fraud-detection`
 
@@ -16,7 +16,7 @@ Navigate to the Data Science Project section of the OpenShift AI Console / Dashb
 
  .. Deployment Size:  select medium (small if working with limited resources)
 
- .. Scroll to the bottom, check the `Use data connection box`.
+ .. Scroll to the bottom, and check the `Use data connection box`.
  
  .. Select *my-storage* from the dropdown to attach the storage bucket to the workbench.  
 
@@ -48,7 +48,7 @@ image::logon_jupyterlab.gif[width=600]
 
 
 [NOTE]
-If the *OPEN* link for the notebook is grayed out, the notebook container is still starting. This process can take a few minutes & up to 20+ minutes depending on the notebook image / resources we opted to choose.
+If the *OPEN* link for the notebook is grayed out, the notebook container is still starting. This process can take a few minutes & up to 20+ minutes depending on the notebook image/resources we opted to choose.
 
 
 == Lab Exercise: Working with files in JupyterLab
@@ -71,7 +71,7 @@ https://github.com/rh-aiservices-bu/fraud-detection.git
 //+
 //image::clone_a_repo.png[width=640]
 
- . Paste the link into the *clone a repo* pop up,   make sure the *included submodules are checked*, then click the clone.
+ . Paste the link into the *clone a repo* pop-up,   make sure the *included submodules are checked*, then click the clone.
  
  . Navigate to the `fraud-detection` folder:
 
