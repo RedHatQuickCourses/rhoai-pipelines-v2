@@ -51,7 +51,7 @@
     <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../LABENV/minio-install.html">MinIO S3 Compatible Storage Setup</a>
+    <a class="nav-link" href="../LABENV/minio-install.html">MinIO S3-Compatible Storage Setup</a>
   </li>
 </ul>
   </li>
@@ -205,7 +205,7 @@ The runtime configuration is included and is pre-configured for submitting pipel
 <p>Runtime: <strong>Display Name</strong></p>
 </li>
 <li>
-<p>Data Science Pipelines API Endpoint: found in the Network / Routes section of OCP Dashboard</p>
+<p>Data Science Pipelines API Endpoint: found in the Network / Routes section of the OCP Dashboard</p>
 </li>
 <li>
 <p>Data Science Pipeline Engine Type:  <strong>Argo</strong> (pre-configured)</p>
@@ -245,7 +245,7 @@ The runtime configuration is included and is pre-configured for submitting pipel
 <div class="ulist">
 <ul>
 <li>
-<p>select a workbench / notebook image with Elyra installed</p>
+<p>select a workbench/notebook image with Elyra installed</p>
 </li>
 </ul>
 </div>
@@ -263,7 +263,7 @@ The runtime configuration is included and is pre-configured for submitting pipel
 <p>Configure each node by right-clicking on it, clicking 'Open Properties', and setting the appropriate runtime image and file dependencies.</p>
 </li>
 <li>
-<p>You can also inject environment variables, secrets, and define output files.</p>
+<p>You can also inject environment variables, and secrets, and define output files.</p>
 </li>
 <li>
 <p>Once the pipeline is complete, you can submit it to the Data Science Pipelines engine.</p>
@@ -297,7 +297,7 @@ The runtime configuration is included and is pre-configured for submitting pipel
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Ensure that the <code>fraud-detection</code> workbench is in <code>Running</code> state. Click the <code>Open</code> link on the far right of the work bench menu. Log in to the workbench as the <code>admin</code> user. If you are running the workbench for the first time, click <code>Allow selected permissions</code> in the <code>Authorize Access</code> page to open the Jupyter Notebook interface.</p>
+<p>Ensure that the <code>fraud-detection</code> workbench is in a <code>Running</code> state. Click the <code>Open</code> link on the far right of the workbench menu. Log in to the workbench as the <code>admin</code> user. If you are running the workbench for the first time, click <code>Allow selected permissions</code> in the <code>Authorize Access</code> page to open the Jupyter Notebook interface.</p>
 </li>
 </ol>
 </div>
@@ -306,7 +306,7 @@ The runtime configuration is included and is pre-configured for submitting pipel
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>If you haven&#8217;t already, clone the git repository below in the Jupyter notebook:</p>
+<p>If you haven&#8217;t already, clone the git repository below in the Jupyter Notebook:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-none hljs">https://github.com/rh-aiservices-bu/fraud-detection.git</code></pre>
@@ -336,10 +336,10 @@ The runtime configuration is included and is pre-configured for submitting pipel
 <p>Click on the <code>Pipeline Editor</code> tile in the launcher menu. This opens up Elyra&#8217;s visual pipeline editor. You will use the visual pipeline editor to drag-and-drop files from the file browser onto the canvas area. These files then define the individual tasks of your pipeline.</p>
 </li>
 <li>
-<p>Rename the pipeline file to <code>fraud-detection-elyra.pipeline: Right click the untitled pipeline name, choose rename, and then select `Save Pipeline</code> in the top toolbar.</p>
+<p>Rename the pipeline file to <code>fraud-detection-elyra.pipeline: Right-click the untitled pipeline name, choose rename, and then select `Save Pipeline</code> in the top toolbar.</p>
 </li>
 <li>
-<p>Drag the <code>experiment_train.ipynb</code> notebook onto the empty canvas.  This will allow the pipeline to ingest the data we want to classify, pre-process the data, train a model, and run a sample test to validate the model is working as intended.</p>
+<p>Drag the <code>experiment_train.ipynb</code> notebook onto the empty canvas.  This will allow the pipeline to ingest the data we want to classify, pre-process the data, train a model, and run a sample test to validate that the model is working as intended.</p>
 </li>
 <li>
 <p>Next, drag the <code>save_model.ipynb</code> notebook onto the canvas, to the right of <code>experiment_train.ipynb</code> node.</p>
@@ -347,7 +347,7 @@ The runtime configuration is included and is pre-configured for submitting pipel
 <li>
 <p>Connect the <code>Output Port</code> (right black dot of the task icon) of the <code>experiment_train</code> task with the <code>Input Port</code> (left black dot of the task icon) of the <code>save_model</code> task by drawing a line between these ports (click, hold &amp; draw, release).</p>
 <div class="paragraph">
-<p>You should now see the two nodes connected through a solid line. We have now defined a simple pipeline with two tasks, which are executed sequentially, first experiment_train to produce a model artifact, then save-model to move the model to workbench S3 storage.</p>
+<p>You should now see the two nodes connected through a solid line. We have now defined a simple pipeline with two tasks, which are executed sequentially, first experiment_train to produce a model artifact, and then save-model to move the model to workbench S3 storage.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -367,7 +367,7 @@ The runtime configuration is included and is pre-configured for submitting pipel
 </ol>
 </div>
 <div class="paragraph">
-<p>We have now created the final graph representation of the fraud detection pipeline using the two of five available notebooks. With this we have fully defined the pipeline code and its order of execution.</p>
+<p>We have now created the final graph representation of the fraud detection pipeline using the two of five available notebooks. With this, we have fully defined the pipeline code and its order of execution.</p>
 </div>
 </div>
 </div>
@@ -410,7 +410,7 @@ Do not select any of the nodes in the canvas when you open the panel. You will s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Next we will configure this runtime image to be used by our pipeline. Open the pipeline settings in the Elyra pipeline editor via <code>Open Panel</code> in the top right corner of the editor.</p>
+<p>Next, we will configure this runtime image to be used by our pipeline. Open the pipeline settings in the Elyra pipeline editor via <code>Open Panel</code> in the top right corner of the editor.</p>
 </li>
 <li>
 <p>Scroll down to <code>Generic Node Defaults</code> and click on the drop down menu of <code>Runtime Image</code>. Select the <code>TensorFlow with Cuda and Python 3.9 (UBI)</code> runtime image.</p>
@@ -428,7 +428,7 @@ Do not select any of the nodes in the canvas when you open the panel. You will s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Next we will configure the data to be passed between the nodes. Click on the <code>experiment_train</code> node. If you&#8217;re still in the configuration menu, you should now see the <code>NODE PROPERTIES</code> tab. If not, right-click on the node and select <code>Open Properties</code>.</p>
+<p>Next, we will configure the data to be passed between the nodes. Click on the <code>experiment_train</code> node. If you&#8217;re still in the configuration menu, you should now see the <code>NODE PROPERTIES</code> tab. If not, right-click on the node and select <code>Open Properties</code>.</p>
 </li>
 <li>
 <p>Under <code>Runtime Image</code> and <code>Kubernetes Secrets</code>, you can see that the global pipeline settings are used by default.</p>
@@ -439,7 +439,7 @@ Do not select any of the nodes in the canvas when you open the panel. You will s
 </div>
 </li>
 <li>
-<p>In the <code>File Dependencies</code> section, you can declare one or more <em>input files</em>. These input files are consumed by this pipeline task as the data needed to train to the model.</p>
+<p>In the <code>File Dependencies</code> section, you can declare one or more <em>input files</em>. These input files are consumed by this pipeline task as the data needed to train the model.</p>
 </li>
 <li>
 <p>Under file dependencies <strong>click add</strong>, then select browse and choose the data/card_transdata.csv file which provides a sampling of credit card transaction data to be used to train the model.</p>
@@ -478,11 +478,11 @@ Do not select any of the nodes in the canvas when you open the panel. You will s
 <p>Click on the <code>save_model</code> node. Then select the open panel to view the "Node Properties" configuration panel. If not, right-click on the node and select <code>Open Properties</code>.</p>
 </li>
 <li>
-<p>Next we will configure the data connection to the <code>my-storage</code> bucket as a Kubernetes secret.</p>
+<p>Next, we will configure the data connection to the <code>my-storage</code> bucket as a Kubernetes secret.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>By default these secrets are created in the environment variable section in pipeline properties</p>
+<p>By default, these secrets are created in the environment variable section in pipeline properties</p>
 </li>
 <li>
 <p>They need to be located in the Kubernetes secrets section of pipeline properties.</p>
@@ -566,7 +566,7 @@ Do not select any of the nodes in the canvas when you open the panel. You will s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Next we will configure the data to be passed between the nodes. If you&#8217;re still in the configuration menu, scroll to the Outputs section of <code>NODE PROPERTIES</code> tab. If not, right-click on the node and select <code>Open Properties</code> before performing this step.</p>
+<p>Next, we will configure the data to be passed between the nodes. If you&#8217;re still in the configuration menu, scroll to the Outputs section of the  <code>NODE PROPERTIES</code> tab. If not, right-click on the node and select <code>Open Properties</code> before performing this step.</p>
 </li>
 <li>
 <p>Click <code>Add</code> in the <code>Outputs</code> section. In the field insert: <code>models/fraud/1/model.onnx</code>. This ensures that the model artifact will be saved to the S3 storage location.</p>
@@ -621,11 +621,11 @@ Do not select any of the nodes in the canvas when you open the panel. You will s
 <p>Leave the default pipeline name and runtime configuration and click OK.</p>
 </li>
 <li>
-<p>In a minute or so, a job submission to data science pipeline status window will appear.</p>
+<p>In a minute or so, a job submission to the data science pipeline status window will appear.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>succeed messages will provide links to run details in the RHOAI dashboards and a link to the S3 storage location where pipeline artifacts are stored.</p>
+<p>Succeed messages will provide links to run details in the RHOAI dashboards and a link to the S3 storage location where pipeline artifacts are stored.</p>
 </li>
 </ol>
 </div>
@@ -700,7 +700,7 @@ Save your changes.</p>
 <p>To monitor the pipeline&#8217;s execution, click on the <code><em>Run Details</em></code> link, which takes you to the pipeline run view within the RHOAI dashboard. Here you can track in real-time how each pipeline task is processed and whether it fails or resolves successfully.</p>
 </div>
 <div class="paragraph">
-<p>To confirm that the pipeline has indeed produced fraud detection scoring results, view the content of the pipeline storage bucket. In the folder for the fraud-detection-elyra folder, there will be two html files that show the status of each of the task executions.</p>
+<p>To confirm that the pipeline has indeed produced fraud detection scoring results, view the content of the pipeline storage bucket. In the folder for the fraud-detection-elyra folder, there will be two HTML files that show the status of each of the task executions.</p>
 </div>
 <div class="paragraph">
 <p>Navigate back to the <code>Experiment and Runs</code> overview in the RHOAI dashboard. Click the fraud-detection-elyra experiment to see the history of all ongoing and previous pipeline executions of the same name and compare their run durations and status.</p>
@@ -722,7 +722,7 @@ Save your changes.</p>
 <td class="content">
 <div class="paragraph">
 <p>Pipeline versioning implemented in Data Science Pipelines.
-If you change or sumit an Elyra pipeline that you have already submitted before, a new version is automatically created and executed.</p>
+If you change or submit an Elyra pipeline that you have already submitted before, a new version is automatically created and executed.</p>
 </div>
 </td>
 </tr>
@@ -770,7 +770,7 @@ If you change or sumit an Elyra pipeline that you have already submitted before,
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The logs from the Pipeline submitted from Elyra will show generic task information and logs, including showing the execution of our python files as a subtask.  Log details from our code is not recorded in the pipeline logs.</p>
+<p>The logs from the Pipeline submitted by Elyra will show generic task information and logs, including showing the execution of our python files as a subtask.  Log details from our code are not recorded in the pipeline logs.</p>
 </div>
 <div class="paragraph">
 <p>To view logs from the execution of our code, you can find the log files from our tasks in the runs in the Data Science Pipelines bucket.</p>

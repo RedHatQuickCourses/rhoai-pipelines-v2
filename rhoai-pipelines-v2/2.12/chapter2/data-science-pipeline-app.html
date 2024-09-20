@@ -51,7 +51,7 @@
     <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../LABENV/minio-install.html">MinIO S3 Compatible Storage Setup</a>
+    <a class="nav-link" href="../LABENV/minio-install.html">MinIO S3-Compatible Storage Setup</a>
   </li>
 </ul>
   </li>
@@ -195,7 +195,7 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>Additionally, the <strong>DataSciencePipelineApplication</strong> requires an S3 compatible storage solution to store artifacts that are generated in the pipeline.</p>
+<p>Additionally, the <strong>DataSciencePipelineApplication</strong> requires an S3-compatible storage solution to store artifacts that are generated in the pipeline.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -205,7 +205,7 @@
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Any S3 compatible storage solution can be used for Data Science Pipelines, including AWS S3, OpenShift Data Foundation, or Minio. In this course we will use Minio as it is a lightweight and easy to deploy S3 storage solution. Red Hat recommends OpenShift Data Foundation in scenarios where security, data resilience, and disaster recovery are important concerns.</p>
+<p>Any S3-compatible storage solution can be used for Data Science Pipelines, including AWS S3, OpenShift Data Foundation, or Minio. In this course, we will use Minio as it is a lightweight and easy to deploy S3 storage solution. Red Hat recommends OpenShift Data Foundation in scenarios where security, data resilience, and disaster recovery are important concerns.</p>
 </div>
 </td>
 </tr>
@@ -220,7 +220,7 @@
 <p>As previously mentioned, Data Science Pipelines is designed to be a secure multi-tenant solution.  This means that multiple users and teams can all securely use their own instances of Data Science Pipelines without fear of leaking data from the pipelines to other users or groups.</p>
 </div>
 <div class="paragraph">
-<p>This multi-tenancy capability does require that each user or group needs their own instance of the <strong>DataSciencePipelineApplication</strong> instance.  Additionally, it is strongly recommended that each <strong>DataSciencePipelineApplication</strong> instance should have its own S3 instance that does not allow other groups to access.</p>
+<p>This multi-tenancy capability does require that each user or group needs their own instance of the <strong>DataSciencePipelineApplication</strong> instance.  Additionally, it is strongly recommended that each <strong>DataSciencePipelineApplication</strong> instance should have its own S3 instance that does not allow other groups to access it.</p>
 </div>
 <div class="paragraph">
 <p>While a <strong>DataSciencePipelineApplication</strong> is a namespace scoped object, workbenches and pods running in other namespaces can still interact with the pipeline instance if they have the correct permissions.</p>
@@ -239,7 +239,7 @@
 <div class="sect2">
 <h3 id="_create_data_connections_in_data_science_project"><a class="anchor" href="#_create_data_connections_in_data_science_project"></a>Create Data Connections in Data Science Project</h3>
 <div class="paragraph">
-<p>Next we will create a data connection for the Minio instance, and use that data connection to deploy a <strong>DataSciencePipelineApplication</strong>.</p>
+<p>Next, we will create a data connection for the Minio instance, and use that data connection to deploy a <strong>DataSciencePipelineApplication</strong>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -284,7 +284,7 @@ Bucket: storage</code></pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>A <code>Data Connection</code> is simply a standard kubernetes secret object that contains the fields required to connect to an S3 compatible solution.  This secret can be managed via GitOps just like any other standard kubernetes secret object.  However, not all fields in the Data Connection are dynamically consumed by the <strong>DataSciencePipelineApplication</strong> object, so be careful when updating the endpoint url or the bucket values.</p>
+<p>A <code>Data Connection</code> is simply a standard kubernetes secret object that contains the fields required to connect to an S3 compatible solution.  This secret can be managed via GitOps just like any other standard kubernetes secret object.  However, not all fields in the Data Connection are dynamically consumed by the <strong>DataSciencePipelineApplication</strong> object, so be careful when updating the endpoint URL or the bucket values.</p>
 </div>
 </td>
 </tr>
@@ -310,7 +310,7 @@ Bucket: storage</code></pre>
 <p>Click on the <code>configure pipeline server</code> in the <code>pipelines</code> section of the data science project view.</p>
 </li>
 <li>
-<p>Click the key icon in the right side of the <code>Access Key</code> field, and select the <code>pipelines</code> data connection. The fields in the form are automatically populated.</p>
+<p>Click the key icon on the right side of the <code>Access Key</code> field, and select the <code>pipelines</code> data connection. The fields in the form are automatically populated.</p>
 </li>
 <li>
 <p>Select the option to use the default database stored in the cluster.</p>
@@ -364,7 +364,7 @@ You are not required to specify any storage directories (folders) when configuri
 <p>The <strong>DataSciencePipelineApplication</strong> API endpoint route is protected using an OpenShift OAuth Proxy sidecar.</p>
 </div>
 <div class="paragraph">
-<p>The OAuth Proxy requires anything attempting to access the endpoint to be authenticated using the built in OpenShift login.  OpenShift is then able to admit or reject requests to the endpoint based on the Role Based Access and Control configuration of the resources in the namespace.</p>
+<p>The OAuth Proxy requires anything attempting to access the endpoint to be authenticated using the built-in OpenShift login.  OpenShift is then able to admit or reject requests to the endpoint based on the Role Based Access and Control configuration of the resources in the namespace.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -374,7 +374,7 @@ You are not required to specify any storage directories (folders) when configuri
 </td>
 <td class="content">
 <div class="paragraph">
-<p>To Learn more about the OpenShift OAuth Proxy, please refer to the official git repo:</p>
+<p>To learn more about the OpenShift OAuth Proxy, please refer to the official git repo:</p>
 </div>
 <div class="paragraph">
 <p><a href="https://github.com/openshift/oauth-proxy" class="bare" target="_blank" rel="noopener">https://github.com/openshift/oauth-proxy</a></p>

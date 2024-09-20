@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>RHOAI DSP specifics :: RHOAI Data Science Pipelines</title>
+    <title>RHOAI DSP Specifics :: RHOAI Data Science Pipelines</title>
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -49,7 +49,7 @@
     <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../LABENV/minio-install.html">MinIO S3 Compatible Storage Setup</a>
+    <a class="nav-link" href="../LABENV/minio-install.html">MinIO S3-Compatible Storage Setup</a>
   </li>
 </ul>
   </li>
@@ -146,7 +146,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">RHOAI Data Science Pipelines</a></li>
-    <li><a href="section1.html">RHOAI DSP specifics</a></li>
+    <li><a href="section1.html">RHOAI DSP Specifics</a></li>
   </ul>
 </nav>
 </div>
@@ -155,7 +155,7 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">RHOAI DSP specifics</h1>
+<h1 class="page">RHOAI DSP Specifics</h1>
 <div class="sect1">
 <h2 id="_specific_data_science_pipeline_terminology_in_openshift_ai_dsp"><a class="anchor" href="#_specific_data_science_pipeline_terminology_in_openshift_ai_dsp"></a>Specific Data Science Pipeline terminology in OpenShift AI DSP</h2>
 <div class="sectionbody">
@@ -165,13 +165,13 @@
 <p><strong>Pipeline</strong> - is a workflow definition containing the steps and their input and output artifacts.</p>
 </li>
 <li>
-<p><strong>Run</strong> - is a single execution of a pipeline. A run can be a one off execution of a pipeline, or pipelines can be scheduled as a recurring run.</p>
+<p><strong>Run</strong> - is a single execution of a pipeline. A run can be a one-off execution of a pipeline, or pipelines can be scheduled as a recurring run.</p>
 </li>
 <li>
 <p><strong>Task</strong> - is a self-contained pipeline component that represents an execution stage in the pipeline.</p>
 </li>
 <li>
-<p><strong>Artifact</strong> - Steps have the ability to create artifacts, which are objects that can be persisted after the execution of the step completes. Other steps may use those artifacts as inputs and some artifacts may be useful references after a pipeline run has completed. Artifacts automatically stored by Data Science Pipelines in S3 compatible storage.</p>
+<p><strong>Artifact</strong> - Steps have the ability to create artifacts, which are objects that can persist after the execution of the step is completed. Other steps may use those artifacts as inputs and some artifacts may be useful references after a pipeline run has been completed. Artifacts are automatically stored by Data Science Pipelines in S3-compatible storage.</p>
 </li>
 <li>
 <p><strong>Experiment</strong> - is a logical grouping of runs for the purpose of comparing different pipelines</p>

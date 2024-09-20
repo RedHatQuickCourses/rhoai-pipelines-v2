@@ -51,7 +51,7 @@
     <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../LABENV/minio-install.html">MinIO S3 Compatible Storage Setup</a>
+    <a class="nav-link" href="../LABENV/minio-install.html">MinIO S3-Compatible Storage Setup</a>
   </li>
 </ul>
   </li>
@@ -162,7 +162,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>In the previous section, we created a two task pipeline by using the Elyra GUI pipeline editor. The kfp SDK provides a Python API for creating pipelines. The SDK is available as a Python package that you can install by using the <code>pip install kfp</code> command. With this package, you can use Python code to create a pipeline and then compile it to YAML format. Then we can import the YAML code into OpenShift AI.</p>
+<p>In the previous section, we created a two-task pipeline by using the Elyra GUI pipeline editor. The kfp SDK provides a Python API for creating pipelines. The SDK is available as a Python package that you can install by using the <code>pip install kfp</code> command. With this package, you can use Python code to create a pipeline and then compile it to YAML format. Then we can import the YAML code into OpenShift AI.</p>
 </div>
 <div class="paragraph">
 <p>This course does not delve into the details of how to use the SDK. Instead, it provides the files for you to view and upload.</p>
@@ -198,7 +198,7 @@
 <p>For the pipeline name use: <strong>fraud-detection-example</strong></p>
 </li>
 <li>
-<p>Select link below to download the fraud-detection.yaml file to import.</p>
+<p>Select the link below to download the fraud-detection.yaml file to import.</p>
 <div class="paragraph">
 <p><a href="https://github.com/RedHatQuickCourses/rhoai-pipelines-v2/blob/main/downloads/fraud_detection.yaml" target="blank">Fraud Detection Pipeline Definition Yaml</a></p>
 </div>
@@ -212,17 +212,17 @@
 </div>
 </li>
 <li>
-<p>Move back in the pipeline import page, select the 'upload a file' Pipeline radial button.</p>
+<p>Move back to the pipeline import page, and select the 'upload a file' Pipeline radial button.</p>
 </li>
 <li>
 <p>Click on Upload</p>
 </li>
 <li>
-<p>Browse to the folder where you downloaded the fraud-detection.yaml file, select the file, then open to import the pipeline definition.</p>
+<p>Browse to the folder where you downloaded the fraud-detection.yaml file, and select the file, then open to import the pipeline definition.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Optionally, it is possible to import the pipeline from a url.</p>
+<p>Optionally, it is possible to import the pipeline from a URL.</p>
 </li>
 </ol>
 </div>
@@ -233,7 +233,7 @@
 <p>Once the pipeline definition is imported, it can be viewed in the data science pipeline dashboard.</p>
 </div>
 <div class="paragraph">
-<p>There are three tabs in DSP dashboard:</p>
+<p>There are three tabs in the DSP dashboard:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -244,12 +244,12 @@
 <p>Summary - shows the pipeline spec and version IDs</p>
 </li>
 <li>
-<p>Pipeline spec - is the import yaml file that defines the pipeline.</p>
+<p>Pipeline spec - is the import YAML file that defines the pipeline.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The pipeline is now available to be executed, but currently there have been no <strong>one-off or scheduled runs</strong> for this pipeline, it has only been defined in the system.</p>
+<p>The pipeline is now available to be executed, but currently, there have been no <strong>one-off or scheduled runs</strong> for this pipeline, it has only been defined in the system.</p>
 </div>
 </div>
 <div class="sect2">
@@ -271,7 +271,7 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Locate the fraud-detection-example in the data science pipeline menu / dashboard.</p>
+<p>Locate the fraud-detection-example in the data science pipeline menu/dashboard.</p>
 </li>
 <li>
 <p>Use the menu at the far right to:</p>
@@ -281,7 +281,7 @@
 <p>upload a new version of the pipeline</p>
 </li>
 <li>
-<p>create a schedule run for sometime in the future</p>
+<p>create a schedule run for some time in the future</p>
 </li>
 <li>
 <p>create a one-off run</p>
@@ -300,7 +300,7 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Run Type: Scheduled runs are executed from different dashboard - skip this step</p>
+<p>Run Type: Scheduled runs are executed from a different dashboard - skip this step</p>
 </li>
 <li>
 <p>Define the project and experiment name:</p>
@@ -336,7 +336,7 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Select the pipeline to Run from the drop down</p>
+<p>Select the pipeline to Run from the drop-down</p>
 </li>
 <li>
 <p>Select the version of the pipeline if available.</p>
@@ -344,15 +344,15 @@
 </ol>
 </div>
 <div class="paragraph">
-<p>Depending on Pipeline Definition, some parameters must be specified at runtime.</p>
+<p>Depending on the Pipeline Definition, some parameters must be specified at runtime.</p>
 </div>
 <div class="paragraph">
-<p>In this case there are two required parameters, which allow this pipeline to have different inputs.</p>
+<p>In this case, there are two required parameters, which allow this pipeline to have different inputs.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The first parameter is a url location of the data file to be imported during the Run.</p>
+<p>The first parameter is a URL location of the data file to be imported during the Run.</p>
 </li>
 </ol>
 </div>
@@ -405,17 +405,17 @@ This epoch&#8217;s number is an important hyperparameter for the algorithm. It s
 <p>Select the Experiments and Runs menu.</p>
 </li>
 <li>
-<p>In the <code>experiments and runs</code> menu, select the fraud-detection-example pipeline experiment</p>
+<p>In the <code>experiments and runs</code> menu, select the fraud-detection-example pipeline experiment.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>In the window that opens all runs under this experiment are shown, currently there is only a single run.</p>
+<p>In the window that opens all runs under this experiment are shown, currently, there is only a single run.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Selecting the <strong>fraud-detection-example run</strong> will open a run specific window showing the graph, details, and pipeline spec tabs which provide information about the run.</p>
+<p>Selecting the <strong>fraud-detection-example run</strong> will open a run-specific window showing the graph, details, and pipeline spec tabs which provide information about the run.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -423,7 +423,7 @@ This epoch&#8217;s number is an important hyperparameter for the algorithm. It s
 <div class="ulist">
 <ul>
 <li>
-<p>selecting a task, will display information about the task including:</p>
+<p>Selecting a task, will display information about the task including:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -442,7 +442,7 @@ This epoch&#8217;s number is an important hyperparameter for the algorithm. It s
 </div>
 </li>
 <li>
-<p>Access to the the above tabs are limited until the pipeline run completes or fails.</p>
+<p>Access to the above tabs is limited until the pipeline run completes or fails.</p>
 </li>
 </ul>
 </div>
@@ -458,21 +458,21 @@ This epoch&#8217;s number is an important hyperparameter for the algorithm. It s
 <p>This page displays each running task for all pipelines along with the task status.</p>
 </li>
 <li>
-<p>No additional information is shown from this page, refer to graph page for a detailed status overview of each task.</p>
+<p>No additional information is shown on this page, refer to the graph page for a detailed status overview of each task.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Select the Artifact menu</p>
+<p>Select the Artifact menu.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>This view displays any artifacts created by all pipeline runs</p>
+<p>This view displays any artifacts created by all pipeline runs.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>A Type of artifact is display such as Datasets and models.</p>
+<p>A Type of artifact is displayed such as Datasets and models.</p>
 </li>
 <li>
 <p>A URI to the S3 storage location of the artifact.</p>
@@ -488,11 +488,11 @@ This epoch&#8217;s number is an important hyperparameter for the algorithm. It s
 <div class="ulist">
 <ul>
 <li>
-<p>If metrics have been configuired they will be avialable from the Experiments and Runs menu.</p>
+<p>If metrics have been configured they will be available from the Experiments and Runs menu.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>In our example metrics are provided for Accuracy and Previous Model Accuracy.</p>
+<p>In our example, metrics are provided for Accuracy and Previous Model Accuracy.</p>
 </li>
 </ul>
 </div>
@@ -513,7 +513,7 @@ This epoch&#8217;s number is an important hyperparameter for the algorithm. It s
 <h2 id="_next_steps"><a class="anchor" href="#_next_steps"></a>Next Steps</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>There are additional pipeline examples listed in the Appendix section. If you have an pipeline example you would like to share, please submit an issue and let&#8217;s get it added.</p>
+<p>There are additional pipeline examples listed in the Appendix section. If you have a pipeline example you would like to share, please submit an issue, and let&#8217;s get it added.</p>
 </div>
 <div class="paragraph">
 <p>Good luck in your pipeline adventures.</p>
