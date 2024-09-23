@@ -1,57 +1,23 @@
-## Getting started with a new training content repository
+## Red Hat OpenShift AI Data Science Pipelines
 
-- Open the [course-starter-template](https://github.com/RedHatQuickCourses/course-starter-template)
+Data science pipelines can be a game-changer for AI model development. By breaking down complex tasks into smaller, manageable steps, we can optimize each part of the process, ensuring that our models are trained and validated. Additionally, pipelines can help us maintain consistent results by versioning inputs and outputs, allowing us to track changes and identify potential issues.
 
-- Click on `Use This template` button and select `Create a new repository` option.
+This course is tailored for infrastructure solution architects and engineers who are tasked with deploying and managing data science pipelines on the OpenShift AI platform. By the end of this course, learners will have a solid understanding of how to deploy resources and support data scientists who will use RHOAI to design, build, and maintain efficient and effective data science pipelines in an OpenShift AI environment.
 
-- On `Create a new repository` page, Select the options as highlighted in the below image and then click `Create repository` button at the bottom of the page.
+Let’s explore how pipelines can help us optimize training tasks, manage caching steps, and create more maintainable and reusable workloads.
 
-![create-new-repo.png](./images/create-new-repo.png)
+The overall objectives of this course include:
 
-- Clone this repository on your local system:
-```
-git clone git@github.com:RedHatQuickCourses/my-training-repository.git
-```
-NOTE: Use your repository url in the above command.
+ * Understand how pipelines can make model development more efficient.
 
-- Go in to the course repository directory and initialize the course.
-``` 
-cd my-training-repository/
-sh course-init.sh 
-```
+ * Define the terms and components in RHOAI used to organize and view pipelines.
 
-Sample output:
-```
-Initializing my-training-repository . . . done
+ * Configure a pipeline server in a RHOAI data science project.
 
-Please replace the specified strings in the files below and commit the changes before proceeding with the course development.
-antora.yml:title: REPLACE Course Title
-```
+ * Build and submit a pipeline using the Elyra plugin for Jupyter Notebooks.
 
-- Edit the files prompted by course initialization script.
+ * Execute the import of a pipeline into the data science pipelines.
 
-- Commit the changes done by course initialization script and your manual edits.
-```
- git status 
- git add -A; git commit -m "course initialization"
- git push origin main 
-```
+ * Create a pipeline run and schedule recurring pipeline runs.
 
-- Browse your git repository url 
-
-- On your github repo page, on left hand side pane, click on settings gear icon near `About` heading.
-
-- Click `Use your GitHub Pages website` option to select (checked) it and then click `Save changes` button.
-
-![github-pages-setting](./images/github-pages-setting.png)
-
-- You should now see the link to access the rendered content within that same block.
-
-![quickcourse-rendered-url](./images/quickcourse-rendered-url.png)
-
-FIXME: highlight the relevant area on images.
-
-**SEE ALSO**
-
-- [Development using devspace](./DEVSPACE.md)
-- [Guideline for editing your content](./USAGE.md)
+ * Use the data science pipeline dashboard to analyze the status of pipeline experiments and executions, and artifacts.
