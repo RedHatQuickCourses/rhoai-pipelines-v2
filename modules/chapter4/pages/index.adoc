@@ -8,4 +8,4 @@ The second mechanism, and the one discussed here is based on the *Kubeflow Pipel
 
 While the Elyra extension offers an easy to use visual editor to compose pipelines, and is generally used for simple workflows, the Kubeflow Pipelines SDK (*kfp*) offers a flexible Python Domain Specific Language (DSL) API to create pipelines from Python code. This approach offers you flexibility in composing complex workflows and has the added benefit of offering all the Python tooling, frameworks, and developer experience that comes with writing Python code.
 
-OpenShift AI uses the *_Argo Workflows_* runtime to execute pipelines, which is why your Kubeflow pipeline containing Python code needs to be compiled into a compatible YAML definition before it can be submitted to the runtime. Tasks in the pipeline are executed as ephemeral pods (one per task).
+OpenShift AI uses the *_Argo Workflows_* execution engine to execute pipelines, which is why your Kubeflow pipeline containing Python code needs to be compiled into a compatible YAML definition before it can be submitted to the runtime. Tasks in the pipeline are executed as ephemeral pods (one per task).
