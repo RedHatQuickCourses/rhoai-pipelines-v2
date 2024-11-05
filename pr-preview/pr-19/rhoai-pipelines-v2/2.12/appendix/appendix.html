@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Appendix - Lab Examples :: RHOAI Data Science Pipelines</title>
+    <link rel="prev" href="../chapter4/kfp-import.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">RHOAI Data Science Pipelines</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rhoai-pipelines-v2" data-version="2.12">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">RHOAI Data Science Pipelines</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../LABENV/minio-install.html">MinIO S3-Compatible Storage Setup</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../chapter1/dsp-intro.html">Introduction to ML Pipelines</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter1/dsp-concepts.html">Data Science Pipeline Concepts</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../chapter2/index.html">Managing Data Science Pipelines</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter2/data-science-pipeline-app.html">Data Science Pipeline Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter2/rhoai-resources.html">OpenShift AI Resources</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../chapter3/index.html">Creating Pipelines with Elyra</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter3/elyra-pipelines.html">Elyra Pipelines</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../chapter4/index.html">KFP SDK</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter4/kfp-import.html">Kubeflow Pipelines SDK</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="appendix.html">Appendix - Lab Examples</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">RHOAI Data Science Pipelines</span>
+    <span class="version">2.12</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">RHOAI Data Science Pipelines</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">2.12</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">RHOAI Data Science Pipelines</a></li>
+    <li><a href="appendix.html">Appendix - Lab Examples</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Appendix - Lab Examples</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Additional training examples to understand the resources available in RHOAI.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fraud_detection_workshop_with_red_hat_openshift_ai"><a class="anchor" href="#_fraud_detection_workshop_with_red_hat_openshift_ai"></a>Fraud Detection workshop with Red Hat OpenShift AI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Thanks to the Red Hat Developer team for an excellent workshop. Parts of this workshop were used in the Elyra section of this course. If you would like the full experience, you can use the RHOAI environment from this course to complete the workshop.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://rh-aiservices-bu.github.io/fraud-detection/fraud-detection-workshop/index.html" target="_blank" rel="noopener">In this workshop</a>, you learn how to incorporate data science, artificial intelligence, and machine learning (AI/ML) into an OpenShift development workflow.</p>
+</div>
+<div class="paragraph">
+<p>You will use an example fraud detection model to complete the following tasks:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Explore a pre-trained fraud detection model by using a Jupyter Notebook.</p>
+</li>
+<li>
+<p>Deploy the model by using OpenShift AI model serving.</p>
+</li>
+<li>
+<p>Refine and train the model by using automated pipelines.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_updated_fraud_detection_demo_for_kfp"><a class="anchor" href="#_updated_fraud_detection_demo_for_kfp"></a>Updated Fraud Detection Demo for KFP</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Thanks to Humair Khan for the example used in the KFP section of the course. If you would like the full experience of building the pipeline definition YAML file from Python code modules visit the following GitHub repository.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/opendatahub-io/dsp-dev-tools/tree/main/example-pipelines/fraud-detection" target="blank">Fraud Detection Demo</a></p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../chapter4/kfp-import.html">Kubeflow Pipelines SDK</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Elyra Pipelines :: RHOAI Data Science Pipelines</title>
+    <link rel="prev" href="index.html">
+    <link rel="next" href="../chapter4/index.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">RHOAI Data Science Pipelines</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rhoai-pipelines-v2" data-version="2.12">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">RHOAI Data Science Pipelines</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../LABENV/minio-install.html">MinIO S3-Compatible Storage Setup</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../chapter1/dsp-intro.html">Introduction to ML Pipelines</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter1/dsp-concepts.html">Data Science Pipeline Concepts</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../chapter2/index.html">Managing Data Science Pipelines</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter2/data-science-pipeline-app.html">Data Science Pipeline Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter2/rhoai-resources.html">OpenShift AI Resources</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Creating Pipelines with Elyra</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="elyra-pipelines.html">Elyra Pipelines</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../chapter4/index.html">KFP SDK</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter4/kfp-import.html">Kubeflow Pipelines SDK</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix - Lab Examples</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">RHOAI Data Science Pipelines</span>
+    <span class="version">2.12</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">RHOAI Data Science Pipelines</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">2.12</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">RHOAI Data Science Pipelines</a></li>
+    <li><a href="index.html">Creating Pipelines with Elyra</a></li>
+    <li><a href="elyra-pipelines.html">Elyra Pipelines</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Elyra Pipelines</h1>
+<div class="sect1">
+<h2 id="_elyra_runtime_configuration_in_jupyter_notebooks"><a class="anchor" href="#_elyra_runtime_configuration_in_jupyter_notebooks"></a>Elyra Runtime Configuration in Jupyter Notebooks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In OpenShift AI, you can manage runtime configurations using the JupyterLab UI.</p>
+</div>
+<div class="paragraph">
+<p>A runtime configuration provides Elyra access to the Data Science Pipelines backend for scalable pipeline execution.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The runtime configuration is included and is pre-configured for submitting pipelines to Data Science Pipelines <strong>only when the pipeline server is created in the project before the workbench is created.</strong>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/pipeline_runtime_config.gif" alt="pipeline runtime config" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>If the pipeline server is deployed post workbench creation, the runtime configuration will not appear in Jupyter notebooks and there are two options to establish the pipeline.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make a change to the workbench by adding an irrelevant environment variable (recommended)</p>
+</li>
+<li>
+<p>Manually create the runtime configuration</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>you will need the following required fields:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Runtime: <strong>Display Name</strong></p>
+</li>
+<li>
+<p>Data Science Pipelines API Endpoint: found in the Network / Routes section of the OCP Dashboard</p>
+</li>
+<li>
+<p>Data Science Pipeline Engine Type:  <strong>Argo</strong> (pre-configured)</p>
+</li>
+<li>
+<p>Cloud Object Storage Endpoint: S3 compatible storage (same as data connection endpoint)</p>
+</li>
+<li>
+<p>Cloud Object Storage Bucket Name: Name of the S3 bucket</p>
+</li>
+<li>
+<p>Data Storage User Credentials:  Credentials to the S3 endpoint</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Refer to the <a href="https://elyra.readthedocs.io/en/latest/user_guide/runtime-conf.html#kubeflow-pipelines-configuration-settings" target="_blank" rel="noopener">Elyra documentation</a> for more information about Elyra and the available runtime configuration options.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creating_a_data_science_pipeline_with_elyra"><a class="anchor" href="#_creating_a_data_science_pipeline_with_elyra"></a>Creating a Data Science Pipeline with Elyra</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In order to create Elyra pipelines with the visual pipeline editor:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Launch JupyterLab with the Elyra extension installed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>select a workbench/notebook image with Elyra installed</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Create a new pipeline by clicking on the Elyra <code>Pipeline Editor</code> icon.</p>
+</li>
+<li>
+<p>Add each node to the pipeline by dragging and dropping notebooks or scripts from the file browser onto the pipeline editor canvas.</p>
+</li>
+<li>
+<p>Connect the nodes to define the flow of execution.</p>
+</li>
+<li>
+<p>Configure each node by right-clicking on it, clicking 'Open Properties', and setting the appropriate runtime image and file dependencies.</p>
+</li>
+<li>
+<p>You can also inject environment variables, and secrets, and define output files.</p>
+</li>
+<li>
+<p>Once the pipeline is complete, you can submit it to the Data Science Pipelines engine.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_working_with_elyra"><a class="anchor" href="#_working_with_elyra"></a>Working with Elyra</h3>
+<div class="paragraph">
+<p>Let&#8217;s now use Elyra to package the nodes into a pipeline and submit it to the Data Science Pipelines backend in order to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Rely on the pipeline scheduler to manage the pipeline execution without having to depend on my workbench session.</p>
+</li>
+<li>
+<p>Keep track of the pipeline execution along with the previous executions.</p>
+</li>
+<li>
+<p>Be able to control resource usage of individual pipeline tasks in a fine-grained manner.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_review_opening_jupyterlab"><a class="anchor" href="#_review_opening_jupyterlab"></a>Review opening JupyterLab</h3>
+<div class="paragraph">
+<p>Once the <code>fraud-detection</code> workbench has successfully started, we will begin the process of exploring and building our pipeline.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ensure that the <code>fraud-detection</code> workbench is in a <code>Running</code> state. Click the <code>Open</code> link on the far right of the workbench menu. Log in to the workbench as the <code>admin</code> user. If you are running the workbench for the first time, click <code>Allow selected permissions</code> in the <code>Authorize Access</code> page to open the Jupyter Notebook interface.</p>
+</li>
+</ol>
+</div>
+<div class="sect3">
+<h4 id="_in_jupyter_clone_repository_for_fraud_detection"><a class="anchor" href="#_in_jupyter_clone_repository_for_fraud_detection"></a>In Jupyter Clone Repository for Fraud-Detection</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If you haven&#8217;t already, clone the git repository below in the Jupyter Notebook:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">https://github.com/rh-aiservices-bu/fraud-detection.git</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Double click or open the <strong>fraud-detection folder</strong> in the explorer window</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lab_exercise_building_the_pipeline"><a class="anchor" href="#_lab_exercise_building_the_pipeline"></a>Lab Exercise: Building the Pipeline</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="_images/elyra_pipeline_nodes.gif" alt="elyra pipeline nodes" width="600">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click on the <code>Pipeline Editor</code> tile in the launcher menu. This opens up Elyra&#8217;s visual pipeline editor. You will use the visual pipeline editor to drag-and-drop files from the file browser onto the canvas area. These files then define the individual tasks of your pipeline.</p>
+</li>
+<li>
+<p>Rename the pipeline file to <code>fraud-detection-elyra.pipeline: Right-click the untitled pipeline name, choose rename, and then select `Save Pipeline</code> in the top toolbar.</p>
+</li>
+<li>
+<p>Drag the <code>experiment_train.ipynb</code> notebook onto the empty canvas.  This will allow the pipeline to ingest the data we want to classify, pre-process the data, train a model, and run a sample test to validate that the model is working as intended.</p>
+</li>
+<li>
+<p>Next, drag the <code>save_model.ipynb</code> notebook onto the canvas, to the right of <code>experiment_train.ipynb</code> node.</p>
+</li>
+<li>
+<p>Connect the <code>Output Port</code> (right black dot of the task icon) of the <code>experiment_train</code> task with the <code>Input Port</code> (left black dot of the task icon) of the <code>save_model</code> task by drawing a line between these ports (click, hold &amp; draw, release).</p>
+<div class="paragraph">
+<p>You should now see the two nodes connected through a solid line. We have now defined a simple pipeline with two tasks, which are executed sequentially, first experiment_train to produce a model artifact, and then save-model to move the model to workbench S3 storage.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>By visually defining pipeline tasks and connections, we can define <em>graphs</em> spanning many task nodes and interconnections. Elyra and Data Science Pipelines support the creation and execution of arbitrary <em>directed acyclic graphs</em> (DAGs), i.e. graphs with a sequential order of nodes and without loops.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>We have now created the final graph representation of the fraud detection pipeline using the two of five available notebooks. With this, we have fully defined the pipeline code and its order of execution.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuring_the_pipeline"><a class="anchor" href="#_configuring_the_pipeline"></a>Configuring the pipeline</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before we can submit our pipeline, we have to configure the pipeline to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Set the dependencies for each task, i.e. the corresponding runtime images</p>
+</li>
+<li>
+<p>Configure how data is passed between the tasks</p>
+</li>
+<li>
+<p>Configure the S3 credentials as environment variables during runtime</p>
+</li>
+<li>
+<p>Optionally, configure the available compute resources per task</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_set_the_runtime"><a class="anchor" href="#_set_the_runtime"></a>Set the Runtime</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Do not select any of the nodes in the canvas when you open the panel. You will see the <code>PIPELINE PROPERTIES</code> tab only when none of the nodes are selected. Click anywhere on the canvas and then open the panel.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Next, we will configure this runtime image to be used by our pipeline. Open the pipeline settings in the Elyra pipeline editor via <code>Open Panel</code> in the top right corner of the editor.</p>
+</li>
+<li>
+<p>Scroll down to <code>Generic Node Defaults</code> and click on the drop down menu of <code>Runtime Image</code>. Select the <code>TensorFlow with Cuda and Python 3.9 (UBI)</code> runtime image.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/experiment_node_config.gif" alt="experiment node config" width="600">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_set_file_dependencies_and_outputs"><a class="anchor" href="#_set_file_dependencies_and_outputs"></a>Set File Dependencies and Outputs</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Next, we will configure the data to be passed between the nodes. Click on the <code>experiment_train</code> node. If you&#8217;re still in the configuration menu, you should now see the <code>NODE PROPERTIES</code> tab. If not, right-click on the node and select <code>Open Properties</code>.</p>
+</li>
+<li>
+<p>Under <code>Runtime Image</code> and <code>Kubernetes Secrets</code>, you can see that the global pipeline settings are used by default.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/experiment_node_config_2.gif" alt="experiment node config 2" width="600">
+</div>
+</div>
+</li>
+<li>
+<p>In the <code>File Dependencies</code> section, you can declare one or more <em>input files</em>. These input files are consumed by this pipeline task as the data needed to train the model.</p>
+</li>
+<li>
+<p>Under file dependencies <strong>click add</strong>, then select browse and choose the data/card_transdata.csv file which provides a sampling of credit card transaction data to be used to train the model.</p>
+</li>
+<li>
+<p>In the <code>Outputs</code> section, you can declare one or more <em>output files</em>. These output files are created by this pipeline task and are made available to all subsequent tasks.</p>
+</li>
+<li>
+<p>Click <code>Add</code> in the <code>Outputs</code> section and input <code>models/fraud/1/model.onnx</code>. This ensures that the downloaded model artifact is available to downstream tasks, including the <code>save_models</code> task.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>By default, all files within a containerized task are removed after its execution, so declaring files explicitly as output files is one way to ensure that they can be reused in downstream tasks.</p>
+</div>
+<div class="paragraph">
+<p>Output files are automatically managed by Data Science Pipelines, and stored in the S3 bucket we configured when setting up the <strong>DataSciencePipelineApplication</strong>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_set_kubernetes_secrets_for_storage_access"><a class="anchor" href="#_set_kubernetes_secrets_for_storage_access"></a>Set Kubernetes Secrets for Storage Access</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click on the <code>save_model</code> node. Then select the open panel to view the "Node Properties" configuration panel. If not, right-click on the node and select <code>Open Properties</code>.</p>
+</li>
+<li>
+<p>Next, we will configure the data connection to the <code>my-storage</code> bucket as a Kubernetes secret.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>By default, these secrets are created in the environment variable section in pipeline properties</p>
+</li>
+<li>
+<p>They need to be located in the Kubernetes secrets section of pipeline properties.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>In the <code>NODE PROPERTIES</code> section, click <code>Add</code> beneath the <code>Kubernetes Secrets</code> section and add the following five entries:</p>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>AWS_ACCESS_KEY_ID</code></p>
+</li>
+<li>
+<p><code>AWS_SECRET_ACCESS_KEY</code></p>
+</li>
+<li>
+<p><code>AWS_S3_ENDPOINT</code></p>
+</li>
+<li>
+<p><code>AWS_S3_BUCKET</code></p>
+</li>
+<li>
+<p><code>AWS_DEFAULT_REGION</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Each Kubernetes Secret parameter will include the following options:</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>Environment Variable</code>: <strong>the parameter name</strong></p>
+</li>
+<li>
+<p><code>Secret Name</code>: <code>aws-connection-my-storage</code> (the name of the Kubernetes secret belonging to the data connection)</p>
+</li>
+<li>
+<p><code>Secret Key</code>: <strong>the parameter name</strong></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/save_model_storage.gif" alt="save model storage" width="600">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The AWS default region is another parameter in the data connection, which is used for AWS S3-based connections. My experience is that if this field is missing the pipeline will fail to connect regardless of the storage system used.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>There should now be 5 entries under kubernetes secrets, each of the entries under environment variables should be removed.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_set_outputs_file_for_save_model_task"><a class="anchor" href="#_set_outputs_file_for_save_model_task"></a>Set Outputs file for Save_Model task</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Next, we will configure the data to be passed between the nodes. If you&#8217;re still in the configuration menu, scroll to the Outputs section of the  <code>NODE PROPERTIES</code> tab. If not, right-click on the node and select <code>Open Properties</code> before performing this step.</p>
+</li>
+<li>
+<p>Click <code>Add</code> in the <code>Outputs</code> section. In the field insert: <code>models/fraud/1/model.onnx</code>. This ensures that the model artifact will be saved to the S3 storage location.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>This is the same output file input that was set for the experiment_train task.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Save the pipeline</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>Mount Volumes</code> and <code>Output Files</code> both provide the ability for files to persist between tasks, and each has different strengths and weaknesses.</p>
+</div>
+<div class="paragraph">
+<p><code>Output Files</code> are generally easy to configure and don&#8217;t require the creation of any additional kubernetes resources.  One disadvantage is that Output files can generate a large amount of additional read and writes to S3 which may slow down pipeline execution.</p>
+</div>
+<div class="paragraph">
+<p><code>Mount Volumes</code> can be helpful when a large amount of files, or a large dataset is required to be stored. <code>Mount Volumes</code> also have the ability to persist data between runs of a pipeline, which can allow a volume to act as a cache for files between executions.</p>
+</div>
+<div class="paragraph">
+<p>It is possible to declare the data volumes as a global pipeline property for simplicity. However, this prevents parallel execution of model loading and data ingestion/preprocessing since data volumes can only be used by a single task by default.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_running_the_pipeline"><a class="anchor" href="#_running_the_pipeline"></a>Running the pipeline</h3>
+<div class="paragraph">
+<p>We have now fully created and configured the pipeline, so let&#8217;s now see it in action!</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the visual editor, click on the <strong>Play</strong> icon (<code>Run Pipeline</code>).</p>
+</li>
+<li>
+<p>Leave the default pipeline name and runtime configuration and click OK.</p>
+</li>
+<li>
+<p>In a minute or so, a job submission to the data science pipeline status window will appear.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Succeed messages will provide links to run details in the RHOAI dashboards and a link to the S3 storage location where pipeline artifacts are stored.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/elyra_pipeline_submit.gif" alt="elyra pipeline submit" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Before moving on, submit the same pipeline again with the same configuration a second time.  This will generate a new version of the pipeline and kick off an additional run.</strong></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can manage incremental changes to pipelines in OpenShift AI by using versioning. This allows you to develop and deploy pipelines iteratively, preserving a record of your changes. You can track and manage your changes on the OpenShift AI dashboard, allowing you to schedule and execute runs against all available versions of your pipeline.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you configure the pipeline server after you have created a workbench and specified a notebook image within the workbench, you will not be able to execute the pipeline, even after restarting the notebook.</p>
+</div>
+<div class="paragraph">
+<p>To solve this problem:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Stop the running notebook.</p>
+</li>
+<li>
+<p>Edit the workbench to make a small modification.
+For example, add a new dummy environment variable, or delete an existing unnecessary environment variable.
+Save your changes.</p>
+</li>
+<li>
+<p>Restart the notebook.</p>
+</li>
+<li>
+<p>In the left sidebar of JupyterLab, click <code>Runtimes</code>.</p>
+</li>
+<li>
+<p>Confirm that the default <strong>Data Science Pipelines</strong> runtime is selected.</p>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pipeline_execution"><a class="anchor" href="#_pipeline_execution"></a>Pipeline execution</h3>
+<div class="paragraph">
+<p>Elyra is now converting your pipeline definition into a YAML representation and sending it to the Data Science Pipelines backend. After a few seconds, you should see confirmation that the pipeline has been successfully submitted.</p>
+</div>
+<div class="paragraph">
+<p>To monitor the pipeline&#8217;s execution, click on the <code><em>Run Details</em></code> link, which takes you to the pipeline run view within the RHOAI dashboard. Here you can track in real-time how each pipeline task is processed and whether it fails or resolves successfully.</p>
+</div>
+<div class="paragraph">
+<p>To confirm that the pipeline has indeed produced fraud detection scoring results, view the content of the pipeline storage bucket. In the folder for the fraud-detection-elyra folder, there will be two HTML files that show the status of each of the task executions.</p>
+</div>
+<div class="paragraph">
+<p>Navigate back to the <code>Experiment and Runs</code> overview in the RHOAI dashboard. Click the fraud-detection-elyra experiment to see the history of all ongoing and previous pipeline executions of the same name and compare their run durations and status.</p>
+</div>
+<div class="paragraph">
+<p>In the <code>Scheduled</code> tab you&#8217;re able to view runs of the fraud-detection-elyra pipeline according to a predefined schedule such as daily or according to a Cron statement.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/pipeline_versions.gif" alt="pipeline versions" width="600">
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pipeline versioning implemented in Data Science Pipelines.
+If you change or submit an Elyra pipeline that you have already submitted before, a new version is automatically created and executed.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_tracking_the_pipeline_artifacts"><a class="anchor" href="#_tracking_the_pipeline_artifacts"></a>Tracking the pipeline artifacts</h4>
+<div class="paragraph">
+<p>Let&#8217;s finally peek behind the scenes and inspect the S3 bucket that Elyra and Data Science Pipelines use to store the pipeline artifacts.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/s3_storage_files.gif" alt="s3 storage files" width="600">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>View the contents of the <code>data-science-pipelines</code> bucket, which we referenced through the <code>pipelines</code> data connection. You can see three types of folders:</p>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>pipelines</code>: A folder used by Data Science Pipelines to store all pipeline definitions in YAML format.</p>
+</li>
+<li>
+<p><code>artifacts</code>: A folder used by Data Science Pipelines to store the metadata of each pipeline task for each pipeline run.</p>
+</li>
+<li>
+<p>A folder for each pipeline run with name <code>[pipeline-name]-[timestamp]</code>. These folders are managed by Elyra and contain all file dependencies, log files, and output files of each task.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The logs from the Pipeline submitted by Elyra will show generic task information and logs, including showing the execution of our python files as a subtask.  Log details from our code are not recorded in the pipeline logs.</p>
+</div>
+<div class="paragraph">
+<p>To view logs from the execution of our code, you can find the log files from our tasks in the runs in the Data Science Pipelines bucket.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Now that we have seen how to work with Data Science Pipelines through Elyra, let&#8217;s take a closer look at the Kubeflow Pipelines SDK.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="index.html">Creating Pipelines with Elyra</a></span>
+  <span class="next"><a href="../chapter4/index.html">KFP SDK</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
